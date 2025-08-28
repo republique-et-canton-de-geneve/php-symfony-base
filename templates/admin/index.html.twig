@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+{% block body_id %}page-admin-index{% endblock %}
+{% block main %}
+  <h1>Information</h1>
+
+  <div class="row">
+    <div class="col-5">
+      <h3>Symfony</h3>
+      <table class="table table-sm table-striped" aria-describedby="informations diverses">
+        <tbody>
+        <tr>
+          <th>Version</th>
+          <td>{{ version() }}</td>
+        </tr>
+        <tr>
+          <th>Symfony version</th>
+          <td>{{ symfonyVersion }}</td>
+        </tr>
+        <tr>
+          <th>PHP version</th>
+          <td>{{ phpVersion }}</td>
+        </tr>
+        <tr>
+          <th>HTTP_GINAROLES</th>
+          <td>{{ httpGinaroles }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <h3>USER info</h3>
+      <table class="table table-sm table-striped" aria-describedby="informations sur l'utilisateur">
+        <tbody>
+        <tr>
+          <th scope="row">loginame</th>
+          <td>{{ user.getUserIdentifier()|default('__anonyme__') }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Authentification</th>
+          <td>{{ user.getAuthentificationMethode()|default('') }}</td>
+        </tr>
+        <tr>
+          <th scope="row">e-mail</th>
+          <td>{{ user.getEmail()|default('') }}</td>
+        </tr>
+        <tr>
+          <th scope="row">name</th>
+          <td>{{ user.getName()|default('') }}</td>
+        </tr>
+        <tr>
+          <td>Roles Gina</td>
+          <td>
+            <ul>
+              {% if user %}
+                {% for role in app.user.getRoles()|sort %}
+                  <li>
+                    {{ role }}
+                  </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Roles après héritage</th>
+          <td>
+            <ul>
+              {% for role in rolesHeritage|sort %}
+                <li>
+                  {{ role }}
+                </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="row bg-light border rounded-3 m-3">
+      <h3>Attributs Saml</h3>
+      !!! représenté sous forme de json (les accents sont encodés) !!!<br>
+      <small>
+        <pre>{{ app.user.getAttributes()|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+      </small>
+    </div>
+  </div>
+
+{% endblock %}

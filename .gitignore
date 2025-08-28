@@ -1,0 +1,10 @@
+.env.local
+.php-cs-fixer.cache
+.phpcs-cache
+.twig-cs-fixer.cache
+/public/build
+/node_modules/
+/var
+/.idea/
+/coverage
+/vendor

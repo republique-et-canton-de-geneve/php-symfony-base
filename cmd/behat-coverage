@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+rm -R var/cache
+vendor/bin/behat --xdebug $1
+rm -R var/cache
+

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Test email{% endblock %}
+{% block body_id %}page-admin-mail-test{% endblock %}
+{% block main %}
+  <h1>Test d'un mail</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <h4 class="text-danger">L'auteur est responsable du contenu du mail envoyé.</h4>
+      {{ info }}
+    </div>
+  </div>
+
+  {{ form_start(form) }}
+  <div class="row">
+    <div class="col-3">
+      <label for="{{ form.adresse.vars.id }}" class="form-label">Addresse email</label>
+      <div class="input-group">
+        {{ form_widget(form.adresse, {attr: {class: 'form-control'}}) }}<span class="input-group-text"
+                                                                                  id="basic-addon2">@mydomain.com</span>
+      </div>
+    </div>
+  </div>
+  <br>
+  <button type="submit" value="envoi" name="action"
+          class="btn btn-primary btn-sm">
+    Tester l'envoi de l'email
+  </button>&nbsp;
+  {{ form_end(form) }}
+
+{% endblock %}

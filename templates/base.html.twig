@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}République et canton de Genève{% endblock %}</title>
+  {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('icon.ico') }}"/>
+</head>
+<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+{% block header %}
+  <header>
+    {% if serverType() == 'prod' %}
+      {% set bgcolor = 'navbar-dark bg-danger bg-gradient' %}
+    {% elseif serverType() == 'rec' %}
+      {% set bgcolor = 'navbar-dark bg-warning bg-gradient' %}
+    {% else %}
+      {% set bgcolor = 'navbar-dark bg-success bg-gradient' %}
+    {% endif %}
+    <nav id="navbarRedaction" class="navbar fixed-top navbar-expand-xl {{ bgcolor }}">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('homepage') }}">
+          <img style="height: 45px" title="Accueil" alt="Accueil" src="{{ asset('img/logo_ge_big.svg') }}">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbar">
+          <ul class="navbar-nav me-auto">
+            {% for item in getMenuItems('redaction_left') %}
+              <li class="nav-item {{ getMenuSubItems(item) ? 'dropdown' : '' }}">
+                {% if getMenuSubItems(item) %}
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                     role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                     onKeyPress="" onKeyDown="" onKeyUp="">
+                    {{ item.label|raw }}</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% for subItem in getMenuSubItems(item) %}
+                      <li>
+                        <a class="dropdown-item {{ isMenuItemActive(subItem) ? 'active' : '' }}"
+                           href="{{ subItem.url }}">
+                          {{ subItem.label|raw }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <a href="{{ item.url }}" class="nav-link {{ isMenuItemActive(item) ? 'active' : '' }}">
+                    {{ item.label|raw }}
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            {% for item in getMenuItems('redaction_right') %}
+              <li class="nav-item {{ getMenuSubItems(item) ? 'dropdown' : '' }}">
+                {% if getMenuSubItems(item) %}
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1"
+                     role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                     onKeyPress="" onKeyDown="" onKeyUp="">
+                    {{ item.label|raw }}</a>
+                  <ul class="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="navbarDropdownMenuLink1">
+                    {% for subItem in getMenuSubItems(item) %}
+                      <li>
+                        <a class="dropdown-item {{ isMenuItemActive(subItem) ? 'active' : '' }}"
+                           href="{{ subItem.url }}">
+                          {{ subItem.label|raw }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <a href="{{ item.url }}" class="nav-link">
+                    {{ item.label|raw }}
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div>
+      {{ include('_flash_messages.html.twig') }}
+    </div>
+    <div class="block-main">
+      {% block main %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <footer>
+  </footer>
+{% endblock %}
+
+{% block javascripts %}
+  <!--java script-->
+  {{ encore_entry_script_tags('app') }}
+{% endblock %}
+<!-- Page rendered on {{ 'now'|format_datetime('long', 'long', '', 'UTC') }} -->
+</body>
+</html>

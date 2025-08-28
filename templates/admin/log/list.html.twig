@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body_id %}page-admin-log-list{% endblock %}
+{% block main %}
+  <div class="page-header">
+    <h2>Logs</h2>
+  </div>
+  <div class="row">
+    {% for file in finder %}
+      <div class="col-4">
+        <a target="_blank" rel="noopener"
+           href="{{ path('admin_log', {filename: file.filename}) }}">{{ file.filename }}</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

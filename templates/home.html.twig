@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body_id %}page-home{% endblock %}
+
+{% block main %}
+  <h1>Hello {{ app.user.fullName }}</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>Informations</h3>
+      <table class="table table-sm table-striped" aria-describedby="indique le loginame">
+        <tbody>
+        <tr>
+          <th>Loginame</th>
+          <td>{{ app.user.getUserIdentifier() }}</td>
+        </tr>
+        <tr>
+          <th>Date abrégée</th>
+          <td>{{ date()|shortDate }}</td>
+        </tr>
+        <tr>
+          <th>Date et heure abrégée</th>
+          <td>{{ date()|shortDateTime }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

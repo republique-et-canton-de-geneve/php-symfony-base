@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body_id %}page-editor{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('ckeditor') }}
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('ckeditor') }}
+{% endblock %}
+{% block main %}
+  <form class="editor">
+
+        <textarea class="ckeditor">
+
+        </textarea>
+    <br>
+    <button class="btn btn-primary" type="submit">Submit Form</button>
+  </form>
+
+{% endblock %}

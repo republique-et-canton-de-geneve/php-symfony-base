@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body_id %}page-info{% endblock %}
+{% block main %}
+  <h1>Information</h1>
+
+  <div class="row">
+    <div class="col-5">
+      <h3>Application</h3>
+      <table class="table table-sm table-striped" aria-describedby="version de l'application">
+        <tbody>
+        <tr>
+          <th>Version</th>
+          <td>{{ version() }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <h3>Utilisateur</h3>
+      <table class="table table-sm table-striped" aria-describedby="information au sujet de l'utilisateur">
+        <tbody>
+        <tr>
+          <th>loginame</th>
+          <td>{{ app.user.getUserIdentifier() }}</td>
+        </tr>
+        <tr>
+          <th>Authentification</th>
+          <td>{{ app.user.getAuthentificationMethode() }}</td>
+        </tr>
+        <tr>
+          <th>e-mail</th>
+          <td>{{ app.user.getEmail() }}</td>
+        </tr>
+        <tr>
+          <th>name</th>
+          <td>{{ app.user.getName() }}</td>
+        </tr>
+        <tr>
+          <th>fist name</th>
+          <td>{{ app.user.getFirstName() }}</td>
+        </tr>
+        <tr>
+          <th>full name</th>
+          <td>{{ app.user.getFullName() }}</td>
+        </tr>
+        <tr>
+          <th>Roles Gina</th>
+          <td>
+            <ul>
+              {% for role in app.user.getRoles()|sort %}
+                <li>
+                  {{ role }}
+                </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-5">
+    </div>
+  </div>
+{% endblock %}

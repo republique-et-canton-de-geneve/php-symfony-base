@@ -1,0 +1,42 @@
+---
+default:
+  suites:
+    default:
+      contexts:
+        - rdx\behatvars\BehatVariablesContext
+        - App\Tests\Behat\AppContext
+
+  extensions:
+    rdx\behatvars\BehatVariablesExtension: ~
+
+    DAMA\DoctrineTestBundle\Behat\ServiceContainer\DoctrineExtension: ~
+
+    Behat\MinkExtension:
+      sessions:
+        symfony:
+          symfony: ~
+
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        environment: test
+        debug: false
+      bootstrap: tests/bootstrap.php
+
+    DVDoug\Behat\CodeCoverage\Extension:
+      filter:
+        include:
+          directories:
+            'src': ~
+      reports:
+        html:
+          target: 'coverage/coverage-html'
+        text:
+          showColors: true
+          showOnlySummary: true
+        cobertura:
+          target: 'coverage/cobertura.xml'
+          name: ''
+        clover:
+          target: 'coverage/clover.xml'
+          name: ''
+...

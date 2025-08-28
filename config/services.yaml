@@ -1,0 +1,50 @@
+---
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+#parameters:
+
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Entity/'
+      - '../src/Kernel.php'
+
+  # add more service definitions when explicit configuration is needed
+  # please note that last definitions always *replace* previous ones
+
+  monolog.formatter.application:
+    class: Monolog\Formatter\LineFormatter
+    arguments:
+      - "[%%datetime%%][%%extra.user%%] %%channel%%.%%level_name%%: %%message%% %%context%% %%extra%%\n"
+
+  App\Security\EnvAuthenticator:
+    arguments:
+      $settings:
+        APP_AUTH_FROM_ENV_VAR: '%env(APP_AUTH_FROM_ENV_VAR)%'
+        APP_USER_LOGIN: '%env(APP_USER_LOGIN)%'
+        APP_USER_ROLES: '%env(APP_USER_ROLES)%'
+        APP_USER_EMAIL: '%env(APP_USER_EMAIL)%'
+        APP_USER_FIRSTNAME: '%env(APP_USER_FIRSTNAME)%'
+        APP_USER_NAME: '%env(APP_USER_NAME)%'
+        APP_USER_FULLNAME: '%env(APP_USER_FULLNAME)%'
+
+
+  App\Application:
+    arguments:
+      $settings:
+        APP_SERVER_TYPE: '%env(APP_SERVER_TYPE)%'
+        APP_ROLE_PREFIX: '%env(APP_ROLE_PREFIX)%'
+        APP_URL: '%env(APP_URL)%'
+...

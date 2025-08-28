@@ -1,0 +1,31 @@
+@import "bootstrap_custom.scss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+
+div.block-main {
+  position: relative;
+}
+
+
+.badge {
+  &.prod {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+  }
+
+  &.rec {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+  }
+
+  &.dev {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  }
+
+  &.local {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  }
+
+}
