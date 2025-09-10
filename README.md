@@ -1,4 +1,4 @@
-# Application Template – Symfony Framework 7,x
+# Application Template – Symfony Framework 7.x
 
 
 ## License
