@@ -27,7 +27,7 @@ services:
   monolog.formatter.application:
     class: Monolog\Formatter\LineFormatter
     arguments:
-      - "[%%datetime%%][%%extra.user%%] %%channel%%.%%level_name%%: %%message%% %%context%% %%extra%%\n"
+      - "[%%datetime%%][%%extra.user%%] %%channel%%.%%level_name%%: %%message%%  [url: %%extra.url%%] %%context%% %%extra%%\n"
 
   App\Security\EnvAuthenticator:
     arguments:

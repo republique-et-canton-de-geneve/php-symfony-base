@@ -19,7 +19,7 @@ class AdminController extends BaseAdminController
     #[Route('', name: 'admin_page')]
     public function index(Request $request, Application $application): Response
     {
-        $this->logger->debug('Debug page', [$request->getRequestUri()]);
+        $this->logger->debug('Debug page');
         $this->denyAccessUnlessGranted(Action::ADMIN_PAGE);
         $roles = Role::getRoles();
         foreach ($roles as $key => $role) {
@@ -46,7 +46,7 @@ class AdminController extends BaseAdminController
     #[Route('/log/{filename}', name: 'admin_log', methods: ['GET'])]
     public function log(Request $request, Kernel $kernel, ?string $filename = null): Response
     {
-        $this->logger->info('Debug log', [$request->getRequestUri()]);
+        $this->logger->info('Debug log');
         $this->denyAccessUnlessGranted(Action::ADMIN_LOG);
         $finder = new Finder();
         $finder->files()->in($kernel->getLogDir());
@@ -74,7 +74,7 @@ class AdminController extends BaseAdminController
     #[Route('/applicationInfo', name: 'applicationInfo')]
     public function applicationInfo(Request $request): Response
     {
-        $this->logger->info('applicationInfo', [$request->getRequestUri()]);
+        $this->logger->info('applicationInfo');
         $this->denyAccessUnlessGranted(Action::ADMIN_PAGE);
 
         $symfonyOutput = new SymfonyOutput();
