@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-vendor/bin/phpcs
+vendor/bin/php-cs-fixer check
 vendor/bin/twig-cs-fixer lint
 bin/console lint:container
 bin/console lint:twig --show-deprecations templates
