@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ParameterRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ParameterRepository::class)]
 class Parameter
@@ -15,6 +16,9 @@ class Parameter
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(
+        min: 1,
+        max: 255)]
     private string $name;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
