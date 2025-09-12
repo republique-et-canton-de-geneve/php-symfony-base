@@ -7,7 +7,7 @@ use App\Parameter;
 use App\Security\Action;
 use App\Security\Role;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends BaseFrontController
 {
