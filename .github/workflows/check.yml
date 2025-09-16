@@ -4,10 +4,12 @@ jobs:
   mycheck:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Setup PHP with tools
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.3'
           tools: php-cs-fixer
           extensions: mbstring, xml, ctype, iconv, intl
           coverage: xdebug
@@ -26,7 +28,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist --optimize-autoloader
+        run: composer install
 
       - name: Install PHPUnit
         run: simple-phpunit install
