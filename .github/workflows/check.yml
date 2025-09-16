@@ -32,3 +32,28 @@ jobs:
 
       - name: Run php-cs-fixer
         run: vendor/bin/php-cs-fixer check
+
+      - name: Run twig-cs-fixer
+        run: vendor/bin/twig-cs-fixer lint
+
+      - name: Run lint:container
+        run: bin/console lint:container
+
+      - name: Run lint:twig
+        run: bin/console lint:twig --show-deprecations templates
+
+      - name: Run lint:yaml
+        run: bin/console lint:yaml config src
+
+      - name: Run lint:yaml
+        run vendor/bin/phpstan analyse
+
+      - name: Run phpstan
+        run vendor/bin/phpstan analyse
+
+      - name: Run phpstan
+        run vendor/bin/rector process --dry-run
+        
+
+
+
