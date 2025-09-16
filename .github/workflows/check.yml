@@ -28,10 +28,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install Composer dependencies
-        run: composer install
-
-      - name: Install PHPUnit
-        run: simple-phpunit install
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
 
       - name: Run php-cs-fixer
         run: vendor/bin/php-cs-fixer check
