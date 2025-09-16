@@ -1,0 +1,13 @@
+name: cs-fixer example
+on: push
+
+jobs:
+  php-cs:
+    runs-on: ubuntu-latest  
+    container: 
+      image: php:8.3-alpine
+    steps:
+        - run: mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+        - run: sed -i 's/memory_limit\s*=.*/memory_limit=512M/g' "$PHP_INI_DIR/php.ini"
+        - run: cd htdocs
+        - run: vendor/bin/php-cs-fixer check
