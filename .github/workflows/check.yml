@@ -51,7 +51,7 @@ jobs:
       - name: Run rector
         run: vendor/bin/rector process --dry-run
 
-      - name; behat code coverage
+      - name: behat code coverage
         run: vendor/bin/behat --xdebug 
       
       - name: Code Coverage Report
