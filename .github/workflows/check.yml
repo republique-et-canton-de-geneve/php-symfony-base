@@ -45,15 +45,12 @@ jobs:
       - name: Run lint:yaml
         run: bin/console lint:yaml config src
 
-      - name: Run lint:yaml
-        run vendor/bin/phpstan analyse
+      - name: Run phpstan
+        run: vendor/bin/phpstan analyse
 
       - name: Run phpstan
-        run vendor/bin/phpstan analyse
+        run: vendor/bin/rector process --dry-run
 
-      - name: Run phpstan
-        run vendor/bin/rector process --dry-run
-        
 
 
 
