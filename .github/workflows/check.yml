@@ -1,0 +1,34 @@
+name: check quality code
+on: push
+jobs:
+  mycheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP with tools
+        with:
+          php-version: '8.4'
+          tools: php-cs-fixer
+          extensions: mbstring, xml, ctype, iconv, intl
+          coverage: xdebug
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          # Use composer.json for key, if composer.lock is not committed.
+          # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Install PHPUnit
+        run: simple-phpunit install
+
+      - name: Run php-cs-fixer
+        run: vendor/bin/php-cs-fixer check
