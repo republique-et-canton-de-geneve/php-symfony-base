@@ -62,7 +62,7 @@ jobs:
         run: vendor/bin/rector process --dry-run
 
       - name: behat code coverage
-      - run: vendor/bin/behat --xdebug 
+        run: vendor/bin/behat --xdebug 
       - run: cd ..  
       
       - name: Code Coverage Report
