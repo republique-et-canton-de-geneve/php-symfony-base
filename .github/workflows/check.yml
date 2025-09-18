@@ -33,8 +33,7 @@ jobs:
           node-version: 20.x
 
       - name: Install Composer dependencies
-        run: cd htdocs
-      - run: composer install --no-progress --prefer-dist --optimize-autoloader
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
       - run: install npm@latest -g
       - run: npm install --global yarn
       - run: yarn encore prod    
@@ -63,7 +62,6 @@ jobs:
 
       - name: behat code coverage
         run: vendor/bin/behat --xdebug 
-      - run: cd ..  
       
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
