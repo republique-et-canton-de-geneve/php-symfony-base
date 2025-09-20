@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: 22.x
       - run: npm install --global yarn    
+      - run: yarn install --force
       - run: yarn encore prod    
       - run: npm i -g eslint  
 
