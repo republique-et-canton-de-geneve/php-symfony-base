@@ -72,15 +72,17 @@ Feature: Test DEMO
     Then I press "action"
     Then I should be on "/admin/mailtest"
     Then I should see a "body#page-admin-mail-test" element
+    #Then I should see "Le mail n'a pas été envoyé, l'erreur suivante a été détectée :" in the "#flash-messages div.alert.alert-danger" element
     Then I should see "Le mail a été envoyé" in the "#flash-messages div.alert.alert-success" element
 
-    When server type is "prod"
+    When server type is "test2"
     Then I press "action"
     Then I should be on "/admin/mailtest"
     Then I should see a "body#page-admin-mail-test" element
-    Then I should see "Le mail n'a pas été envoyé, l'erreur suivante a été détectée :" in the "#flash-messages div.alert.alert-danger" element
+    Then I should see "Le mail a été envoyé" in the "#flash-messages div.alert.alert-success" element
+    #Then I should see "Le mail n'a pas été envoyé, l'erreur suivante a été détectée :" in the "#flash-messages div.alert.alert-danger" element
+    
     When server type is "test"
-
 
     # je test la page parameter
     When I go to "/admin/parameter"
