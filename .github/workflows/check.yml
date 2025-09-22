@@ -1,7 +1,7 @@
 name: check quality code
 on: push
 jobs:
-  mycheck:
+  full-check:
     permissions:
       pull-requests: write
       contents: write           
