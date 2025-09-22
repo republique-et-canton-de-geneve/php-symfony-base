@@ -75,7 +75,7 @@ jobs:
         with:
           coverage_badge_path: coverage/coverage.svg
           push_badge: false
-          coverage_path: coverage/clover.xml
+          coverage_badge_path: coverage/clover.xml
           report_type: clover
 
       
