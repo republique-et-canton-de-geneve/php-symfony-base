@@ -82,12 +82,6 @@ jobs:
           output: both
           thresholds: '60 80'
 
-      - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          recreate: true
-          path: code-coverage-results.md        
-
       - name: archive
         run: git config --local user.name actions-user
       - run:  git config --local user.email "actions@github.com" 

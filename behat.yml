@@ -31,7 +31,7 @@ default:
         html:
           target: 'coverage/coverage-html'
         text:
-          showColors: true
+          showColors: false
           showOnlySummary: true
         cobertura:
           target: 'coverage/cobertura.xml'
