@@ -87,7 +87,9 @@ jobs:
       - name: archive
         run: git add code-coverage-results.md
       - run: git commit -m "chore':' update code coverage results"
-      - run: git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-          
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
