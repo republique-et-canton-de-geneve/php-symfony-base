@@ -85,8 +85,8 @@ jobs:
           path: code-coverage-results.md        
 
       - name: archive
-      - run: git add "code-coverage-results.md"
-      - run: git commit -m "chore update code coverage results" 
+      - run: git add code-coverage-results.md
+      - run: git commit -m "chore: update code coverage results" 
       - run: git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
