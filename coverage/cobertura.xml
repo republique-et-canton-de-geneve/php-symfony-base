@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.88902291917973" branch-rate="0.71362586605081" lines-covered="737" lines-valid="829" branches-covered="309" branches-valid="433" complexity="273" version="0.4" timestamp="1758388320">
+<coverage line-rate="0.89022919179735" branch-rate="0.71593533487298" lines-covered="738" lines-valid="829" branches-covered="310" branches-valid="433" complexity="273" version="0.4" timestamp="1758535374">
   <sources>
-    <source>/var/www/php-symfony-base/src</source>
+    <source>/home/runner/work/php-symfony-base/php-symfony-base/src</source>
   </sources>
   <packages>
     <package name="Application.php" line-rate="0.9375" branch-rate="0.85714285714286" complexity="11">
@@ -1953,8 +1953,8 @@
                 <line number="188" hits="1"/>
                 <line number="190" hits="1"/>
                 <line number="191" hits="1"/>
-                <line number="192" hits="1"/>
-                <line number="194" hits="0"/>
+                <line number="192" hits="0"/>
+                <line number="194" hits="1"/>
                 <line number="197" hits="0"/>
                 <line number="199" hits="1"/>
                 <line number="201" hits="1"/>
@@ -2114,8 +2114,8 @@
             <line number="188" hits="1"/>
             <line number="190" hits="1"/>
             <line number="191" hits="1"/>
-            <line number="192" hits="1"/>
-            <line number="194" hits="0"/>
+            <line number="192" hits="0"/>
+            <line number="194" hits="1"/>
             <line number="197" hits="0"/>
             <line number="199" hits="1"/>
             <line number="201" hits="1"/>
@@ -2174,9 +2174,9 @@
     <package name="Service/ApplicationInfo/Output/InterfaceOutput.php" line-rate="0" branch-rate="0" complexity="0">
       <classes/>
     </package>
-    <package name="Service/ApplicationInfo/Output/PhpOutput.php" line-rate="0.93333333333333" branch-rate="0.9" complexity="10">
+    <package name="Service/ApplicationInfo/Output/PhpOutput.php" line-rate="1" branch-rate="1" complexity="10">
       <classes>
-        <class name="App\Service\ApplicationInfo\Output\PhpOutput" filename="Service/ApplicationInfo/Output/PhpOutput.php" line-rate="0.93333333333333" branch-rate="0.9" complexity="10">
+        <class name="App\Service\ApplicationInfo\Output\PhpOutput" filename="Service/ApplicationInfo/Output/PhpOutput.php" line-rate="1" branch-rate="1" complexity="10">
           <methods>
             <method name="output" signature="string $str" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2209,9 +2209,9 @@
                 <line number="84" hits="1"/>
               </lines>
             </method>
-            <method name="erreur" signature="string $str" line-rate="0" branch-rate="0" complexity="1">
+            <method name="erreur" signature="string $str" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="89" hits="0"/>
+                <line number="89" hits="1"/>
               </lines>
             </method>
             <method name="ok" signature="string $str" line-rate="1" branch-rate="1" complexity="1">
@@ -2242,7 +2242,7 @@
             <line number="74" hits="1"/>
             <line number="79" hits="1"/>
             <line number="84" hits="1"/>
-            <line number="89" hits="0"/>
+            <line number="89" hits="1"/>
             <line number="94" hits="1"/>
             <line number="99" hits="1"/>
             <line number="104" hits="1"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1758388320">
-  <project timestamp="1758388320" name="">
+<coverage generated="1758535374">
+  <project timestamp="1758535374" name="">
     <package name="App">
-      <file name="/var/www/php-symfony-base/src/Application.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Application.php">
         <class name="App\Application" namespace="App">
           <metrics complexity="11" methods="9" coveredmethods="8" conditionals="14" coveredconditionals="12" statements="16" coveredstatements="15" elements="39" coveredelements="35"/>
         </class>
@@ -33,7 +33,7 @@
         <line num="102" type="stmt" count="1"/>
         <metrics loc="105" ncloc="73" classes="1" methods="9" coveredmethods="8" conditionals="14" coveredconditionals="12" statements="16" coveredstatements="15" elements="39" coveredelements="35"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/BaseParameter.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/BaseParameter.php">
         <class name="App\BaseParameter" namespace="App">
           <metrics complexity="12" methods="5" coveredmethods="4" conditionals="23" coveredconditionals="21" statements="37" coveredstatements="35" elements="65" coveredelements="60"/>
         </class>
@@ -81,19 +81,19 @@
         <line num="131" type="stmt" count="2"/>
         <metrics loc="134" ncloc="91" classes="1" methods="5" coveredmethods="4" conditionals="23" coveredconditionals="21" statements="37" coveredstatements="35" elements="65" coveredelements="60"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/ExceptionApplication.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/ExceptionApplication.php">
         <class name="App\ExceptionApplication" namespace="App">
           <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
         <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Kernel.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Kernel.php">
         <class name="App\Kernel" namespace="App">
           <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
         <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Param.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Param.php">
         <class name="App\Param" namespace="App">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
         </class>
@@ -104,7 +104,7 @@
         <line num="33" type="stmt" count="2"/>
         <metrics loc="36" ncloc="31" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Parameter.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Parameter.php">
         <class name="App\Parameter" namespace="App">
           <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
@@ -112,7 +112,7 @@
       </file>
     </package>
     <package name="App\Controller\Admin">
-      <file name="/var/www/php-symfony-base/src/Controller/Admin/AdminController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/Admin/AdminController.php">
         <class name="App\Controller\Admin\AdminController" namespace="App\Controller\Admin">
           <metrics complexity="9" methods="3" coveredmethods="3" conditionals="14" coveredconditionals="14" statements="42" coveredstatements="42" elements="59" coveredelements="59"/>
         </class>
@@ -163,7 +163,7 @@
         <line num="87" type="stmt" count="1"/>
         <metrics loc="90" ncloc="87" classes="1" methods="3" coveredmethods="3" conditionals="14" coveredconditionals="14" statements="42" coveredstatements="42" elements="59" coveredelements="59"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Controller/Admin/BaseAdminController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/Admin/BaseAdminController.php">
         <class name="App\Controller\Admin\BaseAdminController" namespace="App\Controller\Admin">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
@@ -172,7 +172,7 @@
         <line num="14" type="stmt" count="2"/>
         <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Controller/Admin/MailTestController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/Admin/MailTestController.php">
         <class name="App\Controller\Admin\MailTestController" namespace="App\Controller\Admin">
           <metrics complexity="6" methods="2" coveredmethods="1" conditionals="11" coveredconditionals="8" statements="27" coveredstatements="21" elements="40" coveredelements="30"/>
         </class>
@@ -207,7 +207,7 @@
         <line num="65" type="stmt" count="1"/>
         <metrics loc="68" ncloc="64" classes="1" methods="2" coveredmethods="1" conditionals="11" coveredconditionals="8" statements="27" coveredstatements="21" elements="40" coveredelements="30"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Controller/Admin/ParameterController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/Admin/ParameterController.php">
         <class name="App\Controller\Admin\ParameterController" namespace="App\Controller\Admin">
           <metrics complexity="14" methods="3" coveredmethods="2" conditionals="25" coveredconditionals="24" statements="99" coveredstatements="98" elements="127" coveredelements="124"/>
         </class>
@@ -317,7 +317,7 @@
       </file>
     </package>
     <package name="App\Controller">
-      <file name="/var/www/php-symfony-base/src/Controller/BaseController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/BaseController.php">
         <class name="App\Controller\BaseController" namespace="App\Controller">
           <metrics complexity="5" methods="5" coveredmethods="5" conditionals="5" coveredconditionals="5" statements="6" coveredstatements="6" elements="16" coveredelements="16"/>
         </class>
@@ -334,7 +334,7 @@
         <line num="58" type="stmt" count="1"/>
         <metrics loc="61" ncloc="41" classes="1" methods="5" coveredmethods="5" conditionals="5" coveredconditionals="5" statements="6" coveredstatements="6" elements="16" coveredelements="16"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Controller/BaseFrontController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/BaseFrontController.php">
         <class name="App\Controller\BaseFrontController" namespace="App\Controller">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
         </class>
@@ -342,7 +342,7 @@
         <line num="16" type="stmt" count="3"/>
         <metrics loc="19" ncloc="19" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Controller/DefaultController.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Controller/DefaultController.php">
         <class name="App\Controller\DefaultController" namespace="App\Controller">
           <metrics complexity="7" methods="5" coveredmethods="5" conditionals="10" coveredconditionals="10" statements="20" coveredstatements="20" elements="35" coveredelements="35"/>
         </class>
@@ -375,7 +375,7 @@
       </file>
     </package>
     <package name="App\Entity">
-      <file name="/var/www/php-symfony-base/src/Entity/MailTest.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Entity/MailTest.php">
         <class name="App\Entity\MailTest" namespace="App\Entity">
           <metrics complexity="2" methods="2" coveredmethods="2" conditionals="2" coveredconditionals="2" statements="2" coveredstatements="2" elements="6" coveredelements="6"/>
         </class>
@@ -385,7 +385,7 @@
         <line num="16" type="stmt" count="1"/>
         <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="2" coveredconditionals="2" statements="2" coveredstatements="2" elements="6" coveredelements="6"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Entity/Parameter.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Entity/Parameter.php">
         <class name="App\Entity\Parameter" namespace="App\Entity">
           <metrics complexity="5" methods="5" coveredmethods="4" conditionals="5" coveredconditionals="4" statements="7" coveredstatements="6" elements="17" coveredelements="14"/>
         </class>
@@ -405,7 +405,7 @@
       </file>
     </package>
     <package name="App\Listener">
-      <file name="/var/www/php-symfony-base/src/Listener/ExceptionListener.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Listener/ExceptionListener.php">
         <class name="App\Listener\ExceptionListener" namespace="App\Listener">
           <metrics complexity="8" methods="2" coveredmethods="2" conditionals="15" coveredconditionals="1" statements="35" coveredstatements="35" elements="52" coveredelements="38"/>
         </class>
@@ -448,7 +448,7 @@
         <line num="66" type="stmt" count="3"/>
         <metrics loc="70" ncloc="70" classes="1" methods="2" coveredmethods="2" conditionals="15" coveredconditionals="1" statements="35" coveredstatements="35" elements="52" coveredelements="38"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Listener/KernelRequestListener.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Listener/KernelRequestListener.php">
         <class name="App\Listener\KernelRequestListener" namespace="App\Listener">
           <metrics complexity="5" methods="2" coveredmethods="2" conditionals="8" coveredconditionals="1" statements="9" coveredstatements="9" elements="19" coveredelements="12"/>
         </class>
@@ -467,7 +467,7 @@
       </file>
     </package>
     <package name="App\Logger">
-      <file name="/var/www/php-symfony-base/src/Logger/UserProcessor.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Logger/UserProcessor.php">
         <class name="App\Logger\UserProcessor" namespace="App\Logger">
           <metrics complexity="2" methods="2" coveredmethods="2" conditionals="2" coveredconditionals="2" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
         </class>
@@ -483,7 +483,7 @@
       </file>
     </package>
     <package name="App\Menu">
-      <file name="/var/www/php-symfony-base/src/Menu/Menu.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/Menu.php">
         <class name="App\Menu\Menu" namespace="App\Menu">
           <metrics complexity="7" methods="1" coveredmethods="0" conditionals="14" coveredconditionals="12" statements="34" coveredstatements="33" elements="49" coveredelements="45"/>
         </class>
@@ -524,7 +524,7 @@
         <line num="53" type="stmt" count="3"/>
         <metrics loc="57" ncloc="56" classes="1" methods="1" coveredmethods="0" conditionals="14" coveredconditionals="12" statements="34" coveredstatements="33" elements="49" coveredelements="45"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Menu/MenuAdmin.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/MenuAdmin.php">
         <class name="App\Menu\MenuAdmin" namespace="App\Menu">
           <metrics complexity="13" methods="1" coveredmethods="0" conditionals="26" coveredconditionals="25" statements="69" coveredstatements="69" elements="96" coveredelements="94"/>
         </class>
@@ -600,7 +600,7 @@
         <line num="93" type="stmt" count="2"/>
         <metrics loc="97" ncloc="97" classes="1" methods="1" coveredmethods="0" conditionals="26" coveredconditionals="25" statements="69" coveredstatements="69" elements="96" coveredelements="94"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Menu/MenuBase.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/MenuBase.php">
         <class name="App\Menu\MenuBase" namespace="App\Menu">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
         </class>
@@ -608,7 +608,7 @@
         <line num="11" type="stmt" count="3"/>
         <metrics loc="14" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Menu/MenuItem.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/MenuItem.php">
         <class name="App\Menu\MenuItem" namespace="App\Menu">
           <metrics complexity="2" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
         </class>
@@ -621,7 +621,7 @@
         <line num="47" type="stmt" count="3"/>
         <metrics loc="50" ncloc="31" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Menu/MenuTwig.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/MenuTwig.php">
         <class name="App\Menu\MenuTwig" namespace="App\Menu">
           <metrics complexity="20" methods="11" coveredmethods="6" conditionals="31" coveredconditionals="20" statements="36" coveredstatements="29" elements="78" coveredelements="55"/>
         </class>
@@ -676,7 +676,7 @@
       </file>
     </package>
     <package name="App\Repository">
-      <file name="/var/www/php-symfony-base/src/Repository/ParameterRepository.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Repository/ParameterRepository.php">
         <class name="App\Repository\ParameterRepository" namespace="App\Repository">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
         </class>
@@ -686,7 +686,7 @@
       </file>
     </package>
     <package name="App\Security">
-      <file name="/var/www/php-symfony-base/src/Security/Action.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/Action.php">
         <class name="App\Security\Action" namespace="App\Security">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
@@ -695,7 +695,7 @@
         <line num="35" type="stmt" count="3"/>
         <metrics loc="38" ncloc="25" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Security/ActionVoter.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/ActionVoter.php">
         <class name="App\Security\ActionVoter" namespace="App\Security">
           <metrics complexity="6" methods="3" coveredmethods="2" conditionals="10" coveredconditionals="9" statements="10" coveredstatements="9" elements="23" coveredelements="20"/>
         </class>
@@ -714,7 +714,7 @@
         <line num="59" type="stmt" count="1"/>
         <metrics loc="62" ncloc="49" classes="1" methods="3" coveredmethods="2" conditionals="10" coveredconditionals="9" statements="10" coveredstatements="9" elements="23" coveredelements="20"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Security/EnvAuthenticator.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/EnvAuthenticator.php">
         <class name="App\Security\EnvAuthenticator" namespace="App\Security">
           <metrics complexity="9" methods="6" coveredmethods="3" conditionals="12" coveredconditionals="9" statements="31" coveredstatements="25" elements="49" coveredelements="37"/>
         </class>
@@ -757,7 +757,7 @@
         <line num="99" type="stmt" count="0"/>
         <metrics loc="102" ncloc="81" classes="1" methods="6" coveredmethods="3" conditionals="12" coveredconditionals="9" statements="31" coveredstatements="25" elements="49" coveredelements="37"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Security/EventsListener.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/EventsListener.php">
         <class name="App\Security\EventsListener" namespace="App\Security">
           <metrics complexity="12" methods="5" coveredmethods="4" conditionals="22" coveredconditionals="1" statements="53" coveredstatements="51" elements="80" coveredelements="56"/>
         </class>
@@ -821,7 +821,7 @@
         <line num="107" type="stmt" count="3"/>
         <metrics loc="110" ncloc="101" classes="1" methods="5" coveredmethods="4" conditionals="22" coveredconditionals="1" statements="53" coveredstatements="51" elements="80" coveredelements="56"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Security/Role.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/Role.php">
         <class name="App\Security\Role" namespace="App\Security">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
@@ -830,7 +830,7 @@
         <line num="25" type="stmt" count="1"/>
         <metrics loc="28" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Security/User.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/User.php">
         <class name="App\Security\User" namespace="App\Security">
           <metrics complexity="15" methods="14" coveredmethods="12" conditionals="17" coveredconditionals="15" statements="18" coveredstatements="15" elements="49" coveredelements="42"/>
         </class>
@@ -870,7 +870,7 @@
       </file>
     </package>
     <package name="App\Service\ApplicationInfo">
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Lib.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Lib.php">
         <class name="App\Service\ApplicationInfo\Lib" namespace="App\Service\ApplicationInfo">
           <metrics complexity="47" methods="9" coveredmethods="0" conditionals="99" coveredconditionals="60" statements="149" coveredstatements="104" elements="257" coveredelements="164"/>
         </class>
@@ -977,8 +977,8 @@
         <line num="188" type="stmt" count="1"/>
         <line num="190" type="stmt" count="1"/>
         <line num="191" type="stmt" count="1"/>
-        <line num="192" type="stmt" count="1"/>
-        <line num="194" type="stmt" count="0"/>
+        <line num="192" type="stmt" count="0"/>
+        <line num="194" type="stmt" count="1"/>
         <line num="197" type="stmt" count="0"/>
         <line num="199" type="stmt" count="1"/>
         <line num="201" type="stmt" count="1"/>
@@ -1034,7 +1034,7 @@
         <line num="274" type="stmt" count="0"/>
         <metrics loc="280" ncloc="271" classes="1" methods="9" coveredmethods="0" conditionals="99" coveredconditionals="60" statements="149" coveredstatements="104" elements="257" coveredelements="164"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Php.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Php.php">
         <class name="App\Service\ApplicationInfo\Php" namespace="App\Service\ApplicationInfo">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
         </class>
@@ -1047,7 +1047,7 @@
         <line num="43" type="stmt" count="1"/>
         <metrics loc="46" ncloc="43" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/SondePhp.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/SondePhp.php">
         <class name="App\Service\ApplicationInfo\SondePhp" namespace="App\Service\ApplicationInfo">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
         </class>
@@ -1055,7 +1055,7 @@
         <line num="9" type="stmt" count="1"/>
         <metrics loc="12" ncloc="12" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Symfony.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Symfony.php">
         <class name="App\Service\ApplicationInfo\Symfony" namespace="App\Service\ApplicationInfo">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
         </class>
@@ -1068,13 +1068,13 @@
         <metrics loc="16" ncloc="16" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
       </file>
     </package>
-    <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Output/InterfaceOutput.php">
+    <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Output/InterfaceOutput.php">
       <metrics loc="25" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <package name="App\Service\ApplicationInfo\Output">
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Output/PhpOutput.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Output/PhpOutput.php">
         <class name="App\Service\ApplicationInfo\Output\PhpOutput" namespace="App\Service\ApplicationInfo\Output">
-          <metrics complexity="10" methods="9" coveredmethods="8" conditionals="10" coveredconditionals="9" statements="15" coveredstatements="14" elements="34" coveredelements="31"/>
+          <metrics complexity="10" methods="9" coveredmethods="9" conditionals="10" coveredconditionals="10" statements="15" coveredstatements="15" elements="34" coveredelements="34"/>
         </class>
         <line num="7" type="method" name="output" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="9" type="stmt" count="1"/>
@@ -1092,17 +1092,17 @@
         <line num="79" type="stmt" count="1"/>
         <line num="82" type="method" name="line" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="84" type="stmt" count="1"/>
-        <line num="87" type="method" name="erreur" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="89" type="stmt" count="0"/>
+        <line num="87" type="method" name="erreur" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="89" type="stmt" count="1"/>
         <line num="92" type="method" name="ok" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="94" type="stmt" count="1"/>
         <line num="97" type="method" name="ko" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="99" type="stmt" count="1"/>
         <line num="102" type="method" name="filter" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="104" type="stmt" count="1"/>
-        <metrics loc="107" ncloc="107" classes="1" methods="9" coveredmethods="8" conditionals="10" coveredconditionals="9" statements="15" coveredstatements="14" elements="34" coveredelements="31"/>
+        <metrics loc="107" ncloc="107" classes="1" methods="9" coveredmethods="9" conditionals="10" coveredconditionals="10" statements="15" coveredstatements="15" elements="34" coveredelements="34"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Output/SondeOutput.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Output/SondeOutput.php">
         <class name="App\Service\ApplicationInfo\Output\SondeOutput" namespace="App\Service\ApplicationInfo\Output">
           <metrics complexity="10" methods="9" coveredmethods="5" conditionals="12" coveredconditionals="8" statements="10" coveredstatements="6" elements="31" coveredelements="19"/>
         </class>
@@ -1127,7 +1127,7 @@
         <line num="53" type="stmt" count="1"/>
         <metrics loc="56" ncloc="53" classes="1" methods="9" coveredmethods="5" conditionals="12" coveredconditionals="8" statements="10" coveredstatements="6" elements="31" coveredelements="19"/>
       </file>
-      <file name="/var/www/php-symfony-base/src/Service/ApplicationInfo/Output/SymfonyOutput.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Output/SymfonyOutput.php">
         <class name="App\Service\ApplicationInfo\Output\SymfonyOutput" namespace="App\Service\ApplicationInfo\Output">
           <metrics complexity="4" methods="4" coveredmethods="4" conditionals="4" coveredconditionals="4" statements="4" coveredstatements="4" elements="12" coveredelements="12"/>
         </class>
@@ -1143,7 +1143,7 @@
       </file>
     </package>
     <package name="App\Service">
-      <file name="/var/www/php-symfony-base/src/Service/Mail.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/Mail.php">
         <class name="App\Service\Mail" namespace="App\Service">
           <metrics complexity="7" methods="2" coveredmethods="1" conditionals="14" coveredconditionals="10" statements="30" coveredstatements="24" elements="46" coveredelements="35"/>
         </class>
@@ -1183,7 +1183,7 @@
       </file>
     </package>
     <package name="App\Twig">
-      <file name="/var/www/php-symfony-base/src/Twig/Extension.php">
+      <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Twig/Extension.php">
         <class name="App\Twig\Extension" namespace="App\Twig">
           <metrics complexity="15" methods="13" coveredmethods="9" conditionals="17" coveredconditionals="12" statements="33" coveredstatements="28" elements="63" coveredelements="49"/>
         </class>
@@ -1236,6 +1236,6 @@
         <metrics loc="127" ncloc="106" classes="1" methods="13" coveredmethods="9" conditionals="17" coveredconditionals="12" statements="33" coveredstatements="28" elements="63" coveredelements="49"/>
       </file>
     </package>
-    <metrics files="40" loc="2665" ncloc="2358" classes="36" methods="143" coveredmethods="105" conditionals="433" coveredconditionals="309" statements="829" coveredstatements="737" elements="1405" coveredelements="1151"/>
+    <metrics files="40" loc="2665" ncloc="2358" classes="36" methods="143" coveredmethods="106" conditionals="433" coveredconditionals="310" statements="829" coveredstatements="738" elements="1405" coveredelements="1154"/>
   </project>
 </coverage>
