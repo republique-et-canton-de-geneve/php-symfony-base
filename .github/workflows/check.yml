@@ -2,6 +2,8 @@ name: check quality code
 on: push
 jobs:
   mycheck:
+    permissions:
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
