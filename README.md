@@ -1,3 +1,7 @@
+[![release][release-badge]][release]
+[![license][license-badge]][license]
+
+
 # Application Template – Symfony Framework 7.x
 
 
