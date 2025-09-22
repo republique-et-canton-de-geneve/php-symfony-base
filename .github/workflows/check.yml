@@ -84,9 +84,11 @@ jobs:
 
       - name: archive
         run: git config --local user.name actions-user
-      - run:  git config --local user.email "actions@github.com" 
+      - run: git config --local user.email "actions@github.com" 
       - run: git add code-coverage-results.md
+      - run: git add coverage/.
       - run: git commit -m "chore':' update code coverage results"
+      
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
         with:
