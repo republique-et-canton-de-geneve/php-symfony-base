@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1758618590">
   <project timestamp="1758618590" name="">
+=======
+<coverage generated="1758618656">
+  <project timestamp="1758618656" name="">
+>>>>>>> 2595986 (chore':' update code coverage results)
     <package name="App">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Application.php">
         <class name="App\Application" namespace="App">
