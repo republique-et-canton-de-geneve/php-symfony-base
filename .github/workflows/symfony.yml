@@ -1,7 +1,7 @@
 name: check twig quality 
 on: push
 jobs:
-  twig-cs-fixer:
+  synfony:
     permissions:
       pull-requests: write
       contents: write           
@@ -34,5 +34,13 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-      - name: Run twig-cs-fixer
-        run: vendor/bin/twig-cs-fixer lint
+      - name: Run lint:container
+        run: bin/console lint:container
+
+      - name: Run lint:twig
+        run: bin/console lint:twig --show-deprecations templates
+
+      - name: Run lint:yaml
+        run: bin/console lint:yaml config src
+
+   
