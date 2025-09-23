@@ -1,13 +1,8 @@
 [![php-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml)
-
 [![twig-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml)
-
 [![phpstan](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/phpstan.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/phpstan.yml)
-
 [![rector](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/rector.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/rector.yml)
-
 [![symfony](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/symfony.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/symfony.yml)
-
 [![behat and code coverage](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/behat.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/behat.yml)
 
 # Application Template – Symfony Framework 7.x
