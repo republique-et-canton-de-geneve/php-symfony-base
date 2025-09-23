@@ -1,7 +1,7 @@
 name: check twig quality 
 on: push
 jobs:
-  synfony:
+  symfony:
     permissions:
       pull-requests: write
       contents: write           
