@@ -69,6 +69,14 @@ jobs:
       - name: behat code coverage
         run: vendor/bin/behat --xdebug 
 
+      - name: regex result
+        uses: actions-ecosystem/action-regex-match@v2
+        id: regex-match
+        with:
+          text: ${{ github.event.comment.body }}
+          regex: '```typescript([\s\S]*)```'
+          flags: gm
+  
 
       - name: Make code coverage badge
         uses: timkrase/phpunit-coverage-badge@v1.2.1
