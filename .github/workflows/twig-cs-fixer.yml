@@ -1,4 +1,4 @@
-name: check twig quality 
+name: twig-cs-fixer
 on: push
 jobs:
   twig-cs-fixer:

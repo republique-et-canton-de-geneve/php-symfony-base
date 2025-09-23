@@ -1,4 +1,4 @@
-name: check phpstan quality 
+name: phpstan
 on: push
 jobs:
   phpstan:

@@ -1,7 +1,7 @@
-name: symfony 
+name: rector
 on: push
 jobs:
-  symfony:
+  rector:
     permissions:
       pull-requests: write
       contents: write           
@@ -34,13 +34,5 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-      - name: Run lint:container
-        run: bin/console lint:container
-
-      - name: Run lint:twig
-        run: bin/console lint:twig --show-deprecations templates
-
-      - name: Run lint:yaml
-        run: bin/console lint:yaml config src
-
-   
+      - name: Run rector
+        run: vendor/bin/rector process --dry-run
