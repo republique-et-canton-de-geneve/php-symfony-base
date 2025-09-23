@@ -1,5 +1,4 @@
-[![release][release-badge]][release]
-[![license][license-badge]][license]
+[![check twig quality](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml)
 
 
 # Application Template – Symfony Framework 7.x
