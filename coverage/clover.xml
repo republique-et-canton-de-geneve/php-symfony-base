@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1758656644">
-  <project timestamp="1758656644" name="">
+<coverage generated="1758657266">
+  <project timestamp="1758657266" name="">
     <package name="App">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Application.php">
         <class name="App\Application" namespace="App">
