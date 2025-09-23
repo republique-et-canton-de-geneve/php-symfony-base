@@ -1,7 +1,7 @@
-name: check symfony quality 
+name: check phpstan quality 
 on: push
 jobs:
-  symfony:
+  phpstan:
     permissions:
       pull-requests: write
       contents: write           
