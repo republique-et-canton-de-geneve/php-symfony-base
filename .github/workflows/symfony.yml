@@ -1,4 +1,4 @@
-name: check twig quality 
+name: check symfony quality 
 on: push
 jobs:
   symfony:
