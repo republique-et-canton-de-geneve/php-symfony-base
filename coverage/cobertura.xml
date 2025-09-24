@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.89022919179735" branch-rate="0.71593533487298" lines-covered="738" lines-valid="829" branches-covered="310" branches-valid="433" complexity="273" version="0.4" timestamp="1758657266">
+<coverage line-rate="0.90470446320869" branch-rate="0.729792147806" lines-covered="750" lines-valid="829" branches-covered="316" branches-valid="433" complexity="273" version="0.4" timestamp="1758724681">
   <sources>
     <source>/home/runner/work/php-symfony-base/php-symfony-base/src</source>
   </sources>
@@ -109,11 +109,11 @@
                 <line number="71" hits="3"/>
                 <line number="72" hits="3"/>
                 <line number="74" hits="3"/>
-                <line number="76" hits="2"/>
-                <line number="78" hits="2"/>
-                <line number="80" hits="2"/>
-                <line number="83" hits="2"/>
-                <line number="84" hits="2"/>
+                <line number="76" hits="3"/>
+                <line number="78" hits="3"/>
+                <line number="80" hits="3"/>
+                <line number="83" hits="3"/>
+                <line number="84" hits="3"/>
                 <line number="87" hits="0"/>
                 <line number="88" hits="0"/>
               </lines>
@@ -166,11 +166,11 @@
             <line number="71" hits="3"/>
             <line number="72" hits="3"/>
             <line number="74" hits="3"/>
-            <line number="76" hits="2"/>
-            <line number="78" hits="2"/>
-            <line number="80" hits="2"/>
-            <line number="83" hits="2"/>
-            <line number="84" hits="2"/>
+            <line number="76" hits="3"/>
+            <line number="78" hits="3"/>
+            <line number="80" hits="3"/>
+            <line number="83" hits="3"/>
+            <line number="84" hits="3"/>
             <line number="87" hits="0"/>
             <line number="88" hits="0"/>
             <line number="97" hits="2"/>
@@ -311,9 +311,9 @@
         </class>
       </classes>
     </package>
-    <package name="Controller/Admin/MailTestController.php" line-rate="0.77777777777778" branch-rate="0.72727272727273" complexity="6">
+    <package name="Controller/Admin/MailTestController.php" line-rate="1" branch-rate="1" complexity="6">
       <classes>
-        <class name="App\Controller\Admin\MailTestController" filename="Controller/Admin/MailTestController.php" line-rate="0.77777777777778" branch-rate="0.72727272727273" complexity="6">
+        <class name="App\Controller\Admin\MailTestController" filename="Controller/Admin/MailTestController.php" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="buildForm" signature="MailTest $mailTest" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -322,7 +322,7 @@
                 <line number="29" hits="1"/>
               </lines>
             </method>
-            <method name="mailTest" signature="Request $request, Mail $mail, Application $application, Parameter $parameter" line-rate="0.75" branch-rate="0.7" complexity="5">
+            <method name="mailTest" signature="Request $request, Mail $mail, Application $application, Parameter $parameter" line-rate="1" branch-rate="1" complexity="5">
               <lines>
                 <line number="35" hits="1"/>
                 <line number="36" hits="1"/>
@@ -336,13 +336,13 @@
                 <line number="45" hits="1"/>
                 <line number="46" hits="1"/>
                 <line number="48" hits="1"/>
-                <line number="49" hits="0"/>
-                <line number="50" hits="0"/>
-                <line number="51" hits="0"/>
-                <line number="52" hits="0"/>
-                <line number="53" hits="0"/>
+                <line number="49" hits="1"/>
+                <line number="50" hits="1"/>
+                <line number="51" hits="1"/>
+                <line number="52" hits="1"/>
+                <line number="53" hits="1"/>
                 <line number="56" hits="1"/>
-                <line number="57" hits="0"/>
+                <line number="57" hits="1"/>
                 <line number="59" hits="1"/>
                 <line number="62" hits="1"/>
                 <line number="63" hits="1"/>
@@ -367,13 +367,13 @@
             <line number="45" hits="1"/>
             <line number="46" hits="1"/>
             <line number="48" hits="1"/>
-            <line number="49" hits="0"/>
-            <line number="50" hits="0"/>
-            <line number="51" hits="0"/>
-            <line number="52" hits="0"/>
-            <line number="53" hits="0"/>
+            <line number="49" hits="1"/>
+            <line number="50" hits="1"/>
+            <line number="51" hits="1"/>
+            <line number="52" hits="1"/>
+            <line number="53" hits="1"/>
             <line number="56" hits="1"/>
-            <line number="57" hits="0"/>
+            <line number="57" hits="1"/>
             <line number="59" hits="1"/>
             <line number="62" hits="1"/>
             <line number="63" hits="1"/>
@@ -764,18 +764,18 @@
             </method>
             <method name="getName" signature="" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="34" hits="2"/>
+                <line number="34" hits="3"/>
               </lines>
             </method>
             <method name="setName" signature="string $name" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="39" hits="2"/>
-                <line number="41" hits="2"/>
+                <line number="39" hits="1"/>
+                <line number="41" hits="1"/>
               </lines>
             </method>
             <method name="getValue" signature="" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="46" hits="2"/>
+                <line number="46" hits="3"/>
               </lines>
             </method>
             <method name="setValue" signature="string $value" line-rate="1" branch-rate="1" complexity="1">
@@ -787,10 +787,10 @@
           </methods>
           <lines>
             <line number="29" hits="0"/>
-            <line number="34" hits="2"/>
-            <line number="39" hits="2"/>
-            <line number="41" hits="2"/>
-            <line number="46" hits="2"/>
+            <line number="34" hits="3"/>
+            <line number="39" hits="1"/>
+            <line number="41" hits="1"/>
+            <line number="46" hits="3"/>
             <line number="51" hits="2"/>
             <line number="53" hits="2"/>
           </lines>
@@ -2416,9 +2416,9 @@
         </class>
       </classes>
     </package>
-    <package name="Service/Mail.php" line-rate="0.8" branch-rate="0.71428571428571" complexity="7">
+    <package name="Service/Mail.php" line-rate="1" branch-rate="0.92857142857143" complexity="7">
       <classes>
-        <class name="App\Service\Mail" filename="Service/Mail.php" line-rate="0.8" branch-rate="0.71428571428571" complexity="7">
+        <class name="App\Service\Mail" filename="Service/Mail.php" line-rate="1" branch-rate="0.92857142857143" complexity="7">
           <methods>
             <method name="__construct" signature="MailerInterface $mailer, Application $application, Parameter $parameter, LoggerInterface $applicationLogger" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2428,7 +2428,7 @@
                 <line number="29" hits="1"/>
               </lines>
             </method>
-            <method name="sendMail" signature="string|array $to, string $subject, string $body" line-rate="0.76923076923077" branch-rate="0.69230769230769" complexity="6">
+            <method name="sendMail" signature="string|array $to, string $subject, string $body" line-rate="1" branch-rate="0.92307692307692" complexity="6">
               <lines>
                 <line number="46" hits="1"/>
                 <line number="47" hits="1"/>
@@ -2450,12 +2450,12 @@
                 <line number="66" hits="1"/>
                 <line number="67" hits="1"/>
                 <line number="69" hits="1"/>
-                <line number="70" hits="0"/>
-                <line number="71" hits="0"/>
-                <line number="72" hits="0"/>
-                <line number="73" hits="0"/>
-                <line number="74" hits="0"/>
-                <line number="75" hits="0"/>
+                <line number="70" hits="1"/>
+                <line number="71" hits="1"/>
+                <line number="72" hits="1"/>
+                <line number="73" hits="1"/>
+                <line number="74" hits="1"/>
+                <line number="75" hits="1"/>
               </lines>
             </method>
           </methods>
@@ -2484,12 +2484,12 @@
             <line number="66" hits="1"/>
             <line number="67" hits="1"/>
             <line number="69" hits="1"/>
-            <line number="70" hits="0"/>
-            <line number="71" hits="0"/>
-            <line number="72" hits="0"/>
-            <line number="73" hits="0"/>
-            <line number="74" hits="0"/>
-            <line number="75" hits="0"/>
+            <line number="70" hits="1"/>
+            <line number="71" hits="1"/>
+            <line number="72" hits="1"/>
+            <line number="73" hits="1"/>
+            <line number="74" hits="1"/>
+            <line number="75" hits="1"/>
           </lines>
         </class>
       </classes>

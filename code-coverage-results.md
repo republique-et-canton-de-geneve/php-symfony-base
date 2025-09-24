@@ -1,4 +1,4 @@
-![Code Coverage](https://img.shields.io/badge/Code%20Coverage-89%25-success?style=flat)
+![Code Coverage](https://img.shields.io/badge/Code%20Coverage-90%25-success?style=flat)
 
 Package | Line Rate | Branch Rate | Health
 -------- | --------- | ----------- | ------
@@ -6,7 +6,7 @@ Application.php | 94% | 86% | ✔
 BaseParameter.php | 95% | 91% | ✔
 Controller/Admin/AdminController.php | 100% | 100% | ✔
 Controller/Admin/BaseAdminController.php | 100% | 100% | ✔
-Controller/Admin/MailTestController.php | 78% | 73% | ➖
+Controller/Admin/MailTestController.php | 100% | 100% | ✔
 Controller/Admin/ParameterController.php | 99% | 96% | ✔
 Controller/BaseController.php | 100% | 100% | ✔
 Controller/BaseFrontController.php | 100% | 100% | ✔
@@ -40,8 +40,8 @@ Service/ApplicationInfo/Output/SymfonyOutput.php | 100% | 100% | ✔
 Service/ApplicationInfo/Php.php | 100% | 100% | ✔
 Service/ApplicationInfo/SondePhp.php | 100% | 100% | ✔
 Service/ApplicationInfo/Symfony.php | 100% | 100% | ✔
-Service/Mail.php | 80% | 71% | ✔
+Service/Mail.php | 100% | 93% | ✔
 Twig/Extension.php | 85% | 71% | ✔
-**Summary** | **89%** (738 / 829) | **72%** (310 / 433) | ✔
+**Summary** | **90%** (750 / 829) | **73%** (316 / 433) | ✔
 
 _Minimum allowed line rate is `60%`_
