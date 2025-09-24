@@ -23,7 +23,7 @@ class Parameter extends BaseParameter
         'pour les autres serveurs les e-amil sont toujours redirigés',
         type: Param::RADIO
     )]
-    public string $smtpForceRedirection = '1';
+    public string $smtpForceRedirection = '0';
 
     #[Param(
         description: 'Adresse e-mail de redirection, ' .
