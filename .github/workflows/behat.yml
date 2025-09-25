@@ -61,11 +61,16 @@ jobs:
           output: both
           thresholds: '60 80'
 
+      - name: Run PHPCoverageBadge
+        run: composer require --dev jaschilz/php-coverage-badger
+        run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
+
       - name: archive
         run: git config --local user.name actions-user
       - run: git config --local user.email "actions@github.com" 
       - run: git add code-coverage-results.md
       - run: git add coverage/.
+      - run: git add coverage/coverage.svg
       - run: git commit -m "chore':' update code coverage results"
       
       - name: Push changes # push the output folder to your repo
