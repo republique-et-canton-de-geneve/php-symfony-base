@@ -63,7 +63,7 @@ jobs:
 
       - name: Run PHPCoverageBadge
         run: composer require --dev jaschilz/php-coverage-badger
-        run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
+      - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
 
       - name: archive
         run: git config --local user.name actions-user
