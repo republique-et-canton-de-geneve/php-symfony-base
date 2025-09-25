@@ -78,10 +78,17 @@ jobs:
           flags: gm
   
 
+      - name: Run PHPCoverageBadge
+        run: composer require --dev jaschilz/php-coverage-badger
+        run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
+
+
+
+
       - name: Make code coverage badge
         uses: timkrase/phpunit-coverage-badge@v1.2.1
         with:
-          coverage_badge_path: coverage/coverage.svg
+          coverage_badge_path: coverage/coverage1.svg
           push_badge: false
           report: coverage/clover.xml
           report_type: clover
@@ -104,6 +111,7 @@ jobs:
         run: git config --local user.name actions-user
       - run: git config --local user.email "actions@github.com" 
       - run: git add coverage/coverage.svg
+      - run: git add coverage/coverage1.svg
       - run: git add code-coverage-results.md
       - run: git add coverage/.
       - run: git commit -m "chore':' update code coverage results"
