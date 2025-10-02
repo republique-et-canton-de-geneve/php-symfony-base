@@ -67,8 +67,6 @@ jobs:
             # mandatory
             -Dsonar.projectKey=republique-et-canton-de-geneve_php-symfony-base
             -Dsonar.organization=etat-de-geneve-github
-            -Dsonar.php.phpstan.reportPaths=phpstan-report.json
-            -Dsonar.php.coverage.reportPaths=coverage/clover.xml
             -X
             # Comma-separated paths to directories containing main source files.
             # optional, default is project base directory
