@@ -162,8 +162,7 @@ abstract class Lib
             $this->output->line('Modification max_execution_time à 300 sec : ');
             $result = set_time_limit(300);
             if (!$result) {
-                $this->output->
-                line($this->output->ko("Il n'est pas possible de changer max_execution_time à 300 sec"));
+                $this->output->line($this->output->ko("Il n'est pas possible de changer max_execution_time à 300 sec"));
             }
             $this->output->line('Nouvelle valeur de max_execution_time : ' . $this->output->filter($executionTime));
         }
@@ -175,8 +174,7 @@ abstract class Lib
         }
 
         $this->output->line('Time zone : ' . $timezone);
-        $this->output->
-        line('Date locale ' . date('d.m.Y H:i:s') . ' décalage horaire : ' . date('P  e'));
+        $this->output->line('Date locale ' . date('d.m.Y H:i:s') . ' décalage horaire : ' . date('P  e'));
         $this->output->line('Date GMT : ' . gmdate('d.m.Y H:i:s'));
     }
 
@@ -217,29 +215,30 @@ abstract class Lib
                 $this->output->line('Création du du répertoire temporaire');
                 mkdir($this->tmpDirectory, 0777, true);
             }
-            if (!is_file($this->tmpFileTest)) {
-                file_put_contents($this->tmpFileTest, 'TESTCONTENT');
-                if ('' !== $this->tmpFileTest && '0' !== $this->tmpFileTest) {
-                    $this->output->line('Ecriture de fichier : ' . $this->output->ok('OK'));
-                    $filecontent = file_get_contents($this->tmpFileTest);
-                    if ('TESTCONTENT' == $filecontent) {
-                        $this->output->line('Lecture de fichier : ' . $this->output->ok('OK'));
-                        unlink($this->tmpFileTest);
-                        if (!is_file($this->tmpFileTest)) {
-                            $this->output->line('Suppression de fichier : ' . $this->output->ok('OK'));
-                            $this->output->line('Répertoire temporaire de cache : ' . $this->output->ok('OK'));
-                        } else {
-                            $this->output->erreur(
-                                'Impossible de supprimer un fichier dans le répertoire temporaire'
-                            );
-                        }
+            if (is_file($this->tmpFileTest)) {
+                unlink($this->tmpFileTest);
+            }
+            if (file_put_contents($this->tmpFileTest, 'TESTCONTENT')) {
+                $this->output->line('Ecriture de fichier : ' . $this->output->ok('OK'));
+                $filecontent = file_get_contents($this->tmpFileTest);
+                if ('TESTCONTENT' == $filecontent) {
+                    $this->output->line('Lecture de fichier : ' . $this->output->ok('OK'));
+                    unlink($this->tmpFileTest);
+                    if (!is_file($this->tmpFileTest)) {
+                        $this->output->line('Suppression de fichier : ' . $this->output->ok('OK'));
+                        $this->output->line('Répertoire temporaire de cache : ' . $this->output->ok('OK'));
                     } else {
-                        $this->output->erreur('Impossible de lire un fichier dans le répertoire temporaire');
+                        $this->output->erreur(
+                            'Impossible de supprimer un fichier dans le répertoire temporaire'
+                        );
                     }
                 } else {
-                    $this->output->erreur("Impossible d'écrire un fichier dans le répertoire temporaire");
+                    $this->output->erreur('Impossible de lire un fichier dans le répertoire temporaire');
                 }
+            } else {
+                $this->output->erreur("Impossible d'écrire un fichier dans le répertoire temporaire");
             }
+
 
             $this->output->line('Test la présence du répertoire des fichiers de log');
             if (!realpath($this->logDirectory)) {

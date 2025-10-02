@@ -30,8 +30,6 @@ class Action
      */
     public static function getActions(): array
     {
-        $reflectionClass = new ReflectionClass(self::class);
-
-        return $reflectionClass->getConstants();
+        return (new ReflectionClass(self::class))->getConstants();
     }
 }

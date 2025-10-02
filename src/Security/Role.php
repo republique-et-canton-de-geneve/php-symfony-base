@@ -20,8 +20,6 @@ class Role
      */
     public static function getRoles(): array
     {
-        $oClass = new ReflectionClass(__CLASS__);
-
-        return $oClass->getConstants();
+        return (new ReflectionClass(__CLASS__))->getConstants();
     }
 }
