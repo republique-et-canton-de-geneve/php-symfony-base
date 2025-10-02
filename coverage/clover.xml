@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1759416893">
-  <project timestamp="1759416893" name="">
+<coverage generated="1759417053">
+  <project timestamp="1759417053" name="">
     <package name="App">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Application.php">
         <class name="App\Application" namespace="App">
@@ -1005,17 +1005,18 @@
         <line num="233" type="stmt" count="0"/>
         <line num="236" type="stmt" count="0"/>
         <line num="239" type="stmt" count="0"/>
+        <line num="242" type="stmt" count="1"/>
         <line num="243" type="stmt" count="1"/>
-        <line num="244" type="stmt" count="1"/>
-        <line num="245" type="stmt" count="0"/>
-        <line num="248" type="stmt" count="1"/>
+        <line num="244" type="stmt" count="0"/>
+        <line num="247" type="stmt" count="1"/>
+        <line num="248" type="stmt" count="0"/>
         <line num="249" type="stmt" count="0"/>
-        <line num="250" type="stmt" count="0"/>
-        <line num="252" type="stmt" count="1"/>
+        <line num="251" type="stmt" count="1"/>
+        <line num="252" type="stmt" count="0"/>
         <line num="253" type="stmt" count="0"/>
-        <line num="254" type="stmt" count="0"/>
-        <line num="258" type="method" name="testDB" visibility="public" complexity="2" crap="2.50" count="1"/>
-        <line num="260" type="stmt" count="1"/>
+        <line num="257" type="method" name="testDB" visibility="public" complexity="2" crap="2.50" count="1"/>
+        <line num="259" type="stmt" count="1"/>
+        <line num="261" type="stmt" count="1"/>
         <line num="262" type="stmt" count="1"/>
         <line num="263" type="stmt" count="1"/>
         <line num="264" type="stmt" count="1"/>
@@ -1025,10 +1026,9 @@
         <line num="268" type="stmt" count="1"/>
         <line num="269" type="stmt" count="1"/>
         <line num="270" type="stmt" count="1"/>
-        <line num="271" type="stmt" count="1"/>
+        <line num="271" type="stmt" count="0"/>
         <line num="272" type="stmt" count="0"/>
-        <line num="273" type="stmt" count="0"/>
-        <metrics loc="279" ncloc="270" classes="1" methods="9" coveredmethods="0" conditionals="98" coveredconditionals="58" statements="147" coveredstatements="102" elements="254" coveredelements="160"/>
+        <metrics loc="278" ncloc="269" classes="1" methods="9" coveredmethods="0" conditionals="98" coveredconditionals="58" statements="147" coveredstatements="102" elements="254" coveredelements="160"/>
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Php.php">
         <class name="App\Service\ApplicationInfo\Php" namespace="App\Service\ApplicationInfo">
@@ -1232,6 +1232,6 @@
         <metrics loc="127" ncloc="106" classes="1" methods="13" coveredmethods="9" conditionals="17" coveredconditionals="12" statements="33" coveredstatements="28" elements="63" coveredelements="49"/>
       </file>
     </package>
-    <metrics files="40" loc="2660" ncloc="2353" classes="36" methods="143" coveredmethods="107" conditionals="432" coveredconditionals="314" statements="825" coveredstatements="746" elements="1400" coveredelements="1167"/>
+    <metrics files="40" loc="2659" ncloc="2352" classes="36" methods="143" coveredmethods="107" conditionals="432" coveredconditionals="314" statements="825" coveredstatements="746" elements="1400" coveredelements="1167"/>
   </project>
 </coverage>
