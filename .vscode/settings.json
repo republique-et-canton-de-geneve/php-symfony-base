@@ -1,0 +1,29 @@
+{
+    "phpstan.singleFileMode": false,
+    "phpstan.binPath": "/root/.composer/vendor/bin/phpstan",
+    "phpstan.binCommand": [],
+    "phpstan.configFile": "/home/user/www/php-symfony-base/htdocs/phpstan.dist.neon",
+    "phpstan.paths": {
+
+        "/home/user/www/symfony-demo": "/var/www/php-symfony-base"
+    },
+    "phpstan.dockerContainerName": "php83",
+    "phpstan.rootDir": "/home/user/www/php-symfony-base",
+    "phpstan.options": [],
+    "phpstan.enableStatusBar": true,
+    "phpstan.memoryLimit": "2048M",
+    "phpstan.enabled": true,
+    "phpstan.projectTimeout": 300000,
+    "phpstan.timeout": 300000,
+    "phpstan.suppressTimeoutMessage": false,
+    "phpstan.showProgress": true,
+    "phpstan.showTypeOnHover": true,
+    "phpstan.enableLanguageServer": false,
+    "phpstan.ignoreErrors": [
+        "Xdebug: .*"
+    ],
+    "phpstan.suppressWorkspaceMessage": false,
+    "phpstan.pro": false,
+    "phpstan.tmpDir": "",
+    "phpstan.checkValidity": false
+}
