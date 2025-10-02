@@ -1,4 +1,4 @@
-name: behat and code coverage
+name: behat
 on: push
 jobs:
   behat:
