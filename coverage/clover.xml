@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1759410421">
-  <project timestamp="1759410421" name="">
+<coverage generated="1759416893">
+  <project timestamp="1759416893" name="">
     <package name="App">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Application.php">
         <class name="App\Application" namespace="App">
@@ -688,12 +688,11 @@
     <package name="App\Security">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/Action.php">
         <class name="App\Security\Action" namespace="App\Security">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
         </class>
         <line num="31" type="method" name="getActions" visibility="public" complexity="1" crap="1" count="3"/>
         <line num="33" type="stmt" count="3"/>
-        <line num="35" type="stmt" count="3"/>
-        <metrics loc="38" ncloc="25" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        <metrics loc="36" ncloc="23" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/ActionVoter.php">
         <class name="App\Security\ActionVoter" namespace="App\Security">
@@ -823,12 +822,11 @@
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/Role.php">
         <class name="App\Security\Role" namespace="App\Security">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
         </class>
         <line num="21" type="method" name="getRoles" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="23" type="stmt" count="1"/>
-        <line num="25" type="stmt" count="1"/>
-        <metrics loc="28" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        <metrics loc="26" ncloc="19" classes="1" methods="1" coveredmethods="1" conditionals="1" coveredconditionals="1" statements="1" coveredstatements="1" elements="3" coveredelements="3"/>
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Security/User.php">
         <class name="App\Security\User" namespace="App\Security">
@@ -872,7 +870,7 @@
     <package name="App\Service\ApplicationInfo">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Lib.php">
         <class name="App\Service\ApplicationInfo\Lib" namespace="App\Service\ApplicationInfo">
-          <metrics complexity="47" methods="9" coveredmethods="0" conditionals="99" coveredconditionals="60" statements="149" coveredstatements="104" elements="257" coveredelements="164"/>
+          <metrics complexity="46" methods="9" coveredmethods="0" conditionals="98" coveredconditionals="58" statements="147" coveredstatements="102" elements="254" coveredelements="160"/>
         </class>
         <line num="21" type="method" name="__construct" visibility="public" complexity="3" crap="4.12" count="1"/>
         <line num="23" type="stmt" count="1"/>
@@ -962,38 +960,37 @@
         <line num="163" type="stmt" count="0"/>
         <line num="164" type="stmt" count="0"/>
         <line num="165" type="stmt" count="0"/>
-        <line num="166" type="stmt" count="0"/>
-        <line num="168" type="stmt" count="0"/>
+        <line num="167" type="stmt" count="0"/>
+        <line num="170" type="stmt" count="1"/>
         <line num="171" type="stmt" count="1"/>
-        <line num="172" type="stmt" count="1"/>
-        <line num="174" type="stmt" count="0"/>
+        <line num="173" type="stmt" count="0"/>
+        <line num="176" type="stmt" count="1"/>
         <line num="177" type="stmt" count="1"/>
         <line num="178" type="stmt" count="1"/>
-        <line num="179" type="stmt" count="1"/>
-        <line num="180" type="stmt" count="1"/>
-        <line num="183" type="method" name="resetCache" visibility="public" complexity="4" crap="10.75" count="1"/>
+        <line num="181" type="method" name="resetCache" visibility="public" complexity="4" crap="10.75" count="1"/>
+        <line num="183" type="stmt" count="1"/>
         <line num="185" type="stmt" count="1"/>
-        <line num="187" type="stmt" count="1"/>
+        <line num="186" type="stmt" count="1"/>
         <line num="188" type="stmt" count="1"/>
-        <line num="190" type="stmt" count="1"/>
-        <line num="191" type="stmt" count="1"/>
-        <line num="192" type="stmt" count="0"/>
-        <line num="194" type="stmt" count="1"/>
-        <line num="197" type="stmt" count="0"/>
+        <line num="189" type="stmt" count="1"/>
+        <line num="190" type="stmt" count="0"/>
+        <line num="192" type="stmt" count="1"/>
+        <line num="195" type="stmt" count="0"/>
+        <line num="197" type="stmt" count="1"/>
         <line num="199" type="stmt" count="1"/>
-        <line num="201" type="stmt" count="1"/>
-        <line num="202" type="stmt" count="1"/>
-        <line num="203" type="stmt" count="0"/>
-        <line num="204" type="stmt" count="0"/>
-        <line num="208" type="method" name="testDirectory" visibility="public" complexity="11" crap="129.51" count="1"/>
-        <line num="210" type="stmt" count="1"/>
+        <line num="200" type="stmt" count="1"/>
+        <line num="201" type="stmt" count="0"/>
+        <line num="202" type="stmt" count="0"/>
+        <line num="206" type="method" name="testDirectory" visibility="public" complexity="10" crap="107.69" count="1"/>
+        <line num="208" type="stmt" count="1"/>
+        <line num="209" type="stmt" count="1"/>
         <line num="211" type="stmt" count="1"/>
-        <line num="213" type="stmt" count="1"/>
-        <line num="214" type="stmt" count="0"/>
-        <line num="216" type="stmt" count="1"/>
-        <line num="217" type="stmt" count="0"/>
-        <line num="218" type="stmt" count="0"/>
-        <line num="220" type="stmt" count="1"/>
+        <line num="212" type="stmt" count="0"/>
+        <line num="214" type="stmt" count="1"/>
+        <line num="215" type="stmt" count="0"/>
+        <line num="216" type="stmt" count="0"/>
+        <line num="218" type="stmt" count="1"/>
+        <line num="219" type="stmt" count="0"/>
         <line num="221" type="stmt" count="1"/>
         <line num="222" type="stmt" count="1"/>
         <line num="223" type="stmt" count="1"/>
@@ -1003,23 +1000,23 @@
         <line num="227" type="stmt" count="1"/>
         <line num="228" type="stmt" count="1"/>
         <line num="229" type="stmt" count="1"/>
-        <line num="230" type="stmt" count="1"/>
+        <line num="231" type="stmt" count="0"/>
         <line num="232" type="stmt" count="0"/>
         <line num="233" type="stmt" count="0"/>
-        <line num="234" type="stmt" count="0"/>
-        <line num="237" type="stmt" count="0"/>
-        <line num="240" type="stmt" count="0"/>
+        <line num="236" type="stmt" count="0"/>
+        <line num="239" type="stmt" count="0"/>
+        <line num="243" type="stmt" count="1"/>
         <line num="244" type="stmt" count="1"/>
-        <line num="245" type="stmt" count="1"/>
-        <line num="246" type="stmt" count="0"/>
-        <line num="249" type="stmt" count="1"/>
+        <line num="245" type="stmt" count="0"/>
+        <line num="248" type="stmt" count="1"/>
+        <line num="249" type="stmt" count="0"/>
         <line num="250" type="stmt" count="0"/>
-        <line num="251" type="stmt" count="0"/>
-        <line num="253" type="stmt" count="1"/>
+        <line num="252" type="stmt" count="1"/>
+        <line num="253" type="stmt" count="0"/>
         <line num="254" type="stmt" count="0"/>
-        <line num="255" type="stmt" count="0"/>
-        <line num="259" type="method" name="testDB" visibility="public" complexity="2" crap="2.50" count="1"/>
-        <line num="261" type="stmt" count="1"/>
+        <line num="258" type="method" name="testDB" visibility="public" complexity="2" crap="2.50" count="1"/>
+        <line num="260" type="stmt" count="1"/>
+        <line num="262" type="stmt" count="1"/>
         <line num="263" type="stmt" count="1"/>
         <line num="264" type="stmt" count="1"/>
         <line num="265" type="stmt" count="1"/>
@@ -1029,10 +1026,9 @@
         <line num="269" type="stmt" count="1"/>
         <line num="270" type="stmt" count="1"/>
         <line num="271" type="stmt" count="1"/>
-        <line num="272" type="stmt" count="1"/>
+        <line num="272" type="stmt" count="0"/>
         <line num="273" type="stmt" count="0"/>
-        <line num="274" type="stmt" count="0"/>
-        <metrics loc="280" ncloc="271" classes="1" methods="9" coveredmethods="0" conditionals="99" coveredconditionals="60" statements="149" coveredstatements="104" elements="257" coveredelements="164"/>
+        <metrics loc="279" ncloc="270" classes="1" methods="9" coveredmethods="0" conditionals="98" coveredconditionals="58" statements="147" coveredstatements="102" elements="254" coveredelements="160"/>
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Service/ApplicationInfo/Php.php">
         <class name="App\Service\ApplicationInfo\Php" namespace="App\Service\ApplicationInfo">
@@ -1236,6 +1232,6 @@
         <metrics loc="127" ncloc="106" classes="1" methods="13" coveredmethods="9" conditionals="17" coveredconditionals="12" statements="33" coveredstatements="28" elements="63" coveredelements="49"/>
       </file>
     </package>
-    <metrics files="40" loc="2665" ncloc="2358" classes="36" methods="143" coveredmethods="107" conditionals="433" coveredconditionals="316" statements="829" coveredstatements="750" elements="1405" coveredelements="1173"/>
+    <metrics files="40" loc="2660" ncloc="2353" classes="36" methods="143" coveredmethods="107" conditionals="432" coveredconditionals="314" statements="825" coveredstatements="746" elements="1400" coveredelements="1167"/>
   </project>
 </coverage>
