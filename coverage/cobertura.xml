@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.90424242424242" branch-rate="0.72685185185185" lines-covered="746" lines-valid="825" branches-covered="314" branches-valid="432" complexity="272" version="0.4" timestamp="1759416893">
+<coverage line-rate="0.90424242424242" branch-rate="0.72685185185185" lines-covered="746" lines-valid="825" branches-covered="314" branches-valid="432" complexity="272" version="0.4" timestamp="1759417053">
   <sources>
     <source>/home/runner/work/php-symfony-base/php-symfony-base/src</source>
   </sources>
@@ -1982,20 +1982,21 @@
                 <line number="233" hits="0"/>
                 <line number="236" hits="0"/>
                 <line number="239" hits="0"/>
+                <line number="242" hits="1"/>
                 <line number="243" hits="1"/>
-                <line number="244" hits="1"/>
-                <line number="245" hits="0"/>
-                <line number="248" hits="1"/>
+                <line number="244" hits="0"/>
+                <line number="247" hits="1"/>
+                <line number="248" hits="0"/>
                 <line number="249" hits="0"/>
-                <line number="250" hits="0"/>
-                <line number="252" hits="1"/>
+                <line number="251" hits="1"/>
+                <line number="252" hits="0"/>
                 <line number="253" hits="0"/>
-                <line number="254" hits="0"/>
               </lines>
             </method>
             <method name="testDB" signature="string $dsn, string $sql, string $dbname" line-rate="0.84615384615385" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="260" hits="1"/>
+                <line number="259" hits="1"/>
+                <line number="261" hits="1"/>
                 <line number="262" hits="1"/>
                 <line number="263" hits="1"/>
                 <line number="264" hits="1"/>
@@ -2005,9 +2006,8 @@
                 <line number="268" hits="1"/>
                 <line number="269" hits="1"/>
                 <line number="270" hits="1"/>
-                <line number="271" hits="1"/>
+                <line number="271" hits="0"/>
                 <line number="272" hits="0"/>
-                <line number="273" hits="0"/>
               </lines>
             </method>
           </methods>
@@ -2137,16 +2137,17 @@
             <line number="233" hits="0"/>
             <line number="236" hits="0"/>
             <line number="239" hits="0"/>
+            <line number="242" hits="1"/>
             <line number="243" hits="1"/>
-            <line number="244" hits="1"/>
-            <line number="245" hits="0"/>
-            <line number="248" hits="1"/>
+            <line number="244" hits="0"/>
+            <line number="247" hits="1"/>
+            <line number="248" hits="0"/>
             <line number="249" hits="0"/>
-            <line number="250" hits="0"/>
-            <line number="252" hits="1"/>
+            <line number="251" hits="1"/>
+            <line number="252" hits="0"/>
             <line number="253" hits="0"/>
-            <line number="254" hits="0"/>
-            <line number="260" hits="1"/>
+            <line number="259" hits="1"/>
+            <line number="261" hits="1"/>
             <line number="262" hits="1"/>
             <line number="263" hits="1"/>
             <line number="264" hits="1"/>
@@ -2156,9 +2157,8 @@
             <line number="268" hits="1"/>
             <line number="269" hits="1"/>
             <line number="270" hits="1"/>
-            <line number="271" hits="1"/>
+            <line number="271" hits="0"/>
             <line number="272" hits="0"/>
-            <line number="273" hits="0"/>
           </lines>
         </class>
       </classes>
