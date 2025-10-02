@@ -1,3 +1,4 @@
+### SONAR Qube
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=republique-et-canton-de-geneve_php-symfony-base)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 [![php-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
@@ -6,8 +7,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=coverage)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 
-<br>
-
+### Test
 [![twig-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml)
 [![phpstan](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/phpstan.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/phpstan.yml)
 [![rector](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/rector.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/rector.yml)
