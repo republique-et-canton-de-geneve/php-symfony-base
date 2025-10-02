@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.90470446320869" branch-rate="0.729792147806" lines-covered="750" lines-valid="829" branches-covered="316" branches-valid="433" complexity="273" version="0.4" timestamp="1759391912">
+<coverage line-rate="0.90470446320869" branch-rate="0.729792147806" lines-covered="750" lines-valid="829" branches-covered="316" branches-valid="433" complexity="273" version="0.4" timestamp="1759392166">
   <sources>
     <source>/home/runner/work/php-symfony-base/php-symfony-base/src</source>
   </sources>
