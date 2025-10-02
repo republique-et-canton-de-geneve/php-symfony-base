@@ -131,7 +131,8 @@ abstract class Lib
         $this->output->line('Version du PHP : ' . $info);
 
         $this->output->line('Valeur par defaut du umask : ' . $this->output->filter(decoct(umask())));
-        umask(0);
+        $mask=0;
+        umask($mask);
         $this->output->line('Valeur du umask si mis à 0 : ' . $this->output->filter(decoct(umask())));
 
         $memSize = ini_get('memory_limit');
