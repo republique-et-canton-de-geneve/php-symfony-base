@@ -121,6 +121,6 @@ class Extension extends AbstractExtension
      */
     public function getPageInfoId(): string
     {
-        return hash("sha512",$this->parameter->pageInfo);
+        return hash('sha512', $this->parameter->pageInfo);
     }
 }

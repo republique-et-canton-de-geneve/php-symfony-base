@@ -239,7 +239,6 @@ abstract class Lib
                 $this->output->erreur("Impossible d'écrire un fichier dans le répertoire temporaire");
             }
 
-
             $this->output->line('Test la présence du répertoire des fichiers de log');
             if (!realpath($this->logDirectory)) {
                 $this->output->erreur("La configuration du répertoire des fichiers de log n'est pas définie");
