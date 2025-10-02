@@ -32,7 +32,7 @@ Security/EnvAuthenticator.php | 81% | 75% | ✔
 Security/EventsListener.php | 96% | 5% | ✔
 Security/Role.php | 100% | 100% | ✔
 Security/User.php | 83% | 88% | ✔
-Service/ApplicationInfo/Lib.php | 69% | 59% | ➖
+Service/ApplicationInfo/Lib.php | 70% | 59% | ➖
 Service/ApplicationInfo/Output/InterfaceOutput.php | 0% | 0% | ❌
 Service/ApplicationInfo/Output/PhpOutput.php | 100% | 100% | ✔
 Service/ApplicationInfo/Output/SondeOutput.php | 60% | 67% | ➖
@@ -42,6 +42,6 @@ Service/ApplicationInfo/SondePhp.php | 100% | 100% | ✔
 Service/ApplicationInfo/Symfony.php | 100% | 100% | ✔
 Service/Mail.php | 100% | 93% | ✔
 Twig/Extension.php | 85% | 71% | ✔
-**Summary** | **90%** (746 / 825) | **73%** (314 / 432) | ✔
+**Summary** | **90%** (747 / 826) | **73%** (314 / 432) | ✔
 
 _Minimum allowed line rate is `60%`_
