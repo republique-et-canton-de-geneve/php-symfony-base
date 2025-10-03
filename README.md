@@ -14,6 +14,10 @@
 [![symfony](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/symfony.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/symfony.yml)
 [![behat and code coverage](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/behat.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/behat.yml)
 
+
+[Code coverage detail report](https://republique-et-canton-de-geneve.github.io/php-symfony-base/coverage/coverage-html/index.html)
+
+
 # Application Template – Symfony Framework 7.x
 
 
