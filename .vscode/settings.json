@@ -5,7 +5,7 @@
     "phpstan.configFile": "/home/user/www/php-symfony-base/htdocs/phpstan.dist.neon",
     "phpstan.paths": {
 
-        "/home/user/www/symfony-demo": "/var/www/php-symfony-base"
+        "/home/user/www/php-symfony-base": "/var/www/php-symfony-base"
     },
     "phpstan.dockerContainerName": "php83",
     "phpstan.rootDir": "/home/user/www/php-symfony-base",
