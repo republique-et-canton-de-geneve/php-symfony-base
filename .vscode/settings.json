@@ -1,6 +1,6 @@
 {
     "phpstan.singleFileMode": false,
-    "phpstan.binPath": "/root/.composer/vendor/bin/phpstan",
+    "phpstan.binPath": "/home/user/www/php-symfony-base/vendor/bin/phpstan",
     "phpstan.binCommand": [],
     "phpstan.configFile": "/home/user/www/php-symfony-base/htdocs/phpstan.dist.neon",
     "phpstan.paths": {
