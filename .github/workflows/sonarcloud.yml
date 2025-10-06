@@ -30,9 +30,9 @@ name: SonarCloud analysis
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main","DEV" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main","DEV" ]
   workflow_dispatch:
   workflow_run:
     workflows: [behat]
@@ -53,10 +53,12 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.        
 
-      - name: Download a single artifact
+      - name: Download coverage clover.xml file
         uses: actions/download-artifact@v5
         with:
           name: clover-xml
+          github-token: ${{ secrets.GH_PAT }} # If the repository is private, you need to create a Personal Access Token (PAT) with "repo" scope and add it to the secrets of this repo (Settings > Secrets > Actions > add new repository secret)
+          
 
       - name: Analyze with SonarCloud
 
