@@ -58,6 +58,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: clover-xml
+          run_id: ${{ github.event.workflow_run.id }}
           github-token: ${{ github.token }}
 
 
