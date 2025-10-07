@@ -59,7 +59,7 @@ jobs:
         with:
           name: clover-xml
           run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
 
       - name: Analyze with SonarCloud
