@@ -51,7 +51,7 @@ jobs:
       - name: Archive coverage clover.xml file
         uses: actions/upload-artifact@v4
         with:
-          name: myartifact
+          name: clover-xml
           path: coverage/clover.xml
 
 
