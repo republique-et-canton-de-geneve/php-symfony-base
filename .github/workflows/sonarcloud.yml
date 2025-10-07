@@ -30,6 +30,7 @@
 name: SonarCloud analysis
 
 on:
+  push:
   # push:
   #   branches: [ "main","DEV" ]
   # pull_request:
@@ -58,7 +59,7 @@ jobs:
       - name: Download coverage clover.xml file
         uses: actions/download-artifact@v4
         with:
-          name: myartifact
+          name: clover-xml
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
