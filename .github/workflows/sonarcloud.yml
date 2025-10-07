@@ -30,11 +30,6 @@
 name: SonarCloud analysis
 
 on:
-  push:
-  # push:
-  #   branches: [ "main","DEV" ]
-  # pull_request:
-  #   branches: [ "main","DEV" ]
   workflow_run:
     workflows: [behat]
     types:
@@ -46,7 +41,7 @@ permissions:
 
 jobs:
   Analysis:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
