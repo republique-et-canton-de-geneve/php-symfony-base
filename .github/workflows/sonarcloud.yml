@@ -57,7 +57,7 @@ jobs:
       - name: Download coverage clover.xml file
         uses: actions/download-artifact@v5
         with:
-          name: clover-xml
+          name: clover
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
