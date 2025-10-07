@@ -41,6 +41,7 @@ on:
 
 permissions:
   pull-requests: read # allows SonarCloud to decorate PRs with analysis results
+  actions: read
 
 jobs:
   Analysis:
@@ -57,8 +58,8 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: clover-xml
-          github-token: ${{ secrets.GH_PAT }} # If the repository is private, you need to create a Personal Access Token (PAT) with "repo" scope and add it to the secrets of this repo (Settings > Secrets > Actions > add new repository secret)
-          
+          github-token: ${{ github.token }}
+
 
       - name: Analyze with SonarCloud
 
