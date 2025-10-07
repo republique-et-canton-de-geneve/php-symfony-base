@@ -29,11 +29,10 @@
 name: SonarCloud analysis
 
 on:
-  push:
-    branches: [ "main","DEV" ]
-  pull_request:
-    branches: [ "main","DEV" ]
-  workflow_dispatch:
+  # push:
+  #   branches: [ "main","DEV" ]
+  # pull_request:
+  #   branches: [ "main","DEV" ]
   workflow_run:
     workflows: [behat]
     types:
@@ -61,7 +60,6 @@ jobs:
           name: clover
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
 
       - name: Analyze with SonarCloud
 
