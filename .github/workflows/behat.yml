@@ -101,7 +101,7 @@ jobs:
       contents: write           
     runs-on: ubuntu-latest
     steps:
-      needs: behat
-      name: call sonarcloud2
-      uses: ./.github/workflows/sonarcloud2.yml
+      - name: call sonarcloud2
+        needs: behat
+        uses: ./.github/workflows/sonarcloud2.yml
 
