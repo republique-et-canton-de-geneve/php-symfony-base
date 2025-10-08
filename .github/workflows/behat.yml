@@ -73,6 +73,11 @@ jobs:
         run: composer require --dev jaschilz/php-coverage-badger
       - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
 
+
+      - name: call sonarcloud2
+        uses: ./.github/workflows/sonarcloud2.yml
+
+
       - name: archive
         run: git config --local user.name actions-user
       - run: git config --local user.email "actions@github.com" 
@@ -82,6 +87,10 @@ jobs:
       - run: git commit -m "chore':' update code coverage results"
       
       - name: Push changes # push the output folder to your repo
+
+
+
+
      # github.ref_name
      # github.ref
 
