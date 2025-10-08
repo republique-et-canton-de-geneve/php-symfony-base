@@ -73,11 +73,6 @@ jobs:
         run: composer require --dev jaschilz/php-coverage-badger
       - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
 
-
-      - name: call sonarcloud2
-        uses: ./.github/workflows/sonarcloud2.yml
-
-
       - name: archive
         run: git config --local user.name actions-user
       - run: git config --local user.email "actions@github.com" 
@@ -100,4 +95,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
 
+  SonarCloud:
+    permissions:
+      pull-requests: write
+      contents: write           
+    runs-on: ubuntu-latest
+    steps:
+      needs: behat
+      name: call sonarcloud2
+      uses: ./.github/workflows/sonarcloud2.yml
 
