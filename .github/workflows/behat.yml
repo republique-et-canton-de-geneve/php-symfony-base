@@ -96,12 +96,12 @@ jobs:
           force: true
 
   SonarCloud:
+    needs: behat
     permissions:
       pull-requests: write
       contents: write           
     runs-on: ubuntu-latest
     steps:
       - name: call sonarcloud2
-        needs: behat
         uses: ./.github/workflows/sonarcloud2.yml
 
