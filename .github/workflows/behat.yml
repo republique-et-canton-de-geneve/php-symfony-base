@@ -75,7 +75,7 @@ jobs:
 
 
       - name: call sonarcloud2
-        uses: ./.github/workflows/sonarcloud2.yml
+        uses: republique-et-canton-de-geneve/php-symfony-base/.github/workflows/sonarcloud2.yml
 
 
       - name: archive
