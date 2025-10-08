@@ -74,7 +74,7 @@ jobs:
       - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
 
 
-      - naem: call sonarcloud2
+      - name: call sonarcloud2
         uses: ./.github/workflows/sonarcloud2.yml
 
 
