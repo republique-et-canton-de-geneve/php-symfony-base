@@ -95,7 +95,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
 
-  SonarCloud:
-    needs: behat
-    uses: ./.github/workflows/sonarcloud2.yml
-
