@@ -27,8 +27,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          # Use composer.json for key, if composer.lock is not committed.
-          # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
@@ -46,14 +44,12 @@ jobs:
  
       - name: behat code coverage
         run: vendor/bin/behat --xdebug 
-      
-
+   
       - name: Archive coverage clover.xml file
         uses: actions/upload-artifact@v4
         with:
           name: clover-xml
           path: coverage/clover.xml
-
 
       - name: Code Coverage Report
 
@@ -82,13 +78,6 @@ jobs:
       - run: git commit -m "chore':' update code coverage results"
       
       - name: Push changes # push the output folder to your repo
-
-
-
-
-     # github.ref_name
-     # github.ref
-
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: ad-m/github-push-action@master
         with:
