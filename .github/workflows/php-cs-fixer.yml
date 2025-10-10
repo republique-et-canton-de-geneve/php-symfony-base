@@ -18,7 +18,6 @@ jobs:
           php-version: '8.3'
           tools: php-cs-fixer
           extensions: mbstring, xml, ctype, iconv, intl
-          coverage: xdebug
 
       - name: Get composer cache directory
         id: composer-cache
