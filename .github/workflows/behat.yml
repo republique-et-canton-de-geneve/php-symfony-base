@@ -84,7 +84,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
 
-     - name: Analyze with SonarCloud
+      - name: Analyze with SonarCloud
 
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarcloud-github-action@v2.2.0
