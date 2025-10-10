@@ -45,11 +45,11 @@ jobs:
       - name: behat code coverage
         run: vendor/bin/behat --xdebug 
    
-      - name: Archive coverage clover.xml file
-        uses: actions/upload-artifact@v4
-        with:
-          name: clover-xml
-          path: coverage/clover.xml
+      # - name: Archive coverage clover.xml file
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: clover-xml
+      #     path: coverage/clover.xml
 
       - name: Code Coverage Report
 
