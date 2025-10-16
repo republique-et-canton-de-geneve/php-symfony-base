@@ -51,31 +51,41 @@ jobs:
       #     name: clover-xml
       #     path: coverage/clover.xml
 
-      - name: Code Coverage Report
+      # - name: Code Coverage Report
 
-        uses: irongut/CodeCoverageSummary@v1.3.0
+      #   uses: irongut/CodeCoverageSummary@v1.3.0
+      #   with:
+      #     filename: coverage/cobertura.xml
+      #     badge: true
+      #     fail_below_min: true
+      #     format: markdown
+      #     hide_branch_rate: false
+      #     hide_complexity: true
+      #     indicators: true
+      #     output: both
+      #     thresholds: '60 80'
+
+      # - name: Run PHPCoverageBadge
+      #   run: composer require --dev jaschilz/php-coverage-badger
+      # - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
+
+
+      - name: clover report
+        uses: athos99/php-coverage-badge@v1
         with:
-          filename: coverage/cobertura.xml
-          badge: true
-          fail_below_min: true
-          format: markdown
-          hide_branch_rate: false
-          hide_complexity: true
-          indicators: true
-          output: both
-          thresholds: '60 80'
+          report: 'coverage/clover.xml'
+          report_type: 'clover'
+          coverage_line_badge_path: 'output/coverage_line.svg'
+          coverage_branch_badge_path: 'output/coverage_branch.svg'
 
-      - name: Run PHPCoverageBadge
-        run: composer require --dev jaschilz/php-coverage-badger
-      - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
 
       - name: archive
         run: git config --local user.name actions-user
       - run: git config --local user.email "actions@github.com" 
-      - run: git add code-coverage-results.md
       - run: git add coverage/coverage-html/.
-      - run: git add coverage/coverage.svg
-      - run: git commit -m "Action Behat update code coverage results"
+      - run: git add coverage/coverage_line.svg
+      - run: git add coverage/coverage_branch.svg
+      - run: 'git commit -m "chore: GithubAction update code coverage results" || true' 
       
       - name: Push changes # push the output folder to your repo
         if: ${{ github.ref == 'refs/heads/main' }}

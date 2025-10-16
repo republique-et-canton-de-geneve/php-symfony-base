@@ -6,6 +6,11 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=coverage)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 
+
+### Code coverage
+![coverage line](https://github.com/republique-et-canton-de-geneve/php-symfony-base/coverage/coverage_line.svg)
+![coverage branche](https://github.com/republique-et-canton-de-geneve/php-symfony-base/coverage/coverage_branch.svg)
+
 ### Test
 [![php-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml)
 [![twig-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/twig-cs-fixer.yml)
