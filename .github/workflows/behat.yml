@@ -71,7 +71,7 @@ jobs:
 
 
       - name: clover report
-        uses: athos99/php-coverage-badge@v1
+        uses: athos99/php-coverage-badge@main
         with:
           report: 'coverage/clover.xml'
           report_type: 'clover'
