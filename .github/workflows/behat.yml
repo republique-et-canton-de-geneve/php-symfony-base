@@ -89,7 +89,7 @@ jobs:
       - run: 'git commit -m "chore: GithubAction update code coverage results" || true' 
       
       - name: Push changes # push the output folder to your repo
-        if: ${{ github.ref == 'refs/heads/main' }}
+        #if: ${{ github.ref == 'refs/heads/main' }}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
