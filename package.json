@@ -17,6 +17,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0",
+    "prettier": "^3.6.2",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.69.1",
     "sass-loader": "^16.0",
@@ -25,7 +26,6 @@
     "typescript-eslint": "^8.22.0",
     "webpack": "^5.100",
     "webpack-cli": "^6.0",
-    "prettier": "^3.6.2",
     "webpack-notifier": "^1.15.0"
   },
   "license": "UNLICENSED",
@@ -37,13 +37,6 @@
     "build": "encore production --progress"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3",
-    "bootstrap-icons": "^1.11.1",
-    "js-cookie": "^3.0",
-    "quill": "^2.0.3",
-    "quill-html-edit-button": "^3.0.0",
-    "react": "^19.0.0",
     "@ckeditor/ckeditor5-alignment": "43.*",
     "@ckeditor/ckeditor5-basic-styles": "43.*",
     "@ckeditor/ckeditor5-core": "43.*",
@@ -52,6 +45,13 @@
     "@ckeditor/ckeditor5-editor-classic": "43.*",
     "@ckeditor/ckeditor5-essentials": "43.*",
     "@ckeditor/ckeditor5-paragraph": "43.*",
-    "@ckeditor/ckeditor5-theme-lark": "43.*"
+    "@ckeditor/ckeditor5-theme-lark": "43.*",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3",
+    "bootstrap-icons": "^1.11.1",
+    "js-cookie": "^3.0",
+    "quill": "^2.0.3",
+    "quill-html-edit-button": "^3.0.0",
+    "react": "^19.0.0"
   }
 }
