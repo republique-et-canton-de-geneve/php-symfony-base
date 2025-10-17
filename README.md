@@ -8,8 +8,9 @@
 
 
 ### Code coverage
-![coverage line](https://github.com/republique-et-canton-de-geneve/php-symfony-base/coverage/coverage_line.svg)
-![coverage branche](https://github.com/republique-et-canton-de-geneve/php-symfony-base/coverage/coverage_branch.svg)
+
+![coverage line](https://raw.githubusercontent.com/republique-et-canton-de-geneve/php-symfony-base/refs/heads/main/coverage/coverage_line.svg)
+![coverage branche](https://raw.githubusercontent.com/republique-et-canton-de-geneve/php-symfony-base/refs/heads/main/coverage/coverage_branch.svg)
 
 ### Test
 [![php-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml)
