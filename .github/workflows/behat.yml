@@ -82,18 +82,19 @@ jobs:
       - name: archive
         run: git config --local user.name actions-user
       - run: git config --local user.email "actions@github.com" 
-        if: ${{ github.ref == 'refs/heads/main' }}
       - run: git add coverage/.
+        if: ${{ github.ref == 'refs/heads/main' }}
       - run: git add coverage/coverage_line.svg
       - run: git add coverage/coverage_branch.svg
       - run: 'git commit -m "chore: GithubAction update code coverage results" || true' 
+      - run: git push
       
-      - name: Push changes # push the output folder to your repo
-#        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+      # - name: Push changes # push the output folder to your repo
+      #   if: ${{ github.ref == 'refs/heads/main' }}
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force: true
 
       - name: Analyze with SonarCloud
         # You can pin the exact commit or the version.
