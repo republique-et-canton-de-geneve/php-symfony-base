@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-npm install npm@latest -g
-yarn install --force
-yarn upgrade
