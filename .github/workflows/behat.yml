@@ -80,8 +80,8 @@ jobs:
 
 
       - name: archive
-        run: git config --local user.name actions-user
-      - run: git config --local user.email "actions@github.com" 
+        run: git config user.name "github-actions[bot]"
+      - run: git config user.email "41898282+github-actions[bot]@users.noreply.github.com" 
       - run: git add coverage/.
         if: ${{ github.ref == 'refs/heads/main' }}
       - run: git add coverage/coverage_line.svg
