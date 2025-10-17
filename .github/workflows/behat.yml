@@ -70,7 +70,7 @@ jobs:
       # - run: vendor/bin/php-coverage-badger coverage/clover.xml coverage/coverage.svg
 
 
-      - name: clover report
+      - name: build coverage badges
         uses: athos99/php-coverage-badge@v1
         with:
           report: 'coverage/clover.xml'
