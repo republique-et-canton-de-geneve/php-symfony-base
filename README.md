@@ -3,7 +3,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=bugs)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=coverage)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=republique-et-canton-de-geneve_php-symfony-base&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=republique-et-canton-de-geneve_php-symfony-base)
 
 
@@ -11,6 +10,10 @@
 
 ![coverage line](https://raw.githubusercontent.com/republique-et-canton-de-geneve/php-symfony-base/refs/heads/main/coverage/coverage_line.svg)
 ![coverage branche](https://raw.githubusercontent.com/republique-et-canton-de-geneve/php-symfony-base/refs/heads/main/coverage/coverage_branch.svg)
+
+[Detailled code coverage detail report](https://republique-et-canton-de-geneve.github.io/php-symfony-base/coverage/coverage-html/index.html)
+
+
 
 ### Test
 [![php-cs-fixer](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/php-cs-fixer.yml)
@@ -21,7 +24,6 @@
 [![behat and code coverage](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/behat.yml/badge.svg)](https://github.com/republique-et-canton-de-geneve/php-symfony-base/actions/workflows/behat.yml)
 
 
-[Code coverage detail report](https://republique-et-canton-de-geneve.github.io/php-symfony-base/coverage/coverage-html/index.html)
 
 
 # Application Template – Symfony Framework 7.x
