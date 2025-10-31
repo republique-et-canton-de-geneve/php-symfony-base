@@ -52,6 +52,9 @@ services:
       context: .
       dockerfile: Dockerfile.adminer
     restart: always
+    volumes:
+      - ../data:/var/www/data
+
     ports:
       - 1078:8080
     networks:

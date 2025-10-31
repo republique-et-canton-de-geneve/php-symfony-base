@@ -21,5 +21,13 @@ return [
         'driver'   => 'pgsql',
         'label'     => 'PostgreSQL',
     ),
+ 'SQLite' => array(
+        // Required parameters
+        'username'  => 'root',
+        'pass'      => '*',
+        'driver'   => 'sqlite',
+        'label'     => 'SQLite',
+        'databases' => '/var/www/data/database.sqlite'
+    ),
 
 ];
