@@ -11,6 +11,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends BaseFrontController
 {
+
+ #[Route('/x', name: 'x')]
+    public function x(Parameter $parameter): Response
+    {
+       
+       return new Response() 
+    }
+
+
     #[Route('/', name: 'homepage')]
     public function index(Parameter $parameter): Response
     {

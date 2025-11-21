@@ -49,6 +49,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Geneve\\HeaderBundle\\": "bundle/republique-et-canton-de-geneve/header-bundle/src",
             "App\\Tests\\": "tests/"
         }
     },
