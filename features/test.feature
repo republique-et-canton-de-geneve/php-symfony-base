@@ -3,7 +3,7 @@ Feature: Test DEMO
   @DEMO @TEST
   Scenario: Demo
     # en tant qu'utilisateur avec un rôle ADMIN
-    Given I am login as "utilisateur" with role "APP.EDG.ADMIN"
+    Given I am login as "utilisateur" with role "ADMIN"
     # Je test l'accès à la home page et je vois mon nom d'utilisateur
     When I go to "/"
     Then I should be on "/"
@@ -128,7 +128,7 @@ Feature: Test DEMO
 
 # un utilisateur avec un seul rôle unconnu
 # peut accéder à la home page
-    Given I am login as "inconnu" with role "APP.EDG.UNKNOW"
+    Given I am login as "inconnu" with role "UNKNOW"
     When I go to "/"
     Then I should be on "/"
     Then I should see a "body#page-home" element
@@ -146,7 +146,7 @@ Feature: Test DEMO
   @DB
   Scenario: Simule une erreur de la DB, la table parameter est HS
     # on part d'une situation "saine", les caches sont à jour et en fonction
-    Given I am login as "utilisateur" with role "APP.EDG.ADMIN"
+    Given I am login as "utilisateur" with role "ADMIN"
     When I go to "/"
     # je simule une erreur de la DB pour les accès lecture à table parameter
     # j'edite un paramètre ce qui provoqu une lecture de la DB
@@ -160,7 +160,7 @@ Feature: Test DEMO
   @MAINTENANCE
   Scenario: Mode Mainteance
     # en tant qu'utilisateur avec un rôle ADMIN
-    Given I am login as "utilisateur" with role "APP.EDG.ADMIN"
+    Given I am login as "utilisateur" with role "ADMIN"
     # le parametre mainteance est activé
     When I set parameter "modeMaintenance" to 1
     #un admin peut aller sur le site
@@ -169,7 +169,7 @@ Feature: Test DEMO
     Then I should see a "body#page-home" element
     And the response should contain "utilisateur"
     # en tant qu'utilisateur avec un rôle utilisateur
-    Given I am login as "utilisateur" with role "APP.EDG.UTILISATEUR"
+    Given I am login as "utilisateur" with role "UTILISATEUR"
     # je test la page qui simule une Erreur 500
     When I go to "/"
     Then I should be on "/"
