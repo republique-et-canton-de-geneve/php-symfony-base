@@ -5,5 +5,5 @@ bin/console lint:container
 bin/console lint:twig --show-deprecations templates
 bin/console lint:yaml config src
 vendor/bin/phpstan analyse
-vendor/bin/rector process --dry-run
+vendor/bin/rector process src --dry-run
 npx eslint assets

@@ -150,7 +150,6 @@ For example :
 
 - Code Analyse
     - cmd/check -> check the code with many tools
-    - cmd/make-doc  -> update the doc in the directory doc
     - cmd/php-cs  -> code analyse php code sniffer
     - cmd/php-cs-fix  -> code fix php code sniffer
     - cmd/twig-cs  -> code analyse php code sniffer

@@ -34,8 +34,7 @@ class Menu extends MenuBase
                     '<span class="badge rounded-pill ' . $application->getServerType() .
                     '" data-bs-toggle="tooltip" title="Vous êtes dans l\'environnement de ' .
                     $application->getServerType() . "\nVersion : " . $application->getVersion() .
-                    '">' . $application->getServerType() . '</span>',
-                    null
+                    '">' . $application->getServerType() . '</span>'
                 )
             );
         }
