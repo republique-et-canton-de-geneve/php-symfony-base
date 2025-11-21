@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1760711891">
-  <project timestamp="1760711891" name="">
+<coverage generated="1763754348">
+  <project timestamp="1763754348" name="">
     <package name="App">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Application.php">
         <class name="App\Application" namespace="App">
@@ -37,7 +37,7 @@
         <class name="App\BaseParameter" namespace="App">
           <metrics complexity="12" methods="5" coveredmethods="4" conditionals="23" coveredconditionals="21" statements="37" coveredstatements="35" elements="65" coveredelements="60"/>
         </class>
-        <line num="38" type="method" name="__construct" visibility="public" complexity="5" crap="24.66" count="3"/>
+        <line num="38" type="method" name="__construct" visibility="public" complexity="5" crap="20.15" count="3"/>
         <line num="41" type="stmt" count="3"/>
         <line num="44" type="stmt" count="3"/>
         <line num="46" type="stmt" count="3"/>
@@ -58,11 +58,11 @@
         <line num="71" type="stmt" count="3"/>
         <line num="72" type="stmt" count="3"/>
         <line num="74" type="stmt" count="3"/>
-        <line num="76" type="stmt" count="3"/>
-        <line num="78" type="stmt" count="3"/>
-        <line num="80" type="stmt" count="3"/>
-        <line num="83" type="stmt" count="3"/>
-        <line num="84" type="stmt" count="3"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="78" type="stmt" count="2"/>
+        <line num="80" type="stmt" count="2"/>
+        <line num="83" type="stmt" count="2"/>
+        <line num="84" type="stmt" count="2"/>
         <line num="87" type="stmt" count="0"/>
         <line num="88" type="stmt" count="0"/>
         <line num="95" type="method" name="getDefaultValues" visibility="public" complexity="1" crap="1" count="2"/>
@@ -392,13 +392,13 @@
         </class>
         <line num="27" type="method" name="getId" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="29" type="stmt" count="0"/>
-        <line num="32" type="method" name="getName" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="34" type="stmt" count="3"/>
-        <line num="37" type="method" name="setName" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="39" type="stmt" count="1"/>
-        <line num="41" type="stmt" count="1"/>
-        <line num="44" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="46" type="stmt" count="3"/>
+        <line num="32" type="method" name="getName" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="34" type="stmt" count="2"/>
+        <line num="37" type="method" name="setName" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="39" type="stmt" count="2"/>
+        <line num="41" type="stmt" count="2"/>
+        <line num="44" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="46" type="stmt" count="2"/>
         <line num="49" type="method" name="setValue" visibility="public" complexity="1" crap="1" count="2"/>
         <line num="51" type="stmt" count="2"/>
         <line num="53" type="stmt" count="2"/>
@@ -486,7 +486,7 @@
     <package name="App\Menu">
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/Menu.php">
         <class name="App\Menu\Menu" namespace="App\Menu">
-          <metrics complexity="7" methods="1" coveredmethods="0" conditionals="14" coveredconditionals="12" statements="34" coveredstatements="33" elements="49" coveredelements="45"/>
+          <metrics complexity="7" methods="1" coveredmethods="0" conditionals="14" coveredconditionals="12" statements="33" coveredstatements="32" elements="48" coveredelements="44"/>
         </class>
         <line num="12" type="method" name="__construct" visibility="public" complexity="7" crap="51.55" count="3"/>
         <line num="14" type="stmt" count="3"/>
@@ -512,22 +512,21 @@
         <line num="37" type="stmt" count="3"/>
         <line num="38" type="stmt" count="3"/>
         <line num="39" type="stmt" count="3"/>
-        <line num="40" type="stmt" count="3"/>
+        <line num="41" type="stmt" count="3"/>
         <line num="42" type="stmt" count="3"/>
         <line num="43" type="stmt" count="3"/>
-        <line num="44" type="stmt" count="3"/>
+        <line num="45" type="stmt" count="3"/>
         <line num="46" type="stmt" count="3"/>
-        <line num="47" type="stmt" count="3"/>
+        <line num="48" type="stmt" count="3"/>
         <line num="49" type="stmt" count="3"/>
         <line num="50" type="stmt" count="3"/>
         <line num="51" type="stmt" count="3"/>
         <line num="52" type="stmt" count="3"/>
-        <line num="53" type="stmt" count="3"/>
-        <metrics loc="57" ncloc="56" classes="1" methods="1" coveredmethods="0" conditionals="14" coveredconditionals="12" statements="34" coveredstatements="33" elements="49" coveredelements="45"/>
+        <metrics loc="56" ncloc="55" classes="1" methods="1" coveredmethods="0" conditionals="14" coveredconditionals="12" statements="33" coveredstatements="32" elements="48" coveredelements="44"/>
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/MenuAdmin.php">
         <class name="App\Menu\MenuAdmin" namespace="App\Menu">
-          <metrics complexity="13" methods="1" coveredmethods="0" conditionals="26" coveredconditionals="25" statements="69" coveredstatements="69" elements="96" coveredelements="94"/>
+          <metrics complexity="13" methods="1" coveredmethods="0" conditionals="26" coveredconditionals="25" statements="68" coveredstatements="68" elements="95" coveredelements="93"/>
         </class>
         <line num="11" type="method" name="__construct" visibility="public" complexity="13" crap="181.88" count="2"/>
         <line num="13" type="stmt" count="2"/>
@@ -588,18 +587,17 @@
         <line num="77" type="stmt" count="2"/>
         <line num="78" type="stmt" count="2"/>
         <line num="79" type="stmt" count="2"/>
-        <line num="80" type="stmt" count="2"/>
+        <line num="81" type="stmt" count="2"/>
         <line num="82" type="stmt" count="2"/>
         <line num="83" type="stmt" count="2"/>
-        <line num="84" type="stmt" count="2"/>
+        <line num="85" type="stmt" count="2"/>
         <line num="86" type="stmt" count="2"/>
-        <line num="87" type="stmt" count="2"/>
+        <line num="88" type="stmt" count="2"/>
         <line num="89" type="stmt" count="2"/>
         <line num="90" type="stmt" count="2"/>
         <line num="91" type="stmt" count="2"/>
         <line num="92" type="stmt" count="2"/>
-        <line num="93" type="stmt" count="2"/>
-        <metrics loc="97" ncloc="97" classes="1" methods="1" coveredmethods="0" conditionals="26" coveredconditionals="25" statements="69" coveredstatements="69" elements="96" coveredelements="94"/>
+        <metrics loc="96" ncloc="96" classes="1" methods="1" coveredmethods="0" conditionals="26" coveredconditionals="25" statements="68" coveredstatements="68" elements="95" coveredelements="93"/>
       </file>
       <file name="/home/runner/work/php-symfony-base/php-symfony-base/src/Menu/MenuBase.php">
         <class name="App\Menu\MenuBase" namespace="App\Menu">
@@ -1233,6 +1231,6 @@
         <metrics loc="127" ncloc="106" classes="1" methods="13" coveredmethods="9" conditionals="17" coveredconditionals="12" statements="33" coveredstatements="28" elements="63" coveredelements="49"/>
       </file>
     </package>
-    <metrics files="40" loc="2656" ncloc="2348" classes="36" methods="143" coveredmethods="106" conditionals="432" coveredconditionals="313" statements="826" coveredstatements="745" elements="1401" coveredelements="1164"/>
+    <metrics files="40" loc="2654" ncloc="2346" classes="36" methods="143" coveredmethods="106" conditionals="432" coveredconditionals="313" statements="824" coveredstatements="743" elements="1399" coveredelements="1162"/>
   </project>
 </coverage>
