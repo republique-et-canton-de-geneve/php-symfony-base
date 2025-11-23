@@ -15,5 +15,5 @@ return [
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
-    Geneve\HeaderBundle\HeaderBundle::class => ['all' => true],
+    EtatGeneve\ResponseHeadersBundle\ResponseHeadersBundle::class => ['all' => true],
 ];

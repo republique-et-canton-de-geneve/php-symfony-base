@@ -1,0 +1,17 @@
+response_headers:
+  headers:
+    x1:
+      value: val1
+      condition: "'%env(APP_SERVER_TYPE)%' != 'local'"
+    x2: toto
+    x3:  
+      value:
+        - x1
+        - x2
+        - x3
+      condition: "'%env(APP_SERVER_TYPE)%' == 'local'"  
+    x4: [a, b, c]
+    
+
+
+
