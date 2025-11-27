@@ -177,3 +177,11 @@ For example :
     - cmd/make-symlink -> recreate symbolic link for the public asset
 
 
+Docker, generate image and container
+
+´´´
+cd docker
+docker-compose build --pull
+docker-compose up --force-recreate
+cd ..
+```
