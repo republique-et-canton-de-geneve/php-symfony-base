@@ -1,7 +1,8 @@
 #!/bin/bash
-sudo cp ./Docker/config/postgres/certs/client.crt certificats/postgres
-sudo cp .docker/postgres/certs/client.key web/sites/default/certificats/web
-sudo cp .docker/postgres/certs/rootCA.crt web/sites/default/certificats/web
+
+sudo cp ./Docker/config/postgres/certs/client.crt certificats/www-data
+sudo cp ./Docker/config/postgres/certs/client.key web/sites/default/certificats/www-data
+sudo cp ./Docker/config/postgres/certs/rootCA.crt web/sites/default/certificats/www-data
 sudo chown www-data web/sites/default/certificats/web/client.crt
 sudo chown www-data web/sites/default/certificats/web/client.key
 sudo chown www-data web/sites/default/certificats/web/rootCA.crt
@@ -9,9 +10,21 @@ sudo chmod 0600 web/sites/default/certificats/web/client.crt
 sudo chmod 0600 web/sites/default/certificats/web/client.key
 sudo chmod 0600 web/sites/default/certificats/web/rootCA.crt
 
-sudo cp .docker/postgres/certs/client.crt web/sites/default/certificats/drush
-sudo cp .docker/postgres/certs/client.key web/sites/default/certificats/drush
-sudo cp .docker/postgres/certs/rootCA.crt web/sites/default/certificats/drush
+
+sudo cp ./Docker/config/postgres/certs/client.crt certificats/root
+sudo cp ./Docker/config/postgres/certs/client.key web/sites/default/certificats/root
+sudo cp ./Docker/config/postgres/certs/rootCA.crt web/sites/default/certificats/root
+sudo chown www-data web/sites/default/certificats/web/client.crt
+sudo chown www-data web/sites/default/certificats/web/client.key
+sudo chown www-data web/sites/default/certificats/web/rootCA.crt
+sudo chmod 0600 web/sites/default/certificats/web/client.crt
+sudo chmod 0600 web/sites/default/certificats/web/client.key
+sudo chmod 0600 web/sites/default/certificats/web/rootCA.crt
+
+
+sudo cp ./Docker/config/postgres/certs/client.crt web/sites/default/certificats/adminer
+sudo cp ./Docker/config/postgres/certs/client.key web/sites/default/certificats/adminer
+sudo cp ./Docker/config/postgres/certs/rootCA.crt web/sites/default/certificats/adminer
 sudo chown wodby web/sites/default/certificats/drush/client.crt
 sudo chown wodby web/sites/default/certificats/drush/client.key
 sudo chown wodby web/sites/default/certificats/drush/rootCA.crt
