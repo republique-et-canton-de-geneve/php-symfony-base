@@ -56,11 +56,12 @@ services:
     volumes:
       - ../data:/var/www/data
       - ../certificates/:/var/www/certs
-
     ports:
       - 1078:8080
     networks:
       - dev
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 
 

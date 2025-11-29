@@ -1,4 +1,7 @@
 <?php
+
+use function Adminer\driver;
+
 /** 
  * Display a list of predefined database servers to login with just one click.
  * Don't use this in production enviroment unless the access is restricted
@@ -7,47 +10,58 @@
  * @author Gio Freitas, https://www.github.com/giofreitas
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
-class OneClickLogin {
+class OneClickLogin
+{
 	/** @access protected */
 	var $servers, $driver;
-	
+
 	/** 
 	 *
 	 * Set supported servers
 	 * @param array $servers
 	 * @param string $driver
 	 */
-	function __construct($servers, $driver = "server") {
+	function __construct($servers, $driver = "server")
+	{
 
 		$this->servers = $servers;
 		$this->driver = $driver;
 	}
 
-	function login($login, $password) {
-      return true;
+
+	public function serverName(?string $server)
+	{
+		return null;
 	}
-	function connectSsl() {
-		global $credentials;
-		$index=$credentials[0];
-		var_dump($this->servers[$index]);
-		
-		return $this->servers[$index] ?? null;
+
+	function login($login, $password)
+	{
+		return true;
 	}
-	function databaseValues($server){
+	function connectSsl()
+	{
+		if ($_GET['pgsql'] ?? false) {
+			return $this->servers[$_GET['pgsql']] ?? null;
+		}
+		return null;
+	}
+	function databaseValues($server)
+	{
 		$databases = $server['databases'];
-		if(is_array($databases))
-			foreach($databases as $database => $name){
-				if(is_string($database))
+		if (is_array($databases))
+			foreach ($databases as $database => $name) {
+				if (is_string($database))
 					continue;
 				unset($databases[$database]);
-				if(!isset($databases[$name]))
+				if (!isset($databases[$name]))
 					$databases[$name] = $name;
 			}
 		return $databases;
 	}
-	
-	function loginForm() {
-		?>
+
+	function loginForm()
+	{
+?>
 		</form>
 		<table>
 			<tr>
@@ -55,43 +69,42 @@ class OneClickLogin {
 				<th><?php echo 'User' ?></th>
 				<th><?php echo 'Database' ?></th>
 			</tr>
-			
+
 			<?php
-			foreach($this->servers as $host => $server):
-			
-			
+			foreach ($this->servers as $host => $server):
+
+
 				$databases = isset($server['databases']) ? $server['databases'] : "";
 				if (!is_array($databases))
 					$databases = array($databases => $databases);
-				
-				foreach(array_keys($databases) as $i => $database):
-					?>
+
+				foreach (array_keys($databases) as $i => $database):
+			?>
 					<tr>
-						<?php if( $i === 0): ?>
+						<?php if ($i === 0): ?>
 							<td style="vertical-align:middle" rowspan="<?php echo count($databases) ?>"><?php echo isset($server['label']) ? "{$server['label']} ($host)" : $host; ?></td>
 							<td style="vertical-align:middle" rowspan="<?php echo count($databases) ?>"><?php echo $server['username'] ?></td>
 						<?php endif; ?>
-						<td style="vertical-align:middle"><?php echo $databases[$database] ?></td>	
+						<td style="vertical-align:middle"><?php echo $databases[$database] ?></td>
 						<td>
 							<form action="" method="post">
 								<input type="hidden" name="auth[driver]" value="<?php echo $server["driver"]; ?>">
 								<input type="hidden" name="auth[server]" value="<?php echo $host; ?>">
 								<input type="hidden" name="auth[username]" value="<?php echo htmlentities($server["username"]); ?>">
 								<input type="hidden" name="auth[password]" value="<?php echo htmlentities($server["pass"]); ?>">
-								<input type='hidden' name="auth[db]" value="<?php echo htmlentities($database); ?>"/>
-								<input type='hidden' name="auth[permanent]" value="1"/>
+								<input type='hidden' name="auth[db]" value="<?php echo htmlentities($database); ?>" />
+								<input type='hidden' name="auth[permanent]" value="1" />
 								<input type="submit" value="<?php echo 'Enter'; ?>">
 							</form>
 						</td>
 					</tr>
-					<?php
+			<?php
 				endforeach;
-			endforeach;	
+			endforeach;
 			?>
-		</table>	
-		<form action="" method="post">		
-		<?php
+		</table>
+		<form action="" method="post">
+	<?php
 		return true;
 	}
-	
 }
