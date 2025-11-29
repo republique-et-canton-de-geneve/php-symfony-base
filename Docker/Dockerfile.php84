@@ -101,4 +101,9 @@ RUN set -eux; \
   curl -sS https://get.symfony.com/cli/installer | bash; \
   mv /root/.symfony5/bin/symfony /usr/bin
 
+COPY ./config/php/my-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/my-entrypoint.sh
 
+
+ENTRYPOINT ["my-entrypoint.sh"]
+CMD ["apache2-foreground"]

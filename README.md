@@ -193,3 +193,7 @@ sslmode='sslmode=verify-full'
 sslrootcert='/var/www/html/certs/postgres/rootCA.crt' 
 sslcert='/var/www/html/certs/postgres/client.crt' 
 sslkey='/var/www/html/certs/postgres/client.key'"
+
+"pgsql:host='postgres' client_encoding=utf8 dbname='postgres'"
+"SQLSTATE[08006] [7] connection to server at "postgres" (172.18.0.7), port 5432 failed: FATAL:  connection requires a valid client certificate
+connection to server at "postgres" (172.18.0.7), port 5432 failed: FATAL:  pg_hba.conf rejects connection for host "172.18.0.3", user "root", database "postgres", no encryption"

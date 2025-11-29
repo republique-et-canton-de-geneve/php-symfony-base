@@ -12,7 +12,7 @@ chmod 0600 /var/www/html/certs/postgres/client.crt
 chmod 0600 /var/www/html/certs/postgres/client.key
 chmod 0600 /var/www/html/certs/postgres/rootCA.crt 
 
-entrypoint.sh
+/usr/local/bin/entrypoint.sh
 
 exec "$@"
 

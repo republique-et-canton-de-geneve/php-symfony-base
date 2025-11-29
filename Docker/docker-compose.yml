@@ -9,7 +9,6 @@ services:
           mkdir -p /var/www/log/php
           mkdir -p /var/www/log/apache
           chmod a+rx /var/www/Docker/config/php/copy-certificats.sh
-          /var/www/Docker/config/php/copy-certificats.sh
           apache2-foreground -c "DocumentRoot /var/www" -c "SetEnv DOCKER_ENVIRONMENT 1"
     restart: unless-stopped
     build:

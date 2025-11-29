@@ -28,7 +28,9 @@ class OneClickLogin {
 	}
 	function connectSsl() {
 		global $credentials;
-		$index=$credentials[0];	
+		$index=$credentials[0];
+		var_dump($this->servers[$index]);
+		
 		return $this->servers[$index] ?? null;
 	}
 	function databaseValues($server){
