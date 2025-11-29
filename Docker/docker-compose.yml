@@ -49,13 +49,14 @@ services:
 
 
   adminer:
+    container_name: php-symfony-base-adminer
     build:
       context: .
       dockerfile: Dockerfile.adminer
     restart: always
     volumes:
       - ../data:/var/www/data
-      - ./config/postgres/certs:/var/www/certs
+      - ../certificates/:/var/www/certs
 
     ports:
       - 1078:8080
@@ -80,7 +81,8 @@ services:
   #     - dev
 
   postgres:
-    image: postgres
+    image: php-symfony-base-postgres
+    container_name: php-symfony-base-postgres
     restart: always
     build:
       context: .
@@ -94,6 +96,7 @@ services:
       - dev
     volumes:
       - postgres:/var/lib/postgresql
+      - ../certificates/postgres:/var/lib/postgresql/certificates
     ports:
       - 5432:5432
 

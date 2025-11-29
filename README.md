@@ -185,3 +185,11 @@ docker-compose build --pull
 docker-compose up --force-recreate
 cd ..
 ```
+
+
+"pgsql:host='postgres' client_encoding=utf8 dbname='postgres' 
+
+sslmode='sslmode=verify-full' 
+sslrootcert='/var/www/html/certs/postgres/rootCA.crt' 
+sslcert='/var/www/html/certs/postgres/client.crt' 
+sslkey='/var/www/html/certs/postgres/client.key'"

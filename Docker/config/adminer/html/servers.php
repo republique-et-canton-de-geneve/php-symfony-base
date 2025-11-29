@@ -20,10 +20,11 @@ return [
         'pass'      => 'root',
         'driver'   => 'pgsql',
         'label'     => 'PostgreSQL',
+        'mode'   => "sslmode=verify-full' sslrootcert='/var/www/html/certs/postgres/rootCA.crt' sslcert='/var/www/html/certs/postgres/client.crt' sslkey='/var/www/html/certs/postgres/client.key"
     ),
  'SQLite' => array(
         // Required parameters
-        'username'  => 'root',
+        'username'  => 'user',
         'pass'      => '*',
         'driver'   => 'sqlite',
         'label'     => 'SQLite',

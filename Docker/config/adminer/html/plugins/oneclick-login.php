@@ -26,7 +26,11 @@ class OneClickLogin {
 	function login($login, $password) {
       return true;
 	}
-	
+	function connectSsl() {
+		global $credentials;
+		$index=$credentials[0];	
+		return $this->servers[$index] ?? null;
+	}
 	function databaseValues($server){
 		$databases = $server['databases'];
 		if(is_array($databases))

@@ -1,7 +1,6 @@
 # Start from postgres 17.5 as a base image
-FROM postgres:17.5
+FROM postgres:17.5 
 
-COPY ./config/postgres/certs/ /var/lib/postgresql/
 
 # Copy ssl-config script which runs on first startup
 COPY ./config/postgres/ssl-config.sh /docker-entrypoint-initdb.d/ssl-config.sh

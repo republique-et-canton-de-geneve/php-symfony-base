@@ -1,16 +1,9 @@
-FROM adminer
+FROM adminer 
 COPY ./config/adminer/html /var/www/html
 
 USER	root
-COPY ./config/adminer/copy-certificats.sh /var/www/copy-certificats.sh
 COPY ./config/adminer/my-entrypoint.sh /usr/local/bin/
-
-
-RUN chmod +x /var/www/copy-certificats.sh
 RUN chmod +x /usr/local/bin/my-entrypoint.sh
-#ENTRYPOINT	[ "my-entrypoint.sh","entrypoint.sh", "docker-php-entrypoint" ]
 ENTRYPOINT	[ "my-entrypoint.sh", "docker-php-entrypoint" ]
 USER adminer
 CMD php -S [::]:8080 -t /var/www/html
-
-#CMD	[ "php", "-S", "[::]:8080", "-t", "/var/www/html" ]
