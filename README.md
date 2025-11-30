@@ -138,7 +138,9 @@ The file release.properties contains the application revision number
 ### Use and configure an other database
 
 - Edit file .env the APP_DATABASE_URL define the database.
-- Run the command : php bin/console doctrine:migrations:migrate
+- Run the command : 
+ cmd/console doctrine:database:create
+ cmd/console doctrine:schema:create
 
 
 

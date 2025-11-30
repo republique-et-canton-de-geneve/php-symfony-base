@@ -8,7 +8,6 @@ services:
       - | 
           mkdir -p /var/www/log/php
           mkdir -p /var/www/log/apache
-          chmod a+rx /var/www/Docker/config/php/copy-certificats.sh
           apache2-foreground -c "DocumentRoot /var/www" -c "SetEnv DOCKER_ENVIRONMENT 1"
     restart: unless-stopped
     build:
@@ -65,20 +64,20 @@ services:
 
 
 
-  # mysql:
-  #   image: mysql
-  #   restart: always
-  #   volumes:
-  #     - mysql:/var/lib/mysql
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-  #     MYSQL_DATABASE: ${DB_DATABASE}
-  #     MYSQL_USER: ${DB_USER}
-  #     MYSQL_PASSWORD: ${DB_PASSWORD}
-  #   ports:
-  #     - 3306:3306
-  #   networks:
-  #     - dev
+  mysql:
+    image: mysql
+    restart: always
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 3307:3306
+    networks:
+      - dev
 
   postgres:
     image: php-symfony-base-postgres
