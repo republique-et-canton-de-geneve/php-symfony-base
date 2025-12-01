@@ -13,15 +13,13 @@ class CliEnvVarPocessor implements EnvVarProcessorInterface
         $env = $getEnv($name);
         if (defined('STDIN')) {
             try {
-                $envcli = $getEnv($name . '_CLI');
-
-                return $envcli ?? $env;
+                $env = $getEnv($name . '_CLI');
             } catch (Exception) {
                 // Do nothing
             }
         }
 
-        return $env;
+        return is_scalar($env) ? strval($env) : '';
     }
 
     public static function getProvidedTypes(): array
