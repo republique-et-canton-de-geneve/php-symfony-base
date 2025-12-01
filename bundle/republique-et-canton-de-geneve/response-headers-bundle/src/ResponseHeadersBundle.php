@@ -10,10 +10,9 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class ResponseHeadersBundle extends AbstractBundle
 {
-
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        $id='response_headers.response_listener';
+        $id = 'response_headers.response_listener';
         $services = $container->services();
         $services->set($id, ResponseListener::class)
         ->arg('$headers', $config['headers'])
@@ -40,6 +39,7 @@ class ResponseHeadersBundle extends AbstractBundle
                 if (array_keys($v) === range(0, count($v) - 1)) {
                     return ['value' => $v];
                 }
+
                 return $v;
             })
             ->end()
