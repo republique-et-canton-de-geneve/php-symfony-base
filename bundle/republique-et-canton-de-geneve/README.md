@@ -1,10 +1,9 @@
 # A Symfony bundle to add headers to your HTTP response.
 
-##
-A simple easy way to send header in your http response
+A Symfony bundle to easily send headers in your HTTP response
 
-## Usage
-You define one or more header response in your yaml configuration, for exemple:
+### Usage
+You define one or more headers response in your yaml configuration, for exemple:
 
 ```
 ---
@@ -12,43 +11,40 @@ You define one or more header response in your yaml configuration, for exemple:
 response_headers:
 
   headers:
-        #a header X-XSS-Protection with value 1; mode=block 
-    X-XSS-Protection: 
-      value: 1; mode=block
-    
-        #a shorter description for header Referrer-Policy with value strict-origin
+    X-XSS-Protection: value: 1; mode=block
+
     Referrer-Policy: strict-origin
-      
-      
-        #a header with value as a array 
+
     Content-Security-Policy:
       - default-src 'none'; 
       - script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';
       - script-src-elem 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';
-      - img-src 'self' data: ge.ch *.ge.ch *.etat-ge.ch ;
-    
-        #a conditional header, the header is send if env var APP_SERVER_TYPE is 'local'
+      - img-src 'self' data: localhost *.mydite.com;
+
     X-Frame-Options:
       value: SAMEORIGIN
       condition: "'%env(APP_SERVER_TYPE)%' == 'local'"  
 
-        #a condtional in function of uri request   
     Expires:
       value: 0
       condition: request.getPathInfo() matches '^/admin'  
-      
-
-        #a confitional header with a array value
-    headername:  
-      value:
-        - elem1
-        - elem2
-        - elem3
-      condition: "'%env(APP_END)%' == 'dev'"  
 ...      
 ```
-### Conditonal header
-The conditional is made with symfony expression language, the available var are:
+
+
+
+#### Conditonal header
+The conditional is made with symfony expression language, the available variables are:
+
+
+```
+response_headers:
+  headers:
+    X-Frame-Options:
+      value: SAMEORIGIN
+      condition: "'%env(APP_SERVER_TYPE)%' == 'local'"  
+```
+The 'X-Frame-Option' header will be inclued in the HTTP response if the 'APP_SERVER_TYPE' environment variable is equal to 'local'.
 
 ```
   %env(name)%  : a value from environement
@@ -62,13 +58,29 @@ The conditional is made with symfony expression language, the available var are:
    condition: response.getStatusCode() == 200
 ```  
 
+#### Header values ​​in array format
+For very long headers, it is possible to use a table format. The header value will be reduced to a single line.
+
+```
+response_headers:
+
+  headers:
+    Content-Security-Policy:
+      - default-src 'none';
+      - script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';
+      - script-src-elem 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';
+      - img-src 'self' data: localhost *.mysite.com;
+```
+
+The 'Content-Security-Policy' header will have the following value:
+Content-Security-Policy: default-src 'none';script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';script-src-elem 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';img-src 'self' data: localhost *.mysite.com
 
 ## Installation
 The bundle should be automatically enabled by Symfony Flex. If you don't use Flex, you'll need to enable it manually as explained in the docs.
 
 
 ```
-composer require republique-et-canton-de-geneve/headers-bundle
+composer require republique-et-canton-de-geneve/response-headers-bundle
 ```
 
 

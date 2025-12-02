@@ -1,8 +1,8 @@
 # Installation
 
-Require the republique-et-canton-de-geneve/headers-bundle package in your composer.json and update your dependencies:
+Require the ``republique-et-canton-de-geneve/response-headers-bundle`` package in your composer.json and update your dependencies:
 ```
-composer require republique-et-canton-de-geneve/headers-bundle
+composer require republique-et-canton-de-geneve/response-headers-bundle
 ```
 
 
