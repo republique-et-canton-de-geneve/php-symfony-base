@@ -83,8 +83,6 @@ RUN apt-get install nodejs -y
 RUN npm config set cafile=/etc/ssl/certs/ca-certificates.crt
 
 
-## Install Composer.
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 ## yarn
 RUN npm install --global yarn \
@@ -100,6 +98,20 @@ RUN set -eux; \
 RUN set -eux; \
   curl -sS https://get.symfony.com/cli/installer | bash; \
   mv /root/.symfony5/bin/symfony /usr/bin
+
+
+
+## Install Composer.
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+## we use version 2.8.12, because the version 2.9 is not compatible with our proxy
+# RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+# RUN php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+# RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.8.12
+# RUN php -r "unlink('composer-setup.php');"
+
+
 
 COPY ./config/php/my-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/my-entrypoint.sh
