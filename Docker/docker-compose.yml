@@ -63,22 +63,6 @@ services:
       - "host.docker.internal:host-gateway"
 
 
-
-  mysql:
-    image: mysql
-    restart: always
-    volumes:
-      - mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - 3307:3306
-    networks:
-      - dev
-
   postgres:
     image: php-symfony-base-postgres
     container_name: php-symfony-base-postgres
@@ -99,17 +83,35 @@ services:
     ports:
       - 5432:5432
 
-  mariadb:
-    image: mariadb
-    restart: always
-    environment:
-      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-    volumes:
-      - mariadb:/var/lib/mysql
-    ports:
-      - 3306:3306
-    networks:
-      - dev
+
+
+  # mysql:
+  #   image: mysql
+  #   restart: always
+  #   volumes:
+  #     - mysql:/var/lib/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${DB_DATABASE}
+  #     MYSQL_USER: ${DB_USER}
+  #     MYSQL_PASSWORD: ${DB_PASSWORD}
+  #   ports:
+  #     - 3307:3306
+  #   networks:
+  #     - dev
+
+
+  # mariadb:
+  #   image: mariadb
+  #   restart: always
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+  #   volumes:
+  #     - mariadb:/var/lib/mysql
+  #   ports:
+  #     - 3306:3306
+  #   networks:
+  #     - dev
 
   mailhog:
     image: mailhog/mailhog
