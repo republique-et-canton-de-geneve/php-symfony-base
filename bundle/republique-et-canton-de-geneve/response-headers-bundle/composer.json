@@ -20,6 +20,11 @@
             "EtatGeneve\\ResponseHeadersBundle\\": "src/"
         }
     },
+     "autoload-dev": {
+        "psr-4": {
+            "EtatGeneve\\ResponseHeadersBundle\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             

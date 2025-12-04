@@ -16,19 +16,21 @@ class ResponseListener
 
     public function onKernelResponse(ResponseEvent $event): void
     {
-        $expressionLanguage = new ExpressionLanguage();
-        $reponse = $event->getResponse();
-        $request = $event->getRequest();
-        foreach ($this->headers as $name => $headerConfig) {
-            $condition = $headerConfig['condition'] ?? null;
-            if ($condition) {
-                if (!$expressionLanguage->evaluate($condition, ['response' => $reponse, 'request' => $request])) {
-                    continue;
+        if ($event->isMainRequest()) {
+            $expressionLanguage = new ExpressionLanguage();
+            $reponse = $event->getResponse();
+            $request = $event->getRequest();
+            foreach ($this->headers as $name => $headerConfig) {
+                $condition = $headerConfig['condition'] ?? null;
+                if ($condition !== null) {
+                    if (!$expressionLanguage->evaluate($condition, ['response' => $reponse, 'request' => $request])) {
+                        continue;
+                    }
                 }
+                $value = $headerConfig['value'];
+                $value = is_array($value) ? implode('', $value) : $value;
+                $reponse->headers->set($name, $value, true);
             }
-            $value = $headerConfig['value'];
-            $value = is_array($value) ? implode('', $value) : $value;
-            $reponse->headers->set($name, $value, true);
         }
     }
 }

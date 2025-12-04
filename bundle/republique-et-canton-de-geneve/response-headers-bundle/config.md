@@ -62,6 +62,7 @@ The 'X-Frame-Option' header will be inclued in the HTTP response if the 'APP_SER
 
   Example:
 ```
-   condition: request.getPathInfo()  matches '^/admin'
-   condition: response.getStatusCode() == 200
+   condition: "request.getPathInfo()  matches '^/admin'"
+   condition: "response.getStatusCode() == 200"
+   condition: "false"
 ```  
