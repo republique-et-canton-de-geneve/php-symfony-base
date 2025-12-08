@@ -10,10 +10,10 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class ResponseHeadersBundle extends AbstractBundle
 {
-    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+    public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
         $id = 'response_headers.response_listener';
-        $services = $container->services();
+        $services = $containerConfigurator->services();
         $services->set($id, ResponseListener::class)
         ->arg('$headers', $config['headers'])
         ->tag('kernel.event_listener', ['event' => 'kernel.response', 'method' => 'onKernelResponse'])
