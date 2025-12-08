@@ -21,13 +21,15 @@ class ResponseListener
             $reponse = $event->getResponse();
             $request = $event->getRequest();
             foreach ($this->headers as $name => $headerConfig) {
-                $condition = $headerConfig['condition'] ?? null;
-                if ($condition !== null) {
-                    if (!$expressionLanguage->evaluate($condition, ['response' => $reponse, 'request' => $request])) {
+                if (isset($headerConfig['condition'])) {
+                    if (!$expressionLanguage->evaluate(
+                        $headerConfig['condition'],
+                        ['response' => $reponse, 'request' => $request]
+                    )) {
                         continue;
                     }
                 }
-                $value = $headerConfig['value'];
+                $value = $headerConfig['value'] ?? null;
                 $value = is_array($value) ? implode('', $value) : $value;
                 $reponse->headers->set($name, $value, true);
             }

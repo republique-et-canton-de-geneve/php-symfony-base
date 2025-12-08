@@ -1,11 +1,10 @@
 <?php
 
-namespace EtatGeneve\ResponseHeadersBundle\Tests\Unit\EventListener;
+namespace EtatGeneve\ResponseHeadersBundle\Tests\Unit\EventListerner;
 
 use EtatGeneve\ResponseHeadersBundle\EventListener\ResponseListener;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +19,8 @@ class ResponseListenerTest extends TestCase
         return new ResponseListener($headers);
     }
 
-    private function createResponseEvent(        bool $mainRequest = true    ): ResponseEvent {
+    private function createResponseEvent(bool $mainRequest = true): ResponseEvent
+    {
         return new ResponseEvent(
             $this->createMock(HttpKernelInterface::class),
             new Request(),
@@ -33,39 +33,32 @@ class ResponseListenerTest extends TestCase
     public static function headersProvider(): array
     {
         return [
-            [['a1' => ['value' => 'v1']]],
-            [['a2' => ['value' => 'v2'], 'a3' => ['value' => 'v3']]],
 
+            [['a1' => ['value' => 'v1']], true, ['a1' => 'v1']],
+            [['a2' => ['value' => 'v2'], 'a3' => ['value' => 'v3']], true, ['a2' => 'v2', 'a3' => 'v3']],
+            [['a3' => ['value' => 'v3', 'condition' => 'true']], true, ['a3' => 'v3']],
+            [['a4' => ['value' => 'v4', 'condition' => 'false']], true, ['a4' => null]],
+            [['a5' => ['value' => 'v5', 'condition' => 'true']], false, ['a5' => null]],
+            [['a6' => ['value' => 'v6', 'condition' => null]], true, ['a6' => 'v6']],
+            [['a7' => ['value' => ['a7', 'b7', 'c7']]], true, ['a7' => 'a7b7c7']],
+            [[], true, []],
+            [['a9' => []], true, ['a9' => null]],
+            [['a10' => ['condition'=>'true']], true, ['a10' => null]],
+            [['a11' => ['value'=>'v11', 'condition'=>'response.getStatusCode() == 200']], true, ['a11' => 'v11']],
+            [['a12' => ['value'=>'v12', 'condition'=>'response.getStatusCode() != 200']], true, ['a12' => null]],
+            [['a13' => ['value' => 'v13', 'condition'=>'true'], 'a14' => ['value' => ['b1','b2','b3']]], true, ['a13' => 'v13', 'a14' => 'b1b2b3']],
         ];
     }
 
     #[DataProvider('headersProvider')]
-    public function testHeaders(array $headers): void
+    public function testHeaders(array $headers, $mainRequest, $expectedValues): void
     {
         $responseListener = new ResponseListener($headers);
-        $responseEvent = $this->createResponseEvent();
+        $responseEvent = $this->createResponseEvent($mainRequest);
         $responseListener->onKernelResponse($responseEvent);
         foreach ($headers as $name => $header) {
-            $expectedValue = $header['value'];
-            static::assertSame($expectedValue, $responseEvent->getResponse()->headers->get($name));
+            static::assertSame($expectedValues[$name], $responseEvent->getResponse()->headers->get($name));
         }
-    }
-
-    public static function fullHeaderProvider(): array
-    {
-        return [
-            [['a1' => ['value' => 'v1', 'condition' => 'true']], true,'v1'],
-            [['a2' => ['value' => 'v2', 'condition' => 'false']], true,null]
-        ];
-    }
-
-    #[DataProvider('fullHeaderProvider')]
-    public function testFullHeaders(array $header, $mainRequest, $expectedValue): void
-    {
-        $name = key($header);
-        $responseListener = new ResponseListener($header);
-        $responseEvent = $this->createResponseEvent();
-        $responseListener->onKernelResponse($responseEvent);
-        static::assertSame($expectedValue, $responseEvent->getResponse()->headers->get($name));
+        static::assertTrue(true);
     }
 }
