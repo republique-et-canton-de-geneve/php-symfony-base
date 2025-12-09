@@ -5,15 +5,13 @@ namespace EtatGeneve\ResponseHeadersBundle\Tests\Unit\EventListerner;
 use EtatGeneve\ResponseHeadersBundle\EventListener\ResponseListener;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class ResponseListenerTest extends TestCase
 {
-
-
     private static function createResponseListener(array $headers): ResponseListener
     {
         return new ResponseListener($headers);
@@ -29,11 +27,9 @@ class ResponseListenerTest extends TestCase
         );
     }
 
-
     public static function headersProvider(): array
     {
         return [
-
             [['a1' => ['value' => 'v1']], true, ['a1' => 'v1']],
             [['a2' => ['value' => 'v2'], 'a3' => ['value' => 'v3']], true, ['a2' => 'v2', 'a3' => 'v3']],
             [['a3' => ['value' => 'v3', 'condition' => 'true']], true, ['a3' => 'v3']],
@@ -43,10 +39,10 @@ class ResponseListenerTest extends TestCase
             [['a7' => ['value' => ['a7', 'b7', 'c7']]], true, ['a7' => 'a7b7c7']],
             [[], true, []],
             [['a9' => []], true, ['a9' => null]],
-            [['a10' => ['condition'=>'true']], true, ['a10' => null]],
-            [['a11' => ['value'=>'v11', 'condition'=>'response.getStatusCode() == 200']], true, ['a11' => 'v11']],
-            [['a12' => ['value'=>'v12', 'condition'=>'response.getStatusCode() != 200']], true, ['a12' => null]],
-            [['a13' => ['value' => 'v13', 'condition'=>'true'], 'a14' => ['value' => ['b1','b2','b3']]], true, ['a13' => 'v13', 'a14' => 'b1b2b3']],
+            [['a10' => ['condition' => 'true']], true, ['a10' => null]],
+            [['a11' => ['value' => 'v11', 'condition' => 'response.getStatusCode() == 200']], true, ['a11' => 'v11']],
+            [['a12' => ['value' => 'v12', 'condition' => 'response.getStatusCode() != 200']], true, ['a12' => null]],
+            [['a13' => ['value' => 'v13', 'condition' => 'true'], 'a14' => ['value' => ['b1', 'b2', 'b3']]], true, ['a13' => 'v13', 'a14' => 'b1b2b3']],
         ];
     }
 

@@ -7,8 +7,14 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class ResponseListener
 {
+    /**
+     * @var array<string,array{condition:string}|array{string:string|array<string>}>
+     **/
     private array $headers;
 
+    /**
+     * @param array<string,array{condition:string}|array{string:string|array<string>}> $headers
+     **/
     public function __construct(array $headers)
     {
         $this->headers = $headers;

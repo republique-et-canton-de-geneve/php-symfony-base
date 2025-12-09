@@ -10,12 +10,10 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class ResponseHeadersBundle extends AbstractBundle
 {
-public int $a='s';
+    public int $a = 's';
+
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
-
-
-
         $id = 'response_headers.response_listener';
         $services = $containerConfigurator->services();
         $services->set($id, ResponseListener::class)
