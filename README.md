@@ -179,11 +179,21 @@ For example :
     - cmd/make-symlink -> recreate symbolic link for the public asset
 
 
-Docker, generate image and container
 
-´´´
-cd docker
-docker-compose build --pull
-docker-compose up --force-recreate
-cd ..
+# Docker
+Spcific for this project
+
+- php : xdebug, apache, web, cli, composer, symfony, nodejs, yarn
+- database : mysql and ( mariadb, postgres) and adminer
+- mailhog
+- saml2
+
+## Build images and container
+
+from root folder :
 ```
+ docker-compose build --pull  
+ docker-compose up --build -d
+ ```
+ 
+

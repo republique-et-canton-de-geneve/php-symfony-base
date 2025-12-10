@@ -1,7 +1,11 @@
 name: php-symfony-base
 
 services:
-  php84:
+  php:
+    container_name: sym-php
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.php
     command:
       - /bin/bash
       - -c
@@ -10,12 +14,9 @@ services:
           mkdir -p /var/www/log/apache
           apache2-foreground -c "DocumentRoot /var/www" -c "SetEnv DOCKER_ENVIRONMENT 1"
     restart: unless-stopped
-    build:
-      context: .
-      dockerfile: Dockerfile.php84
     volumes:
-      - ../.:/var/www
-      - ./config/php/docker-php.ini:/usr/local/etc/php/conf.d/docker-php.ini
+      - ./.:/var/www
+      - ./docker/config/php/docker-php.ini:/usr/local/etc/php/conf.d/docker-php.ini
     ports:
       - 80:80
     networks:
@@ -24,6 +25,10 @@ services:
       - "host.docker.internal:host-gateway"
 
   saml2:
+    container_name: sym-saml2
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.saml2
     command:
       - /bin/bash
       - -c
@@ -32,29 +37,26 @@ services:
           mkdir -p /var/www/log/apache
           apache2-foreground -c "DocumentRoot /var/www" -c "SetEnv DOCKER_ENVIRONMENT 1"
     restart: unless-stopped
-    build:
-      context: .
-      dockerfile: Dockerfile.saml2
     ports:
       - "1050:80"
     volumes:
-      - ./config/saml2/config.php:/var/www/simplesamlphp/config/config.php
-      - ./config/saml2/acl.php:/var/www/simplesamlphp/config/acl.php
-      - ./config/saml2/authsources.php:/var/www/simplesamlphp/config/authsources.php
-      - ./config/saml2/saml20-sp-remote.php:/var/www/simplesamlphp/metadata/saml20-sp-remote.php
+      - ./docker/config/saml2/config.php:/var/www/simplesamlphp/config/config.php
+      - ./docker/config/saml2/acl.php:/var/www/simplesamlphp/config/acl.php
+      - ./docker/config/saml2/authsources.php:/var/www/simplesamlphp/config/authsources.php
+      - ./docker/config/saml2/saml20-sp-remote.php:/var/www/simplesamlphp/metadata/saml20-sp-remote.php
     networks:
       - dev
 
 
   adminer:
-    container_name: php-symfony-base-adminer
+    container_name: sym-adminer
     build:
       context: .
-      dockerfile: Dockerfile.adminer
+      dockerfile: ./docker/Dockerfile.adminer
     restart: always
     volumes:
-      - ../data:/var/www/data
-      - ../certificates/:/var/www/certs
+      - ./data:/var/www/data
+      - ./certificates/:/var/www/certs
     ports:
       - 1078:8080
     networks:
@@ -64,12 +66,11 @@ services:
 
 
   postgres:
-    image: php-symfony-base-postgres
-    container_name: php-symfony-base-postgres
-    restart: always
+    container_name: sym-postgres
     build:
       context: .
-      dockerfile: Dockerfile.postgres
+      dockerfile: ./docker/Dockerfile.postgres
+    restart: always
     environment:
       POSTGRES_PASSWORD: $DB_PASSWORD
       POSTGRES_DB: $DB_DATABASE
@@ -79,7 +80,7 @@ services:
       - dev
     volumes:
       - postgres:/var/lib/postgresql
-      - ../certificates/postgres:/var/lib/postgresql/certificates
+      - ./certificates/postgres:/var/lib/postgresql/certificates
     ports:
       - 5432:5432
 
@@ -87,6 +88,7 @@ services:
 
   # mysql:
   #   image: mysql
+  #   container_name: sym-mysql
   #   restart: always
   #   volumes:
   #     - mysql:/var/lib/mysql
@@ -103,6 +105,7 @@ services:
 
   # mariadb:
   #   image: mariadb
+  #   container_name: sym-mysql
   #   restart: always
   #   environment:
   #     MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
@@ -114,6 +117,7 @@ services:
   #     - dev
 
   mailhog:
+    container_name: sym-mailhog
     image: mailhog/mailhog
     restart: always
     ports:

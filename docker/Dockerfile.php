@@ -1,18 +1,17 @@
-FROM php:8.4-apache AS php84
+FROM php:8.4-apache AS php
 ENV APACHE_DOCUMENT_ROOT /var/www
 ENV APACHE_LOG_DIR /var/www/log/apache
 
 WORKDIR ${APACHE_DOCUMENT_ROOT}
 
 
-COPY ./config/apache2/*.conf /etc/apache2/conf-enabled
+COPY ./docker/config/apache2/*.conf /etc/apache2/conf-enabled
 
 
 #local config
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}/public!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www!${APACHE_DOCUMENT_ROOT}/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
 
 
 # Install Linux libraries.
@@ -113,7 +112,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 
 
-COPY ./config/php/my-entrypoint.sh /usr/local/bin/
+COPY ./docker/config/php/my-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/my-entrypoint.sh
 ENTRYPOINT ["my-entrypoint.sh"]
 CMD ["apache2-foreground"]
