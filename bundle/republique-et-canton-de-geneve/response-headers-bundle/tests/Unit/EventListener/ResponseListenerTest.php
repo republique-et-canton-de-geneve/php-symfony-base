@@ -12,10 +12,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class ResponseListenerTest extends TestCase
 {
-    private static function createResponseListener(array $headers): ResponseListener
-    {
-        return new ResponseListener($headers);
-    }
+
 
     private function createResponseEvent(bool $mainRequest = true): ResponseEvent
     {
@@ -26,7 +23,9 @@ class ResponseListenerTest extends TestCase
             new Response()
         );
     }
-
+    /**
+     * @return <int, list<array<string, array<string, list<string>|string|null>|string|null>|bool>>
+     **/
     public static function headersProvider(): array
     {
         return [
