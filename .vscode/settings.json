@@ -30,6 +30,6 @@
     "phpstan.suppressWorkspaceMessage": false,
     "phpstan.pro": false,
     "phpstan.tmpDir": "",
-    "phpstan.checkValidity": false,
+    "phpstan.checkValidity": true,
     "phpstan.dockerContainerName": "sym-php"
 }

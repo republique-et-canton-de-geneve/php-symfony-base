@@ -6,7 +6,6 @@
  * See: https://simplesamlphp.org/docs/stable/simplesamlphp-reference-sp-remote
  */
 
-
 // php symfony base
 $metadata['http://localhost/saml/metadata'] = [
     'entityid' => 'php-symfony-base',
@@ -29,5 +28,3 @@ $metadata['http://localhost/saml/metadata'] = [
     'validate.authnrequest' => false,
     'saml20.sign.assertion' => false,
 ];
-
-
