@@ -32,19 +32,17 @@ class ResponseHeadersBundleTest extends TestCase
         $instanceOf = [];
         $containerConfigurator = new ContainerConfigurator($containerBuilder, $phpFileLoader, $instanceOf, 'xx', 'xx');
         $this->responseHeadersBundle->loadExtension($config, $containerConfigurator, $containerBuilder);
-        $this->assertTrue(true);
+        $this->expectNotToPerformAssertions();
     }
 
-    public function testConfigure()
+    public function testConfigure(): void
     {
         $treeBuilder = new TreeBuilder('response_header');
         $fileLocator = new FileLocator();
         $defintionLoader = new DefinitionFileLoader($treeBuilder, $fileLocator);
         $definition = new DefinitionConfigurator($treeBuilder, $defintionLoader, '', '');
         $this->responseHeadersBundle->configure($definition);
-        $this->assertTrue(true);
         $node = $definition->rootNode()->getNode(true);
-
         $processor = new Processor();
         $processor->process($node, [
             0 => [
@@ -55,5 +53,6 @@ class ResponseHeadersBundleTest extends TestCase
                 ],
             ],
         ]);
+        $this->expectNotToPerformAssertions();
     }
 }

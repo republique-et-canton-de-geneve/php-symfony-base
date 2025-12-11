@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 class ResponseHeadersBundle extends AbstractBundle
 {
     /**
-     * @param array<string,array{condition:string}|array{string:string|array<string>}> $config
+     * @param array<string,array{condition:string}|array{}|array{string:string|array<string>}> $config
      **/
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {

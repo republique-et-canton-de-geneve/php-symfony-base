@@ -24,7 +24,7 @@ class ResponseListenerTest extends TestCase
         );
     }
     /**
-     * @return <int, list<array<string, array<string, list<string>|string|null>|string|null>|bool>>
+     * @return list<array<int,mixed>>
      **/
     public static function headersProvider(): array
     {
@@ -45,8 +45,12 @@ class ResponseListenerTest extends TestCase
         ];
     }
 
+    /**
+     * @param array<string,array{condition:string}|array{string:string|array<string>}> $headers
+     * @param array<string,string> $expectedValues
+     **/
     #[DataProvider('headersProvider')]
-    public function testHeaders(array $headers, $mainRequest, $expectedValues): void
+    public function testHeaders(array $headers, bool $mainRequest, array $expectedValues): void
     {
         $responseListener = new ResponseListener($headers);
         $responseEvent = $this->createResponseEvent($mainRequest);
@@ -54,6 +58,8 @@ class ResponseListenerTest extends TestCase
         foreach ($headers as $name => $header) {
             static::assertSame($expectedValues[$name], $responseEvent->getResponse()->headers->get($name));
         }
-        static::assertTrue(true);
+        if ( !$headers) {
+             $this->expectNotToPerformAssertions();
+        }
     }
 }
