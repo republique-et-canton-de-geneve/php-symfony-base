@@ -12,8 +12,6 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class ResponseListenerTest extends TestCase
 {
-
-
     private function createResponseEvent(bool $mainRequest = true): ResponseEvent
     {
         return new ResponseEvent(
@@ -23,6 +21,7 @@ class ResponseListenerTest extends TestCase
             new Response()
         );
     }
+
     /**
      * @return list<array<int,mixed>>
      **/
@@ -47,7 +46,7 @@ class ResponseListenerTest extends TestCase
 
     /**
      * @param array<string,array{condition:string}|array{string:string|array<string>}> $headers
-     * @param array<string,string> $expectedValues
+     * @param array<string,string>                                                     $expectedValues
      **/
     #[DataProvider('headersProvider')]
     public function testHeaders(array $headers, bool $mainRequest, array $expectedValues): void
@@ -58,8 +57,8 @@ class ResponseListenerTest extends TestCase
         foreach ($headers as $name => $header) {
             static::assertSame($expectedValues[$name], $responseEvent->getResponse()->headers->get($name));
         }
-        if ( !$headers) {
-             $this->expectNotToPerformAssertions();
+        if (!$headers) {
+            $this->expectNotToPerformAssertions();
         }
     }
 }
