@@ -3,6 +3,7 @@
 namespace EtatGeneve\ResponseHeadersBundle;
 
 use EtatGeneve\ResponseHeadersBundle\EventListener\ResponseListener;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -10,19 +11,26 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class ResponseHeadersBundle extends AbstractBundle
 {
-    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+    /**
+     * @param array<string,array{condition:string}|array{}|array{string:string|array<string>}> $config
+     **/
+    public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
         $id = 'response_headers.response_listener';
-        $services = $container->services();
+        $services = $containerConfigurator->services();
         $services->set($id, ResponseListener::class)
-        ->arg('$headers', $config['headers'])
-        ->tag('kernel.event_listener', ['event' => 'kernel.response', 'method' => 'onKernelResponse'])
+            ->arg('$headers', $config['headers'])
+            ->tag('kernel.event_listener', ['event' => 'kernel.response', 'method' => 'onKernelResponse'])
         ;
     }
 
     public function configure(DefinitionConfigurator $definition): void
     {
-        $definition->rootNode()
+        /**
+         * @var ArrayNodeDefinition
+         */
+        $root = $definition->rootNode();
+        $root
             ->children()
             ->arrayNode('headers')
             ->useAttributeAsKey('name')

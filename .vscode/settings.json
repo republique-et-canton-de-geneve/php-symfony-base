@@ -1,29 +1,34 @@
 {
-    "phpstan.singleFileMode": false,
-    "phpstan.binPath": "/home/user/www/php-symfony-base/vendor/bin/phpstan",
-    "phpstan.binCommand": [],
-    "phpstan.configFile": "/home/user/www/php-symfony-base/htdocs/phpstan.dist.neon",
+    "phpstan.enabled": true,
+    "phpstan.rootDir": "",
+    "phpstan.configFile": "phpstan.dist.neon",
+    "phpstan.binPath": "/home/user/www/php-symfony-base",
+    "phpstan.binCommand": [
+        "docker",
+        "exec",
+        "-t",
+        "sym-php",
+        "php",
+        "vendor/phpstan/phpstan/phpstan",
+    ],
     "phpstan.paths": {
 
-        "/home/user/www/php-symfony-base": "/var/www/php-symfony-base"
+        
+        "/home/user/www/php-symfony-base": "/var/www"
     },
-    "phpstan.dockerContainerName": "php83",
-    "phpstan.rootDir": "/home/user/www/php-symfony-base",
     "phpstan.options": [],
     "phpstan.enableStatusBar": true,
     "phpstan.memoryLimit": "2048M",
-    "phpstan.enabled": true,
-    "phpstan.projectTimeout": 300000,
-    "phpstan.timeout": 300000,
+    "phpstan.singleFileMode": false,
+    "phpstan.projectTimeout": 60000,
+    "phpstan.timeout": 60000,
     "phpstan.suppressTimeoutMessage": false,
     "phpstan.showProgress": true,
     "phpstan.showTypeOnHover": true,
-    "phpstan.enableLanguageServer": false,
-    "phpstan.ignoreErrors": [
-        "Xdebug: .*"
-    ],
+    "phpstan.ignoreErrors": [],
     "phpstan.suppressWorkspaceMessage": false,
     "phpstan.pro": false,
     "phpstan.tmpDir": "",
-    "phpstan.checkValidity": false
+    "phpstan.checkValidity": true,
+    "phpstan.dockerContainerName": "sym-php"
 }

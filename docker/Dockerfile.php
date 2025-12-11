@@ -1,0 +1,118 @@
+FROM php:8.4-apache AS php
+ENV APACHE_DOCUMENT_ROOT /var/www
+ENV APACHE_LOG_DIR /var/www/log/apache
+
+WORKDIR ${APACHE_DOCUMENT_ROOT}
+
+
+COPY ./docker/config/apache2/*.conf /etc/apache2/conf-enabled
+
+
+#local config
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}/public!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www!${APACHE_DOCUMENT_ROOT}/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+
+# Install Linux libraries.
+RUN apt-get update && apt-get install -y \
+    vim \
+    git \
+    unzip \
+    libicu-dev \
+    libpq-dev \
+    libzip-dev \
+    libxml2-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libwebp-dev \
+    libxpm-dev \
+    libfreetype6-dev \
+    libldap-common \
+    libldap2-dev \
+    ca-certificates
+
+
+
+#apache
+RUN set -eux; \
+    a2enmod rewrite; \
+    a2enmod headers; \
+    a2enmod expires; \
+    a2enmod autoindex
+
+
+
+RUN docker-php-ext-configure intl && \
+     docker-php-ext-configure   ldap --with-libdir=lib/x86_64-linux-gnu/ && \
+     docker-php-ext-configure gd \
+    --with-webp \
+    --with-jpeg \
+    --with-xpm \
+    --with-freetype
+
+RUN set -eux; \
+  docker-php-ext-install \
+    intl \
+    mysqli \
+    pdo_mysql \
+    pdo_pgsql \
+    zip \
+    soap \
+    gd \
+    ldap \
+    opcache \
+    exif
+
+RUN pecl install redis && docker-php-ext-enable redis
+RUN apt-get install -y  librabbitmq-dev && pecl install amqp  && docker-php-ext-enable amqp
+RUN apt-get install -y libxslt-dev &&  docker-php-ext-install xsl
+
+
+#install node js
+RUN apt-get install -y ca-certificates curl gnupg
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+ENV NODE_MAJOR=22
+RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+RUN apt-get update
+RUN apt-get install nodejs -y
+
+
+RUN npm config set cafile=/etc/ssl/certs/ca-certificates.crt
+
+
+
+## yarn
+RUN npm install --global yarn \
+    && yarn config set cafile /etc/ssl/certs/ca-certificates.crt
+
+
+# Install xdebug.
+RUN set -eux; \
+    pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Setup, Download & install Symfony CLI.
+RUN set -eux; \
+  curl -sS https://get.symfony.com/cli/installer | bash; \
+  mv /root/.symfony5/bin/symfony /usr/bin
+
+
+
+## Install Composer.
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+## we use version 2.8.12, because the version 2.9 is not compatible with our proxy
+# RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+# RUN php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+# RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.8.12
+# RUN php -r "unlink('composer-setup.php');"
+
+
+
+COPY ./docker/config/php/my-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/my-entrypoint.sh
+ENTRYPOINT ["my-entrypoint.sh"]
+CMD ["apache2-foreground"]

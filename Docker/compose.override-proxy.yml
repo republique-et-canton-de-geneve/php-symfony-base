@@ -1,7 +1,0 @@
-## Copy this file to compose.override.yml if you are using wsl-vpn kit and connect to windows as a proxy
-services:
-  php84:
-    environment:
-      http_proxy: http://host.docker.internal:3128
-      https_proxy: http://host.docker.internal:3128
-      no_proxy: 127.0.0.0/8,opensearch,php74,php82,php81,postgres,mariadb,mysql,mailhog

@@ -1,26 +1,54 @@
 {
-    "name": "athos99/base-demo-bundle",
-    "version" : "1.0",
-    "description": "Demonstration of a basic bundle",
+    "name": "republique-et-canton-de-geneve/response-headers-bundle",
+    "version": "1.0",
+    "description": "A Symfony bundle to easily send headers in your HTTP response",
     "type": "symfony-bundle",
     "require": {
         "php": ">=7.4",
         "symfony/dependency-injection": ">=6.4",
-        "symfony/http-kernel" : ">=6.4",
-        "symfony/config" : ">=6.4",
+        "symfony/http-kernel": ">=6.4",
+        "symfony/config": ">=6.4",
         "symfony/expression-language": ">=6.4"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^12.4",
+        "ekino/phpstan-banned-code": "^3.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.49",
+        "rector/rector": "^2.0.11"
+    },
     "license": "MIT",
-    "keywords": ["bundle", "demo", "symfony"],
+    "keywords": [
+        "bundle",
+        "symfony",
+        "response",
+        "header",
+        "headers",
+        "http",
+        "condtion"
+    ],
     "autoload": {
         "psr-4": {
-            "Athos99\\BaseDemoBundle\\": "src/"
+            "EtatGeneve\\ResponseHeadersBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EtatGeneve\\ResponseHeadersBundle\\Tests\\": "tests/"
         }
     },
     "authors": [
         {
-            "name": "Athos99"
+            "name": "Michel Bobillier aka Athos99",
+            "email": "athos99@bluewin.ch",
+            "role": "Senior Lead Developer"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
 }

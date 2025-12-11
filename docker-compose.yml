@@ -1,0 +1,134 @@
+name: php-symfony-base
+
+services:
+  php:
+    container_name: sym-php
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.php
+    command:
+      - /bin/bash
+      - -c
+      - | 
+          mkdir -p /var/www/log/php
+          mkdir -p /var/www/log/apache
+          apache2-foreground -c "DocumentRoot /var/www" -c "SetEnv DOCKER_ENVIRONMENT 1"
+    restart: unless-stopped
+    volumes:
+      - ./.:/var/www
+      - ./docker/config/php/docker-php.ini:/usr/local/etc/php/conf.d/docker-php.ini
+    ports:
+      - 80:80
+    networks:
+      - dev
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  saml2:
+    container_name: sym-saml2
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.saml2
+    command:
+      - /bin/bash
+      - -c
+      - | 
+          mkdir -p /var/www/log/php
+          mkdir -p /var/www/log/apache
+          apache2-foreground -c "DocumentRoot /var/www" -c "SetEnv DOCKER_ENVIRONMENT 1"
+    restart: unless-stopped
+    ports:
+      - "1050:80"
+    volumes:
+      - ./docker/config/saml2/config.php:/var/www/simplesamlphp/config/config.php
+      - ./docker/config/saml2/acl.php:/var/www/simplesamlphp/config/acl.php
+      - ./docker/config/saml2/authsources.php:/var/www/simplesamlphp/config/authsources.php
+      - ./docker/config/saml2/saml20-sp-remote.php:/var/www/simplesamlphp/metadata/saml20-sp-remote.php
+    networks:
+      - dev
+
+
+  adminer:
+    container_name: sym-adminer
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.adminer
+    restart: always
+    volumes:
+      - ./data:/var/www/data
+      - ./certificates/:/var/www/certs
+    ports:
+      - 1078:8080
+    networks:
+      - dev
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+  postgres:
+    container_name: sym-postgres
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: $DB_DATABASE
+      POSTGRES_USER: $DB_USER
+      POSTGRES_DB_EXTENSIONS: pg_trgm
+    networks:
+      - dev
+    volumes:
+      - postgres:/var/lib/postgresql
+      - ./certificates/postgres:/var/lib/postgresql/certificates
+    ports:
+      - 5432:5432
+
+
+
+  # mysql:
+  #   image: mysql
+  #   container_name: sym-mysql
+  #   restart: always
+  #   volumes:
+  #     - mysql:/var/lib/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${DB_DATABASE}
+  #     MYSQL_USER: ${DB_USER}
+  #     MYSQL_PASSWORD: ${DB_PASSWORD}
+  #   ports:
+  #     - 3307:3306
+  #   networks:
+  #     - dev
+
+
+  # mariadb:
+  #   image: mariadb
+  #   container_name: sym-mysql
+  #   restart: always
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+  #   volumes:
+  #     - mariadb:/var/lib/mysql
+  #   ports:
+  #     - 3306:3306
+  #   networks:
+  #     - dev
+
+  mailhog:
+    container_name: sym-mailhog
+    image: mailhog/mailhog
+    restart: always
+    ports:
+      - 1025:25
+      - 8025:8025
+    networks:
+      - dev
+
+networks:
+    dev:
+volumes:
+    mysql:
+    postgres:
+    mariadb:
