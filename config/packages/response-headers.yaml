@@ -11,6 +11,9 @@ response_headers:
         - x3
       condition: "'%env(APP_SERVER_TYPE)%' == 'local'"  
     x4: [a, b, c]
+    Vary:
+      value: 'zzz'
+      replace: false
     
 
 

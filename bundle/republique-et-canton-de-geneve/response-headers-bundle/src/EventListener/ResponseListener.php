@@ -36,8 +36,10 @@ class ResponseListener
                     }
                 }
                 $value = $headerConfig['value'] ?? null;
+                $replace = $headerConfig['replace'] ?? true;
+
                 $value = is_array($value) ? implode('', $value) : $value;
-                $reponse->headers->set($name, $value, true);
+                $reponse->headers->set($name, $value, $replace);
             }
         }
     }

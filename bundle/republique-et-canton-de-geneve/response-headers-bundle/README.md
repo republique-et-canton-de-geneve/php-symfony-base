@@ -24,7 +24,8 @@ response_headers:
     X-Frame-Options:
       value: SAMEORIGIN
       condition: "'%env(APP_SERVER_TYPE)%' == 'local'"  
-
+      replace: false
+      
     Expires:
       value: 0
       condition: request.getPathInfo() matches '^/admin'  

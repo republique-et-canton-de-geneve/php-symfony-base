@@ -47,7 +47,6 @@ class ResponseHeadersBundle extends AbstractBundle
                 if (array_keys($v) === range(0, count($v) - 1)) {
                     return ['value' => $v];
                 }
-
                 return $v;
             })
             ->end()
@@ -62,6 +61,7 @@ class ResponseHeadersBundle extends AbstractBundle
             ->scalarPrototype()->end()
             ->end()
             ->scalarNode('condition')->end()
+            ->scalarNode('replace')->end()
             ->end()
             ->end()
             ->end()

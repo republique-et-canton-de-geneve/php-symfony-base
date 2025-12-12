@@ -41,6 +41,8 @@ class ResponseListenerTest extends TestCase
             [['a11' => ['value' => 'v11', 'condition' => 'response.getStatusCode() == 200']], true, ['a11' => 'v11']],
             [['a12' => ['value' => 'v12', 'condition' => 'response.getStatusCode() != 200']], true, ['a12' => null]],
             [['a13' => ['value' => 'v13', 'condition' => 'true'], 'a14' => ['value' => ['b1', 'b2', 'b3']]], true, ['a13' => 'v13', 'a14' => 'b1b2b3']],
+            [['a20' => ['value' => 'v20', 'replace' => false]], true, ['a20' => 'v20']],
+            [['a21' => ['value' => 'v21', 'replace' => true]], true, ['a21' => 'v21']],
         ];
     }
 

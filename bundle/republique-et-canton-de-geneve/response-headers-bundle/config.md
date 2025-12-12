@@ -13,7 +13,7 @@ response_headers:
 
        #shorter defintion for header and value
     headername1: value1
-      
+
        #defintion for header and value
     headername2: 
       value: value2
@@ -37,6 +37,11 @@ response_headers:
        - value52;
        - value53 
       condition: "'%env(APP_END)%' == 'dev'"  
+
+       # header that should not replace a previous similar header but add a second header of the same type
+    headername6: 
+      value: value6
+      replace: false
 ...      
 ```
 
