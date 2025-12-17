@@ -50,6 +50,7 @@ class ResponseHeadersBundleTest extends TestCase
                     'x1' => ['value' => 'val1'],
                     'x2' => 'toto',
                     'x3' => ['a', 'b'],
+                    'x4' => ['value' => ['a', 'b'], 'format' => 'array'],
                 ],
             ],
         ]);

@@ -62,6 +62,7 @@ class ResponseHeadersBundle extends AbstractBundle
             ->end()
             ->scalarNode('condition')->end()
             ->scalarNode('replace')->end()
+            ->scalarNode('format')->end()
             ->end()
             ->end()
             ->end()

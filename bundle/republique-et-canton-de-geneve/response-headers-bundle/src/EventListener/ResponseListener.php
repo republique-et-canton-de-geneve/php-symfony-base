@@ -37,8 +37,9 @@ class ResponseListener
                 }
                 $value = $headerConfig['value'] ?? null;
                 $replace = $headerConfig['replace'] ?? true;
+                $scalar = 'array' !== ($headerConfig['format'] ?? 'scalar') ;
 
-                $value = is_array($value) ? implode('', $value) : $value;
+                $value = (is_array($value) && $scalar) ? implode('', $value) : $value;
                 $reponse->headers->set($name, $value, $replace);
             }
         }
