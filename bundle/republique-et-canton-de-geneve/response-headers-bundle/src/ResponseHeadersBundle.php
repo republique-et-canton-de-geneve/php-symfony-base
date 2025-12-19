@@ -38,11 +38,6 @@ class ResponseHeadersBundle extends AbstractBundle
             ->beforeNormalization()
             // short description fot a header -> name: value
             ->castToArray()
-
-            // ->ifString()
-            // ->then(function (string $v): array {
-            //     return ['value' => $v];
-            // })
             ->end()
             ->beforeNormalization()
             // short description fot a header -> name: [ array values ]
@@ -59,10 +54,6 @@ class ResponseHeadersBundle extends AbstractBundle
             ->arrayNode('value')
             ->beforeNormalization()
             ->castToArray()
-            // ->ifString()
-            // ->then(function (string $v): array {
-            //     return ['value' => $v];
-            // })
             ->end()
             ->scalarPrototype()->end()
             ->end()
