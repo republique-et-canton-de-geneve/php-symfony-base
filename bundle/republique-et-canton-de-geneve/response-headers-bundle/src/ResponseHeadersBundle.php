@@ -36,27 +36,33 @@ class ResponseHeadersBundle extends AbstractBundle
             ->useAttributeAsKey('name')
             ->arrayPrototype()
             ->beforeNormalization()
-            ->ifString()
-            ->then(function (string $v): array {
-                return ['value' => $v];
-            })
+            // short description fot a header -> name: value
+            ->castToArray()
+
+            // ->ifString()
+            // ->then(function (string $v): array {
+            //     return ['value' => $v];
+            // })
             ->end()
             ->beforeNormalization()
+            // short description fot a header -> name: [ array values ]
             ->ifArray()
             ->then(function (array $v): array {
                 if (array_keys($v) === range(0, count($v) - 1)) {
                     return ['value' => $v];
                 }
+
                 return $v;
             })
             ->end()
             ->children()
             ->arrayNode('value')
             ->beforeNormalization()
-            ->ifString()
-            ->then(function (string $v): array {
-                return ['value' => $v];
-            })
+            ->castToArray()
+            // ->ifString()
+            // ->then(function (string $v): array {
+            //     return ['value' => $v];
+            // })
             ->end()
             ->scalarPrototype()->end()
             ->end()

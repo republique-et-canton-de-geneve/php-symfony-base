@@ -36,14 +36,14 @@ class ResponseListenerTest extends TestCase
             [['a6' => ['value' => 'v6', 'condition' => null]], true, ['a6' => ['v6']]],
             [['a7' => ['value' => ['a7', 'b7', 'c7']]], true, ['a7' => ['a7b7c7']]],
             [['a9' => []], true, ['a9' => [null]]],
-             [['a10' => ['condition' => 'true']], true, ['a10' => [null]]],
-             [['a11' => ['value' => 'v11', 'condition' => 'response.getStatusCode() == 200']], true, ['a11' => ['v11']]],
-             [['a12' => ['value' => 'v12', 'condition' => 'response.getStatusCode() != 200']], true, ['a12' => []]],
-             [['a13' => ['value' => 'v13', 'condition' => 'true'], 'a14' => ['value' => ['b1', 'b2', 'b3']]], true, ['a13' => ['v13'], 'a14' => ['b1b2b3']]],
-             [['a20' => ['value' => 'v20', 'replace' => false]], true, ['a20' => ['v20']]],
-             [['a21' => ['value' => 'v21', 'replace' => true]], true, ['a21' => ['v21']]],
-             [['a22' => ['value' => ['a22', 'b22', 'c22'],'format'=>'array']], true, ['a22' => ['a22', 'b22', 'c22']]],
-             [['a23' => ['value' => ['a23', 'b23', 'c23'],'format'=>'scalar']], true, ['a23' => ['a23b23c23']]],
+            [['a10' => ['condition' => 'true']], true, ['a10' => [null]]],
+            [['a11' => ['value' => 'v11', 'condition' => 'response.getStatusCode() == 200']], true, ['a11' => ['v11']]],
+            [['a12' => ['value' => 'v12', 'condition' => 'response.getStatusCode() != 200']], true, ['a12' => []]],
+            [['a13' => ['value' => 'v13', 'condition' => 'true'], 'a14' => ['value' => ['b1', 'b2', 'b3']]], true, ['a13' => ['v13'], 'a14' => ['b1b2b3']]],
+            [['a20' => ['value' => 'v20', 'replace' => false]], true, ['a20' => ['v20']]],
+            [['a21' => ['value' => 'v21', 'replace' => true]], true, ['a21' => ['v21']]],
+            [['a22' => ['value' => ['a22', 'b22', 'c22'], 'format' => 'multiple']], true, ['a22' => ['a22', 'b22', 'c22']]],
+            [['a23' => ['value' => ['a23', 'b23', 'c23'], 'format' => 'line']], true, ['a23' => ['a23b23c23']]],
         ];
     }
 
