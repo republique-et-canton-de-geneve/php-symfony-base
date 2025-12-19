@@ -28,6 +28,7 @@ class ResponseListenerTest extends TestCase
     public static function headersProvider(): array
     {
         return [
+            [['a0' => ['value' => 0]], true, ['a0' => [0]]],
             [['a1' => ['value' => 'v1']], true, ['a1' => ['v1']]],
             [['a2' => ['value' => 'v2'], 'a3' => ['value' => 'v3']], true, ['a2' => ['v2'], 'a3' => ['v3']]],
             [['a3' => ['value' => 'v3', 'condition' => 'true']], true, ['a3' => ['v3']]],
