@@ -71,7 +71,7 @@ response_headers:
       - default-src 'none';
       - script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';
       - img-src 'self' data: localhost *.mysite.com;
-      format: line
+      format: string
 ```
 This is the default format
 ##### Result:
@@ -89,7 +89,7 @@ response_headers:
     Accept:
       - application/json
       - application/xml
-      format: multiple
+      format: array
 ```
 
 ##### Result:
