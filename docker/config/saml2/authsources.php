@@ -25,56 +25,52 @@ $config = [
         'exampleauth:UserPass',
 
         'admin:123' => [
-            "FullName" => ["Admin du site (DIN)"],
-            "Roles" => [
-                "ADMIN",
-                "UTILISATEUR",
+            'FullName' => ['Admin du site (DIN)'],
+            'Roles' => [
+                'ADMIN',
+                'UTILISATEUR',
             ],
-            "Login" => ["Admin"],
-            "Email" => ["admin.local@dummy.mail"],
-            "Firstname" => 'James',
-            "Name" => 'Bond',
-            "Initials" => 'JB007',
-            "Title" => "Sire",
-            "Phone" => "022 007 007",
-            "IdEntite" => "1",
-            "NoAel" => '2',
+            'Login' => ['Admin'],
+            'Email' => ['admin.local@dummy.mail'],
+            'Firstname' => 'James',
+            'Name' => 'Bond',
+            'Initials' => 'JB007',
+            'Title' => 'Sire',
+            'Phone' => '022 007 007',
+            'IdEntite' => '1',
+            'NoAel' => '2',
         ],
-
 
         'admin-site:123' => [
-            "FullName" => ["Administrateur du site (DIN)"],
-            "Roles" => [
-                "ADMIN",
-                "UTILISATEUR",
+            'FullName' => ['Administrateur du site (DIN)'],
+            'Roles' => [
+                'ADMIN',
+                'UTILISATEUR',
             ],
-            "Login" => ["super-admin"],
-            "Email" => ["Super-Admin@dummy.mail"],
-            "Firstname" => 'Super-Admin',
-            "Name" => 'Super-Admin',
-            "Initials" => 'JB007',
-            "Title" => "Sire",
-            "Phone" => "022 007 007",
-            "IdEntite" => "1",
-            "NoAel" => '2',
+            'Login' => ['super-admin'],
+            'Email' => ['Super-Admin@dummy.mail'],
+            'Firstname' => 'Super-Admin',
+            'Name' => 'Super-Admin',
+            'Initials' => 'JB007',
+            'Title' => 'Sire',
+            'Phone' => '022 007 007',
+            'IdEntite' => '1',
+            'NoAel' => '2',
         ],
-
 
         'user:123' => [
-            "FullName" => ["user (DIN)"],
-            "Roles" => [
-                "UTILISATEUR",
+            'FullName' => ['user (DIN)'],
+            'Roles' => [
+                'UTILISATEUR',
             ],
-            "Login" => ["user"],
-            "Email" => ["user@dummy.mail"],
-            "Firstname" => 'first',
-            "Name" => 'last',
-            "Initials" => 'us',
-            "Title" => "Mister",
-            "Phone" => "022 000 000",
+            'Login' => ['user'],
+            'Email' => ['user@dummy.mail'],
+            'Firstname' => 'first',
+            'Name' => 'last',
+            'Initials' => 'us',
+            'Title' => 'Mister',
+            'Phone' => '022 000 000',
         ],
-
-
     ],
     // An authentication source which can authenticate against both SAML 2.0
     // and Shibboleth 1.3 IdPs.
@@ -114,7 +110,6 @@ $config = [
         ],
         */
     ],
-
 
     /*
     'example-sql' => [

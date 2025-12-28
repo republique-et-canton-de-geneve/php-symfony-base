@@ -1,11 +1,9 @@
 <?php
 
 /**
- * The configuration of SimpleSAMLphp
+ * The configuration of SimpleSAMLphp.
  */
-
 $config = [
-
     /*******************************
      | BASIC CONFIGURATION OPTIONS |
      *******************************/
@@ -33,8 +31,8 @@ $config = [
      * The 'application' configuration array groups a set configuration options
      * relative to an application protected by SimpleSAMLphp.
      */
-    //'application' => [
-        /*
+    // 'application' => [
+    /*
          * The 'baseURL' configuration option allows you to specify a protocol,
          * host and optionally a port that serves as the canonical base for all
          * your application's URLs. This is useful when the environment
@@ -48,8 +46,8 @@ $config = [
          * need to compute the right URLs yourself and pass them dynamically
          * to SimpleSAMLphp's API.
          */
-        //'baseURL' => 'https://example.com',
-    //],
+    // 'baseURL' => 'https://example.com',
+    // ],
 
     /*
      * The following settings are *filesystem paths* which define where
@@ -81,7 +79,7 @@ $config = [
      *
      * Valid options are: mail, sendmail and smtp.
      */
-    //'mail.transport.method' => 'smtp',
+    // 'mail.transport.method' => 'smtp',
 
     /*
      * Set the transport options for the transport method specified.  The valid settings are relative to the
@@ -105,16 +103,13 @@ $config = [
      * This should be in a domain that has your application's IP addresses in its SPF record
      * to prevent it from being rejected by mail filters.
      */
-    //'sendmail_from' => 'no-reply@example.org',
-
-
+    // 'sendmail_from' => 'no-reply@example.org',
 
     /*
      * This option allows you to enable validation of XML data against its
      * schemas. A warning will be written to the log if validation fails.
      */
     'debug.validatexml' => false,
-
 
     /*
      * The timezone of the server. This option should be set to the timezone you want
@@ -124,8 +119,6 @@ $config = [
      * See this page for a list of valid timezones: http://php.net/manual/en/timezones.php
      */
     'timezone' => null,
-
-
 
     /**********************************
      | SECURITY CONFIGURATION OPTIONS |
@@ -221,7 +214,6 @@ $config = [
      */
     'assertion.allowed_clock_skew' => 180,
 
-
     /************************
      | ERRORS AND DEBUGGING |
      ************************/
@@ -281,8 +273,6 @@ $config = [
      *   'errors.show_function' => ['SimpleSAML\Module\example\Error', 'show'],
      */
 
-
-
     /**************************
      | LOGGING AND STATISTICS |
      **************************/
@@ -329,7 +319,7 @@ $config = [
      * - %msg: the message to be logged.
      *
      */
-    //'logging.format' => '%date{%b %d %H:%M:%S} %process %level %stat[%trackid] %msg',
+    // 'logging.format' => '%date{%b %d %H:%M:%S} %process %level %stat[%trackid] %msg',
 
     /*
      * Choose which facility should be used when logging with syslog.
@@ -375,8 +365,6 @@ $config = [
         */
     ],
 
-
-
     /***********************
      | PROXY CONFIGURATION |
      ***********************/
@@ -394,9 +382,7 @@ $config = [
      * Example:
      *   'proxy.auth' = 'myuser:password'
      */
-    //'proxy.auth' => 'myuser:password',
-
-
+    // 'proxy.auth' => 'myuser:password',
 
     /**************************
      | DATABASE CONFIGURATION |
@@ -458,8 +444,6 @@ $config = [
         */
     ],
 
-
-
     /*************
      | PROTOCOLS |
      *************/
@@ -487,8 +471,6 @@ $config = [
      */
     'shib13.signresponse' => true,
 
-
-
     /***********
      | MODULES |
      ***********/
@@ -506,12 +488,11 @@ $config = [
      *
      */
 
-     'module.enable' => [
-         'exampleauth' => true,
-         'core' => true,
-         'saml' => true
-     ],
-
+    'module.enable' => [
+        'exampleauth' => true,
+        'core' => true,
+        'saml' => true,
+    ],
 
     /*************************
      | SESSION CONFIGURATION |
@@ -596,7 +577,7 @@ $config = [
      * Example:
      *  'session.cookie.samesite' => 'None',
      */
-//    'session.cookie.samesite' => \SimpleSAML\Utils\HTTP::canSetSameSiteNone() ? 'None' : null,
+    //    'session.cookie.samesite' => \SimpleSAML\Utils\HTTP::canSetSameSiteNone() ? 'None' : null,
 
     /*
      * Options to override the default settings for php sessions.
@@ -634,8 +615,6 @@ $config = [
      * Example:
      *   'session.check_function' => ['\SimpleSAML\Module\example\Util', 'checkSession'],
      */
-
-
 
     /**************************
      | MEMCACHE CONFIGURATION |
@@ -757,8 +736,6 @@ $config = [
      */
     'memcache_store.expires' => 36 * (60 * 60), // 36 hours.
 
-
-
     /*************************************
      | LANGUAGE AND INTERNATIONALIZATION |
      *************************************/
@@ -824,9 +801,9 @@ $config = [
     'language.cookie.secure' => true,
     'language.cookie.httponly' => false,
     'language.cookie.lifetime' => (60 * 60 * 24 * 900),
-//    'language.cookie.samesite' => \SimpleSAML\Utils\HTTP::canSetSameSiteNone() ? 'None' : null,
+    //    'language.cookie.samesite' => \SimpleSAML\Utils\HTTP::canSetSameSiteNone() ? 'None' : null,
 
-    /**
+    /*
      * Custom getLanguage function called from SimpleSAML\Locale\Language::getLanguage().
      * Function should return language code of one of the available languages or NULL.
      * See SimpleSAML\Locale\Language::getLanguage() source code for more info.
@@ -864,8 +841,6 @@ $config = [
      */
     'attributes.extradictionary' => null,
 
-
-
     /**************
      | APPEARANCE |
      **************/
@@ -879,16 +854,16 @@ $config = [
      * Set this option to the text you would like to appear at the header of each page. Set to false if you don't want
      * any text to appear in the header.
      */
-    //'theme.header' => 'SimpleSAMLphp'
+    // 'theme.header' => 'SimpleSAMLphp'
 
-    /**
+    /*
      * A template controller, if any.
      *
      * Used to intercept certain parts of the template handling, while keeping away unwanted/unexpected hooks. Set
      * the 'theme.controller' configuration option to a class that implements the
      * \SimpleSAML\XHTML\TemplateControllerInterface interface to use it.
      */
-    //'theme.controller' => '',
+    // 'theme.controller' => '',
 
     /*
      * Templating options
@@ -897,7 +872,7 @@ $config = [
      * Set 'template.cache' to an absolute path pointing to a directory that
      * SimpleSAMLphp has read and write permissions to.
      */
-    //'template.cache' => '',
+    // 'template.cache' => '',
 
     /*
      * Set the 'template.auto_reload' to true if you would like SimpleSAMLphp to
@@ -945,7 +920,6 @@ $config = [
         ],
     ],
 
-
     /*********************
      | DISCOVERY SERVICE |
      *********************/
@@ -980,8 +954,6 @@ $config = [
      */
     'idpdisco.layout' => 'dropdown',
 
-
-
     /*************************************
      | AUTHENTICATION PROCESSING FILTERS |
      *************************************/
@@ -1004,9 +976,9 @@ $config = [
         30 => 'core:LanguageAdaptor',
 
         45 => [
-            'class'         => 'core:StatisticsWithAttribute',
+            'class' => 'core:StatisticsWithAttribute',
             'attributename' => 'realm',
-            'type'          => 'saml20-idp-SSO',
+            'type' => 'saml20-idp-SSO',
         ],
 
         /* When called without parameters, it will fallback to filter attributes 'the old way'
@@ -1071,8 +1043,6 @@ $config = [
         // Adopts language from attribute to use in UI
         90 => 'core:LanguageAdaptor',
     ],
-
-
 
     /**************************
      | METADATA CONFIGURATION |
@@ -1190,7 +1160,6 @@ $config = [
     'metadata.sign.privatekey_pass' => null,
     'metadata.sign.certificate' => null,
 
-
     /****************************
      | DATA STORE CONFIGURATION |
      ****************************/
@@ -1205,7 +1174,7 @@ $config = [
      *
      * The default datastore is 'phpsession'.
      */
-    'store.type'                    => 'phpsession',
+    'store.type' => 'phpsession',
 
     /*
      * The DSN the sql datastore should connect to.
@@ -1213,7 +1182,7 @@ $config = [
      * See http://www.php.net/manual/en/pdo.drivers.php for the various
      * syntaxes.
      */
-    'store.sql.dsn'                 => 'sqlite:/path/to/sqlitedatabase.sq3',
+    'store.sql.dsn' => 'sqlite:/path/to/sqlitedatabase.sq3',
 
     /*
      * The username and password to use when connecting to the database.

@@ -6,8 +6,8 @@
  */
 $config = [
     'adminlist' => [
-        //['allow', 'equals', 'mail', 'admin1@example.org'],
-        //['allow', 'has', 'groups', 'admin'],
+        // ['allow', 'equals', 'mail', 'admin1@example.org'],
+        // ['allow', 'has', 'groups', 'admin'],
         // The default action is to deny access.
     ],
 

@@ -1,2 +1,0 @@
-FROM adminer
-COPY ./config/adminer/ /var/www/html
