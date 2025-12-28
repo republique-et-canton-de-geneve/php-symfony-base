@@ -103,6 +103,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "republique-et-canton-de-geneve/response-headers-bundle": {
+        "version": "1.0"
+    },
     "squizlabs/php_codesniffer": {
         "version": "3.11",
         "recipe": {
