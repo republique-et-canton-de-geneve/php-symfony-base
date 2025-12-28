@@ -5,7 +5,6 @@ namespace App\Security;
 use App\Application;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\Security\Http\Event\CheckPassportEvent;
 use Symfony\Component\Security\Http\Event\LoginFailureEvent;
 use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
@@ -20,7 +19,6 @@ class EventsListener
         $this->application = $application;
         $this->logger = $applicationLogger;
     }
-
 
     #[AsEventListener()]
     public function loginSuccessEvent(LoginSuccessEvent $event): void

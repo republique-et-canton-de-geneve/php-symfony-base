@@ -3,8 +3,6 @@ parameters:
     paths:
         - src/
         - tests/
-        - bundle/republique-et-canton-de-geneve/response-headers-bundle/src
-        - bundle/republique-et-canton-de-geneve/response-headers-bundle/tests
 
     ignoreErrors:
 #        - '#No error to ignore is reported on line.*#'
