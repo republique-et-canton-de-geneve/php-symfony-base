@@ -1,0 +1,7 @@
+---
+# config/packages/parameters.yaml
+# https://github.com/republique-et-canton-de-geneve/conf-parameters-bundle/blob/main/config.md
+
+conf_parameters:
+  entity_class: App\Entity\ConfParameter
+...

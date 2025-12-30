@@ -1,0 +1,36 @@
+name: rector
+on: push
+jobs:
+  rector:
+    permissions:
+      pull-requests: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, xml, ctype, iconv, intl
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Run rector
+        run: vendor/bin/rector process src --dry-run

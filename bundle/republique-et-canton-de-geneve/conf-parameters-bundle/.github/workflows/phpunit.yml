@@ -1,0 +1,89 @@
+name: phpunit
+on: push
+jobs:
+  behat:
+    permissions:
+      pull-requests: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, xml, ctype, iconv, intl
+          coverage: xdebug
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: phpunit code coverage
+        run: vendor/bin/phpunit
+
+
+      - name: build coverage badges
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: athos99/php-coverage-badge@v1
+        with:
+          report: 'clover.xml'
+          report_type: 'clover'
+          coverage_line_badge_path: 'coverage_line.svg'
+          coverage_branch_badge_path: 'coverage_branch.svg'
+
+
+      - name: archive
+        run: git config --local user.name "github-actions[bot]"
+      - run: git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - run: git add coverage_line.svg coverage_branch.svg
+        if: ${{ github.ref == 'refs/heads/main' }}
+      - run: 'git commit -m "chore: GithubAction update code coverage results" || true'
+        if: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Push changes # push the output folder to your repo
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+          branch: ${{ github.ref }}
+
+      # - name: Analyze with SonarCloud
+      #   # You can pin the exact commit or the version.
+      #   # uses: SonarSource/sonarcloud-github-action@v2.2.0
+      #   uses: SonarSource/sonarcloud-github-action@4006f663ecaf1f8093e8e4abb9227f6041f52216
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+      #   with:
+      #     # Additional arguments for the SonarScanner CLI
+      #     args:
+      #       # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
+      #       # mandatory
+      #       -Dsonar.projectKey=republique-et-canton-de-geneve_php-symfony-base
+      #       -Dsonar.organization=etat-de-geneve-github
+      #       # Comma-separated paths to directories containing main source files.
+      #       # optional, default is project base directory
+      #       # -Dsonar.sources=.
+      #       # -Dsonar.exclusions=htdocs/node_modules/**,htdocs/vendor/**,htdocs/public/**,htdocs/migration/**,htdocs/tests/**
+      #       # Comma-separated paths to directories containing test source files.
+      #       #-Dsonar.tests= # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
+      #       # Adds more detail to both client and server-side analysis logs, activating DEBUG mode for the scanner, and adding client-side environment variables and system properties to the server-side log of analysis report processing.
+      #       #-Dsonar.verbose= # optional, default is false
+      #     # When you need the analysis to take place in a directory other than the one from which it was launched, default is .
+      #     projectBaseDir: .
+
