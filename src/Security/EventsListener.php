@@ -5,7 +5,6 @@ namespace App\Security;
 use App\Application;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\Security\Http\Event\CheckPassportEvent;
 use Symfony\Component\Security\Http\Event\LoginFailureEvent;
 use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
@@ -20,52 +19,6 @@ class EventsListener
         $this->application = $application;
         $this->logger = $applicationLogger;
     }
-
-    // #[AsEventListener()]
-    // public function responseEvent(ResponseEvent $event): void
-    // {
-    //     // add security header
-    //     $response = $event->getResponse();
-    //     if ($this->application->isServerLocal()) {
-    //         $response->headers->set(
-    //             'Content-Security-Policy',
-    //             "default-src 'none'; " .
-    //             "script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';" .
-    //             "script-src-elem 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';" .
-    //             "script-src-attr 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';" .
-    //             "style-src 'self' 'unsafe-inline';" .
-    //             "connect-src 'self'  *.etat-ge.ch ge.ch *.ge.ch;" .
-    //             "font-src 'self';" .
-    //             "media-src 'self';" .
-    //             "form-action 'self' *.etat-ge.ch ge.ch *.ge.ch *.geneveid.ch *.localhost;" .
-    //             "img-src 'self' data: ge.ch *.ge.ch *.etat-ge.ch ;"
-    //         );
-    //     } else {
-    //         $response->headers->set(
-    //             'Content-Security-Policy',
-    //             "default-src 'none'; " .
-    //             "script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';" .
-    //             "script-src-elem 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';" .
-    //             "script-src-attr 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval';" .
-    //             "style-src 'self' 'unsafe-inline';" .
-    //             "connect-src 'self'  *.etat-ge.ch ge.ch *.ge.ch;" .
-    //             "font-src 'self';" .
-    //             "media-src 'self';" .
-    //             "form-action 'self' *.etat-ge.ch ge.ch *.ge.ch *.geneveid.ch;" .
-    //             "img-src 'self' data: ge.ch *.ge.ch *.etat-ge.ch ;"
-    //         );
-    //     }
-    //     $response->headers->set('Cache-Control', 'max-age=0, must-revalidate, no-cache, no-store, private');
-    //     $response->headers->set('Expires', '0');
-    //     if ($this->application->isServerLocal()) {
-    //         // local server (no proxy), add some header for simulate the proxy
-    //         $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
-    //     }
-    //     $response->headers->set('Referrer-Policy', 'strict-origin');
-    //     $response->headers->set('X-Content-Type-Options', 'nosniff');
-    //     $response->headers->set('Referrer-Policy', 'strict-origin');
-    //     $response->headers->set('X-XSS-Protection', '1; mode=block');
-    // }
 
     #[AsEventListener()]
     public function loginSuccessEvent(LoginSuccessEvent $event): void

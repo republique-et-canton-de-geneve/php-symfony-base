@@ -33,7 +33,7 @@
 License: **AGPL v3**
 
 ## Purpose
-This archive is designed to serve as a foundation for developing an application based on the **Symfony** framework.  
+This archive is designed to serve as a foundation for developing an application based on the **Symfony** framework.
 By cloning the repository and following the provided instructions, you can run this application independently.
 
 ## Symfony
@@ -82,12 +82,12 @@ The application includes the following components and functionalities:
 
 - **Rich Text Editing**
   - Integration of **CKEditor**.
-- 
+-
 - **Test**
   - **Behat**
 
 ## Requirement et installation
- 
+
 ### Requirement
 - Web Server :
     - appache server php > 8.3
@@ -101,12 +101,12 @@ The application includes the following components and functionalities:
 ### Installation
 From the console
 
-    git clone 
+    git clone
     cd your_project
 
     composer install
     yarn install
-    
+
     yarn encore prod
     cd public
     ln -s . build/build
@@ -118,6 +118,10 @@ Authentification is made by SAML2, the application needs a Identity provider(IDP
 ### Version
 The file release.properties contains the application revision number
 
+
+### Login with docker SAML2
+user: admin
+password: 123
 
 ### Test without SAML2
 - Create a new env.local file and write the content :
@@ -138,14 +142,14 @@ The file release.properties contains the application revision number
 ### Use and configure an other database
 
 - Edit file .env the APP_DATABASE_URL define the database.
-- Run the command : 
+- Run the command :
  cmd/console doctrine:database:create
  cmd/console doctrine:schema:create
 
 
 
 ### commands line
-Some usefull shell command 
+Some usefull shell command
 
 For example :
 >cmd/update_composer
@@ -192,8 +196,8 @@ Spcific for this project
 
 from root folder :
 ```
- docker-compose build --pull  
+ docker-compose build --pull
  docker-compose up --build -d
  ```
- 
+
 

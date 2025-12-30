@@ -13,6 +13,7 @@
         "doctrine/doctrine-migrations-bundle": "*",
         "doctrine/orm": "^3.2",
         "nbgrp/onelogin-saml-bundle": "^2.0",
+        "republique-et-canton-de-geneve/response-headers-bundle": "^1.0",
         "symfony/apache-pack": "^1.0",
         "symfony/console": "7.3.*",
         "symfony/dotenv": "7.3.*",
@@ -50,7 +51,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "EtatGeneve\\ResponseHeadersBundle\\": "bundle/republique-et-canton-de-geneve/response-headers-bundle/src",
             "App\\Tests\\": "tests/"
         }
     },

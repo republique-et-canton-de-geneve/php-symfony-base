@@ -8,3 +8,4 @@
 /.idea/
 /vendor
 /log/
+compose.override.yml
