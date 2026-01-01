@@ -4,6 +4,7 @@ namespace App;
 
 use App\Entity\Parameter as ParameterEntity;
 use Doctrine\ORM\EntityManagerInterface;
+use EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity;
 use Psr\Cache\InvalidArgumentException;
 use ReflectionClass;
 use ReflectionProperty;
@@ -64,7 +65,7 @@ class BaseParameter
                     // Selecting the 'parameter' table from the database, using the Doctrine QueryBuilder
                     $mainQuery = $entityManager->createQueryBuilder();
                     $mainQuery->select('parameter')
-                        ->from(ParameterEntity::class, 'parameter');
+                        ->from(ConfParameter::class, 'parameter');
 
                     return $mainQuery->getQuery()->getResult();
                 },

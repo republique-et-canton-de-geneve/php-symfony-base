@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+mkdir -m 0777 -p doc
+mkdir -m 0777 -p doc/console
+
+APP_ENV=dev php bin/console > doc/console/commands.txt
+APP_ENV=dev php bin/console about > doc/console/about.txt
+APP_ENV=dev php bin/console config:dump-reference 2> doc/console/config_dump_reference.txt
+APP_ENV=dev php bin/console debug:autowiring  > doc/console/debug_autowiring.txt
+APP_ENV=dev php bin/console debug:config  2> doc/console/debug_config.txt
+APP_ENV=dev php bin/console debug:container  > doc/console/debug_container.txt
+APP_ENV=dev php bin/console debug:event-dispatcher  > doc/console/debug_events_dispatcher.txt
+APP_ENV=dev php bin/console debug:firewall  > doc/console/debug_firewall.txt
+APP_ENV=dev php bin/console debug:form  > doc/console/debug_form.txt
+APP_ENV=dev php bin/console debug:router  > doc/console/routes.txt
+APP_ENV=dev php bin/console debug:twig  > doc/console/debug_twig.txt
+APP_ENV=dev php bin/console doctrine:mapping:info  > doc/console/doctrine_mapping_info.txt

@@ -16,4 +16,5 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     EtatGeneve\ResponseHeadersBundle\ResponseHeadersBundle::class => ['all' => true],
+    EtatGeneve\ConfParameterBundle\ConfParameterBundle::class => ['all' => true],
 ];

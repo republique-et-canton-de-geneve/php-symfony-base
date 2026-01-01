@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity" table="conf_parameter">
+        <id name="name" type="string" column="name" length="255" nullable="false" unique="true">
+            <generator strategy="NONE" />
+        </id>
+        <field name="value" column="value" type="text" nullable="true" />
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,29 @@
+
+Available registered bundles with their extension alias if available
+====================================================================
+
+ -------------------------- --------------------- 
+  Bundle name                Extension alias      
+ -------------------------- --------------------- 
+  ConfParameterBundle        conf_parameter       
+  DebugBundle                debug                
+  DoctrineBundle             doctrine             
+  DoctrineMigrationsBundle   doctrine_migrations  
+  FrameworkBundle            framework            
+  MakerBundle                maker                
+  MonologBundle              monolog              
+  NbgrpOneloginSamlBundle    nbgrp_onelogin_saml  
+  ResponseHeadersBundle      response_headers     
+  SecurityBundle             security             
+  TwigBundle                 twig                 
+  TwigExtraBundle            twig_extra           
+  WebProfilerBundle          web_profiler         
+  WebpackEncoreBundle        webpack_encore       
+ -------------------------- --------------------- 
+
+ // Provide the name of a bundle as the first argument of this command to dump its configuration. (e.g. debug:config    
+ // FrameworkBundle)                                                                                                    
+
+ // For dumping a specific option, add its path as the second argument of this command. (e.g. debug:config              
+ // FrameworkBundle serializer to dump the framework.serializer configuration)                                          
+

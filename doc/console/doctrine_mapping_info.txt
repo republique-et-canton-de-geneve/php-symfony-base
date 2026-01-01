@@ -1,0 +1,4 @@
+ Found 2 mapped entities:
+
+ [OK]   App\Entity\Parameter
+ [OK]   EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity

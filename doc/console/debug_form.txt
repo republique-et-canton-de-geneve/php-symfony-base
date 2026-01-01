@@ -1,0 +1,37 @@
+
+Built-in form types (Symfony\Component\Form\Extension\Core\Type)
+----------------------------------------------------------------
+
+ BirthdayType, ButtonType, CheckboxType, ChoiceType, CollectionType
+ ColorType, CountryType, CurrencyType, DateIntervalType, DateTimeType
+ DateType, EmailType, FileType, FormType, HiddenType
+ IntegerType, LanguageType, LocaleType, MoneyType, NumberType
+ PasswordType, PercentType, RadioType, RangeType, RepeatedType
+ ResetType, SearchType, SubmitType, TelType, TextType
+ TextareaType, TimeType, TimezoneType, UrlType, WeekType
+
+Service form types
+------------------
+
+ * Symfony\Bridge\Doctrine\Form\Type\EntityType
+
+Type extensions
+---------------
+
+ * Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension
+ * Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension
+ * Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension
+ * Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension
+ * Symfony\Component\Form\Extension\PasswordHasher\Type\FormTypePasswordHasherExtension
+ * Symfony\Component\Form\Extension\PasswordHasher\Type\PasswordTypePasswordHasherExtension
+ * Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension
+ * Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension
+ * Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension
+ * Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension
+
+Type guessers
+-------------
+
+ * Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser
+ * Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser
+

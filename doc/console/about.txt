@@ -1,0 +1,29 @@
+ -------------------- ------------------------------------------- 
+  Symfony                                                         
+ -------------------- ------------------------------------------- 
+  Version              7.3.9                                      
+  Long-Term Support    No                                         
+  End of maintenance   01/2026 (in +30 days)                      
+  End of life          01/2026 (in +30 days)                      
+ -------------------- ------------------------------------------- 
+  Kernel                                                          
+ -------------------- ------------------------------------------- 
+  Type                 App\Kernel                                 
+  Environment          dev                                        
+  Debug                true                                       
+  Charset              UTF-8                                      
+  Cache directory      ./var/cache/dev (2.9 MiB)                  
+  Build directory      ./var/cache/dev (2.9 MiB)                  
+  Log directory        ./var/log (4 KiB)                          
+ -------------------- ------------------------------------------- 
+  PHP                                                             
+ -------------------- ------------------------------------------- 
+  Version              8.4.16                                     
+  Architecture         64 bits                                    
+  Intl locale          en_US_POSIX                                
+  Timezone             Europe/Zurich (2026-01-01T18:43:56+01:00)  
+  OPcache              Enabled                                    
+  APCu                 Not installed                              
+  Xdebug               Enabled (coverage,develop,debug)           
+ -------------------- ------------------------------------------- 
+

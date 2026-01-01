@@ -1,0 +1,9 @@
+
+Firewalls
+=========
+
+ The following firewalls are defined:
+ * main
+
+ // To view details of a specific firewall, re-run this command with a firewall name. (e.g. debug:firewall main)        
+

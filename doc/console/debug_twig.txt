@@ -1,0 +1,219 @@
+
+Functions
+---------
+
+ * absolute_url(path)
+ * addMenuItem(menuName, item)
+ * asset(path, packageName)
+ * asset_version(path, packageName)
+ * attribute(unknown?)
+ * block(unknown?)
+ * constant(constant, object = null, checkDefined = false)
+ * controller(controller, attributes = [], query = [])
+ * country_names(locale = null)
+ * country_timezones(country)
+ * csrf_token(tokenId)
+ * currency_names(locale = null)
+ * cycle(values, position)
+ * date(date = null, timezone = null)
+ * dump()
+ * encore_entry_css_files(entryName, entrypointName = "_default")
+ * encore_entry_exists(entryName, entrypointName = "_default")
+ * encore_entry_js_files(entryName, entrypointName = "_default")
+ * encore_entry_link_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])
+ * encore_entry_script_tags(entryName, packageName = null, entrypointName = "_default", attributes = [])
+ * enum(enum)
+ * enum_cases(enum)
+ * expression(expression)
+ * field_choices(view)
+ * field_errors(view)
+ * field_help(view)
+ * field_id(view)
+ * field_label(view)
+ * field_name(view)
+ * field_value(view)
+ * form(unknown?)
+ * form_end(unknown?)
+ * form_errors(unknown?)
+ * form_help(unknown?)
+ * form_label(unknown?)
+ * form_parent(formView)
+ * form_rest(unknown?)
+ * form_row(unknown?)
+ * form_start(unknown?)
+ * form_widget(unknown?)
+ * fragment_uri(controller, absolute = false, strict = true, sign = true)
+ * getMenuItems(nom)
+ * getMenuOptions(nom)
+ * getMenuSubItems(item)
+ * getPageInfo()
+ * getPageInfoId()
+ * getParameter(parameter)
+ * impersonation_exit_path(exitTo)
+ * impersonation_exit_url(exitTo)
+ * impersonation_path(identifier)
+ * impersonation_url(identifier)
+ * include(template, variables = [], withContext = true, ignoreMissing = false, sandboxed = false)
+ * isMenuItemActive(item)
+ * isModeMaintenance()
+ * isPageInfo()
+ * isUrlMenuItemActive(item)
+ * is_granted(role, object, field, accessDecision)
+ * is_granted_for_user(user, attribute, subject, field, accessDecision)
+ * language_names(locale = null)
+ * locale_names(locale = null)
+ * logout_path(key)
+ * logout_url(key)
+ * max(value, values)
+ * min(value, values)
+ * newMenuItem(id, label, route, routeParams = [], options = [], subItems = [])
+ * parent(unknown?)
+ * path(name, parameters, relative)
+ * profiler_dump(data, maxDepth)
+ * profiler_dump_log(message, context)
+ * random(charset, values = null, max = null)
+ * range(start, end, step = 1)
+ * relative_path(path)
+ * render(uri, options = [])
+ * render_*(strategy, uri, options = [])
+ * script_names(locale = null)
+ * serverType()
+ * source(name, ignoreMissing = false)
+ * t(message, parameters, domain)
+ * timezone_names(locale = null)
+ * url(name, parameters, schemeRelative)
+ * version()
+
+Filters
+-------
+
+ * abbr_class
+ * abbr_method
+ * abs
+ * batch(size, fill = null, preserveKeys = true)
+ * capitalize(string)
+ * column(name, index = null)
+ * convert_encoding(to, from)
+ * country_name(locale = null)
+ * currency_name(locale = null)
+ * currency_symbol(locale = null)
+ * date(format = null, timezone = null)
+ * date_modify(modifier)
+ * default(default = "")
+ * doctrine_format_sql(highlight)
+ * doctrine_prettify_sql
+ * doctrine_pretty_query(highlightOnly = false)
+ * doctrine_replace_query_parameters(parameters)
+ * e(strategy = "html", charset = null, autoescape = false)
+ * escape(strategy = "html", charset = null, autoescape = false)
+ * file_excerpt(line, srcContext)
+ * file_link(line)
+ * file_relative
+ * filter(arrow)
+ * find(arrow)
+ * first(item)
+ * form_encode_currency(widget = "")
+ * format(values)
+ * format_*_number(number, attrs = [], type = "default", locale = null)
+ * format_args
+ * format_args_as_text
+ * format_currency(currency, attrs = [], locale = null)
+ * format_date(dateFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)
+ * format_datetime(dateFormat = "medium", timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)
+ * format_file(line, text)
+ * format_file_from_text
+ * format_log_message(context)
+ * format_number(attrs = [], style = "decimal", type = "default", locale = null)
+ * format_time(timeFormat = "medium", pattern = "", timezone = null, calendar = "gregorian", locale = null)
+ * humanize
+ * invoke(arguments)
+ * join(glue = "", and = null)
+ * json_encode(flags = 0, depth = 512)
+ * keys
+ * language_name(locale = null)
+ * last(item)
+ * length(thing)
+ * locale_name(locale = null)
+ * lower(string)
+ * map(arrow)
+ * merge
+ * nl2br
+ * number_format(decimal = null, decimalPoint = null, thousandSep = null)
+ * plural(locale = "en", all = false)
+ * raw(unknown?)
+ * reduce(arrow, initial = null)
+ * replace(from)
+ * reverse(item, preserveKeys = false)
+ * round(precision = 0, method = "common")
+ * shortDate
+ * shortDateTime
+ * shuffle(item)
+ * singular(locale = "en", all = false)
+ * slice(item, start, length = null, preserveKeys = false)
+ * slug(separator = "-", locale = null)
+ * sort(arrow = null)
+ * spaceless
+ * split(value, delimiter, limit = null)
+ * striptags(allowable_tags = null)
+ * timezone_name(locale = null)
+ * title(string)
+ * trans(arguments, domain, locale, count)
+ * trim(characterMask = null, side = "both")
+ * u
+ * upper(string)
+ * url_encode
+ * yaml_dump(inline, dumpObjects)
+ * yaml_encode(inline, dumpObjects)
+
+Tests
+-----
+
+ * constant
+ * defined
+ * divisible by
+ * empty
+ * even
+ * iterable
+ * mapping
+ * none
+ * null
+ * odd
+ * rootform
+ * same as
+ * selectedchoice
+ * sequence
+ * true
+
+Globals
+-------
+
+ * app = object(Symfony\Bridge\Twig\AppVariable)
+
+Loader Paths
+------------
+
+ ---------------------- ------------------------------------------------------- 
+  Namespace              Paths                                                  
+ ---------------------- ------------------------------------------------------- 
+  @Doctrine              vendor/doctrine/doctrine-bundle/templates/             
+  @!Doctrine             vendor/doctrine/doctrine-bundle/templates/             
+  @Security              vendor/symfony/security-bundle/Resources/views/        
+  @!Security             vendor/symfony/security-bundle/Resources/views/        
+  @Twig                  templates/bundles/TwigBundle/                          
+  @!Twig                 templates/bundles/TwigBundle/                          
+  @DoctrineMigrations    vendor/doctrine/doctrine-migrations-bundle/templates/  
+  @!DoctrineMigrations   vendor/doctrine/doctrine-migrations-bundle/templates/  
+  @WebProfiler           vendor/symfony/web-profiler-bundle/Resources/views/    
+  @!WebProfiler          vendor/symfony/web-profiler-bundle/Resources/views/    
+  @Debug                 vendor/symfony/debug-bundle/Resources/views/           
+  @!Debug                vendor/symfony/debug-bundle/Resources/views/           
+  @Maker                 vendor/symfony/maker-bundle/templates/                 
+  @!Maker                vendor/symfony/maker-bundle/templates/                 
+                                                                                
+  (None)                 templates/                                             
+                         vendor/symfony/twig-bridge/Resources/views/Form/       
+                                                                                
+  @email                 vendor/symfony/twig-bridge/Resources/views/Email/      
+  @!email                vendor/symfony/twig-bridge/Resources/views/Email/      
+ ---------------------- ------------------------------------------------------- 
+

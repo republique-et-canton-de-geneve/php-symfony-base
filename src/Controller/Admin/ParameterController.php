@@ -2,11 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Parameter as ParameterEntity;
 use App\Param;
 use App\Parameter as ParameterClass;
 use App\Security\Action;
 use Doctrine\ORM\EntityManagerInterface;
+use EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -23,7 +23,7 @@ class ParameterController extends BaseAdminController
     /**
      * @return FormInterface<mixed>
      */
-    protected function buildForm(Param $annotation, ParameterEntity $dbParameter): FormInterface
+    protected function buildForm(Param $annotation, ConfParameterEntity $dbParameter): FormInterface
     {
         // Create the form with the '$dbParameter' object
         $builder = $this->createFormBuilder($dbParameter)
@@ -105,15 +105,15 @@ class ParameterController extends BaseAdminController
         // Select the record from the table that has the value 'name'
         $query = $entityManager->createQueryBuilder();
         $query->select('parameter')
-            ->from(ParameterEntity::class, 'parameter')
+            ->from(ConfParameter::class, 'parameter')
             ->where('parameter.name = :name')
             ->setParameter('name', $name);
-        /** @var ParameterEntity[] $dbParameters */
+        /** @var ConfParameter[] $dbParameters */
         $dbParameters = $query->getQuery()->getResult();
         if ($dbParameters) {
             $dbParameter = $dbParameters[0];
         } else {
-            $dbParameter = new ParameterEntity();
+            $dbParameter = new ConfParameter();
             $dbParameter->setName($name);
             $dbParameter->setValue($defaultValue);
             $entityManager->persist($dbParameter);
