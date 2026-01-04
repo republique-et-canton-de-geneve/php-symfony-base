@@ -2,78 +2,111 @@
 
 namespace EtatGeneve\ConfParameterBundle\Service;
 
-use Dom\Entity;
+use Doctrine\ORM\EntityManager;
 use EtatGeneve\ConfParameterBundle\ConfParameter;
+use EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity;
 use ReflectionClass;
-use ReflectionProperty;
+use ReflectionException;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
-use  Symfony\Contracts\Cache\CacheInterface      ;
+use  Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
+
 class ConfParameterManager
 {
+
     private ConfParameter $confParameter;
+    private EntityManager $entityManager;
+
     public function __construct(
         private string $EntityClassName,
         private ManagerRegistry $managerRegistry,
-         private CacheInterface $cache
-    ) {}
+        private CacheInterface $cache
+    ) {
+        $this->entityManager = $this->managerRegistry->getManagerForClass($this->EntityClassName);
+    }
 
 
-    public function init(ConfParameter $confParameter)    {
+    /**
+     * Summary of getDbConfParameter
+     * @return ConfParameterEntity[]
+     */
+    public function getAlterDbConfParameters(): array
+    {
+        return $this->entityManager
+            ->createQueryBuilder()
+            ->select('p')
+            ->from($this->EntityClassName, 'p')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    public function removeDbConfParameter(string $name): void
+    {
+        $confParameterEntity = $this->entityManager
+            ->createQueryBuilder()
+            ->delete('p')
+            ->from($this->EntityClassName, 'p')
+            ->where('p.name = :name')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->execute();
+        $this->clearCache();
+    }
+
+    public function setConfParameter(string $name, $value):void
+    {
+        $dbConfParam = $this->entityManager
+            ->createQueryBuilder()
+            ->select('p')
+            ->from($this->EntityClassName, 'p')
+            ->where('p.name = :name')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getSingleResult();
+        if (!$dbConfParam) {
+            $dbConfParam = new $this->EntityClassName();
+            $dbConfParam->setName($name);
+            $this->entityManager->persist($dbConfParam);
+        }
+        $dbConfParam->setValue($value);
+        $this->entityManager->flush();
+        $this->clearCache();
+    }
+
+    public function clearCache(): void
+    {
+        $this->cache->delete($this->EntityClassName);
+    }
+
+    /**
+     * @return ConfParameterEntity[]
+     */
+    public function getAlterConfParameters(): array
+    {
+        return $this->cache->get(
+            $this->EntityClassName,
+            function (ItemInterface $item) {
+                $item->expiresAfter(60);
+                return $this->getAlterDbConfParameters();
+            },
+            0.0
+        );
+    }
+    public function init(ConfParameter $confParameter)
+    {
         $this->confParameter = clone $confParameter;
         $em = $this->managerRegistry->getManagerForClass($this->EntityClassName);
- try {
 
-            // Initializes a 'ReflectionClass' class that allows you to report certain information from a class.
-            // In this case, the 'Parameter' class.
-            $reflectionClass = new ReflectionClass($confParameter);
-            // Get all the properties of the class as an array of 'ReflectionProperty' objects.
-        //     $this->paramProperties = $reflectionClass->getProperties(ReflectionProperty::IS_PUBLIC);
-        //     $paramNames = [];
-        //     // Get the 'name' value and the default values of each object present
-        //     // in $paramProperties.
-        //     foreach ($this->paramProperties as $paramProperty) {
-        //         $paramName = $paramProperty->getName();
-        //         // Add the 'name' to the final array.
-        //         $paramNames[] = $paramName;
-        //         // Adds to the array "$paramName" as key and the default text of the properties as value
-        //         /* @phpstan-ignore-next-line */
-        //         $this->defaultValues[$paramName] = $this->{$paramName};
-        //     }
-
-        //     /** @var ParameterEntity[] $dbParameters */
-        //     $dbParameters = $this->cache->get(
-        //         self::PARAMETER_KEY_CACHE,
-        //         function (ItemInterface $item) use ($entityManager) {
-        //             $item->expiresAfter(7200);
-        //             // Selecting the 'parameter' table from the database, using the Doctrine QueryBuilder
-        //             $mainQuery = $entityManager->createQueryBuilder();
-        //             $mainQuery->select('parameter')
-        //                 ->from(ConfParameter::class, 'parameter');
-
-        //             return $mainQuery->getQuery()->getResult();
-        //         },
-        //         0.0
-        //     );
-        //     // Loop over the array containing all records (stored as objects) of the 'parameter' table
-        //     foreach ($dbParameters as $dbParameter) {
-        //         // Retrieves the 'name' value of the records
-        //         $dbParameterName = $dbParameter->getName();
-        //         // Checks if the 'name' field of the record matches that of one of the parameters
-        //         if (in_array($dbParameterName, $paramNames)) {
-        //             //  retrieve the 'value' of the record
-        //             $dbParameterValue = $dbParameter->getValue();
-        //             //  changes the value of the parameter in question to that of the database record
-        //             // And adds the record to the '$dbParameterValue' table
-        //             $this->{$dbParameterName} = $dbParameterValue;
-        //             $this->currentValues[$dbParameterName] = $dbParameterValue;
-        //         }
-        //   }
-        // } catch (Throwable) {
-        //     throw new ExceptionApplication('Erreur fatal paramètre DB');
-        // }
-    } catch (\Throwable $e) {
-            throw $e;
+        $alterConfParameters = $this->getAlterConfParameters();
+        $reflectionClass = new ReflectionClass($confParameter);
+        foreach ($alterConfParameters as $alterConfParameter) {
+            try {
+                $reflectionClass->getProperty($alterConfParameter->getName())
+                    ->setValue($this->confParameter, $alterConfParameter->getValue());
+            } catch (ReflectionException $e) {
+                $this->removeDbConfParameter($alterConfParameter->getName());
+            }
         }
-
     }
 }
