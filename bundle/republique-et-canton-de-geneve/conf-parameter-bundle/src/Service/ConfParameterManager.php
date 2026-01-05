@@ -14,23 +14,44 @@ use Symfony\Contracts\Cache\ItemInterface;
 class ConfParameterManager
 {
 
-    private ConfParameter $confParameter;
-    private EntityManager $entityManager;
+    private ConfParameter $defaultConfParameter;
+    private ConfParameter $alterConfParameter;
+    private ?EntityManager $entityManager;
+
+    private ReflectionClass $reflectionClass;
 
     public function __construct(
         private string $EntityClassName,
         private ManagerRegistry $managerRegistry,
         private CacheInterface $cache
     ) {
+        /** @var EntityManager */
         $this->entityManager = $this->managerRegistry->getManagerForClass($this->EntityClassName);
+    }
+
+    public function init(ConfParameter $confParameter)
+    {
+        $this->alterConfParameter =  $confParameter;
+        $this->defaultConfParameter = clone $confParameter;
+        $this->entityManager = $this->managerRegistry->getManagerForClass($this->EntityClassName);
+        $alterConfParameters = $this->getAlterConfParameters();
+        $this->reflectionClass = new ReflectionClass($confParameter);
+        foreach ($alterConfParameters as $alterConfParameter) {
+            try {
+                $this->reflectionClass->getProperty($alterConfParameter->getName())
+                    ->setValue($confParameter, $alterConfParameter->getValue());
+            } catch (ReflectionException $e) {
+                $this->removeDbConfParameter($alterConfParameter->getName());
+            }
+        }
     }
 
 
     /**
-     * Summary of getDbConfParameter
+     *
      * @return ConfParameterEntity[]
      */
-    public function getAlterDbConfParameters(): array
+    protected function getAlterDbConfParameters(): array
     {
         return $this->entityManager
             ->createQueryBuilder()
@@ -54,7 +75,7 @@ class ConfParameterManager
         $this->clearCache();
     }
 
-    public function setConfParameter(string $name, $value):void
+    public function setConfParameter(string $name, $value): void
     {
         $dbConfParam = $this->entityManager
             ->createQueryBuilder()
@@ -82,7 +103,7 @@ class ConfParameterManager
     /**
      * @return ConfParameterEntity[]
      */
-    public function getAlterConfParameters(): array
+    protected function getAlterConfParameters(): array
     {
         return $this->cache->get(
             $this->EntityClassName,
@@ -93,20 +114,19 @@ class ConfParameterManager
             0.0
         );
     }
-    public function init(ConfParameter $confParameter)
-    {
-        $this->confParameter = clone $confParameter;
-        $em = $this->managerRegistry->getManagerForClass($this->EntityClassName);
 
-        $alterConfParameters = $this->getAlterConfParameters();
-        $reflectionClass = new ReflectionClass($confParameter);
-        foreach ($alterConfParameters as $alterConfParameter) {
-            try {
-                $reflectionClass->getProperty($alterConfParameter->getName())
-                    ->setValue($this->confParameter, $alterConfParameter->getValue());
-            } catch (ReflectionException $e) {
-                $this->removeDbConfParameter($alterConfParameter->getName());
-            }
+
+    public function getConfParameters(): array
+    {
+
+        $reflectionClass = new ReflectionClass($this->defaultConfParameter);
+        $confParameters = [];
+        foreach ($this->reflectionClass->getProperties() as $property) {
+            $name = $property->getName();
+            $value = $property->getValue($this->alterConfParameter);
+            $defValue = $property->getValue($this->defaultConfParameter);
+            $confParameters[$name] = ['name' => $name, 'value' => $value, 'default' => $defValue];
         }
+        return $confParameters;
     }
 }

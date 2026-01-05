@@ -13,13 +13,13 @@
     ],
     "phpstan.paths": {
 
-        
+
         "/home/user/www/php-symfony-base": "/var/www"
     },
     "phpstan.options": [],
     "phpstan.enableStatusBar": true,
     "phpstan.memoryLimit": "2048M",
-    "phpstan.singleFileMode": false,
+    "phpstan.singleFileMode": true,
     "phpstan.projectTimeout": 60000,
     "phpstan.timeout": 60000,
     "phpstan.suppressTimeoutMessage": false,
