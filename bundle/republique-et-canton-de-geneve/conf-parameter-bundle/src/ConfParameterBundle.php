@@ -31,12 +31,14 @@ class ConfParameterBundle extends AbstractBundle
      **/
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
+
+$containerConfigurator->import(__DIR__.'/../config/routes/conf_parameter.php');
+
         $services = $containerConfigurator->services();
         $services->set(ConfParameterManager::class)
             ->arg('$EntityClassName', $config['entity_class'])
             ->arg('$managerRegistry', \symfony\component\dependencyinjection\loader\configurator\service('doctrine'))
             ->arg('$cache', \symfony\component\dependencyinjection\loader\configurator\service(  'cache.app'))
-                      //     ->tag('kernel.event_listener', ['event' => 'kernel.response', 'method' => 'onKernelResponse'])
         ;
     }
 
