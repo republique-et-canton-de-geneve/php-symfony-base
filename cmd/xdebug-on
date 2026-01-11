@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+echo 'run the command from source : $ source cmd/xdebug-on'
+export XDEBUG_CONFIG="xdebug.start_with_request=yes xdebug.mode=debug xdebug.client_host=host.docker.internal"

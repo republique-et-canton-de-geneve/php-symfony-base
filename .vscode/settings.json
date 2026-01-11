@@ -30,5 +30,6 @@
     "phpstan.pro": false,
     "phpstan.tmpDir": "",
     "phpstan.checkValidity": true,
-    "phpstan.dockerContainerName": "sym-php"
+    "phpstan.dockerContainerName": "sym-php",
+    "php.debug.executablePath": ""
 }
