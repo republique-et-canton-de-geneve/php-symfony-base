@@ -20,6 +20,8 @@ class ConfParameterManager
 
     private ReflectionClass $reflectionClass;
 
+    private const KEY_CACHE = 'ConfParameterKey';
+
     public function __construct(
         private string $EntityClassName,
         private ManagerRegistry $managerRegistry,
@@ -97,7 +99,7 @@ class ConfParameterManager
 
     public function clearCache(): void
     {
-        $this->cache->delete($this->EntityClassName);
+        $this->cache->delete(self::KEY_CACHE);
     }
 
     /**
@@ -106,7 +108,7 @@ class ConfParameterManager
     protected function getAlterConfParameters(): array
     {
         return $this->cache->get(
-            $this->EntityClassName,
+            self::KEY_CACHE,
             function (ItemInterface $item) {
                 $item->expiresAfter(60);
                 return $this->getAlterDbConfParameters();

@@ -4,6 +4,8 @@ namespace EtatGeneve\ConfParameterBundle;
 
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use EtatGeneve\ConfParameterBundle\Controller\ConfParameterController;
+use EtatGeneve\ConfParameterBundle\Controller\TestController;
+use EtatGeneve\ConfParameterBundle\Controller\XController;
 use EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity;
 use EtatGeneve\ConfParameterBundle\Service\ConfParameterManager;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -33,10 +35,16 @@ class ConfParameterBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
         $services = $containerConfigurator->services();
-        $services->set(ConfParameterManager::class)
+        $services
+         ->defaults()
+            ->autowire()      // Automatically injects dependencies in your services.
+            ->autoconfigure()
+
+            ->set(ConfParameterManager::class)
             ->arg('$EntityClassName', $config['entity_class'])
             ->arg('$managerRegistry', \symfony\component\dependencyinjection\loader\configurator\service('doctrine'))
             ->arg('$cache', \symfony\component\dependencyinjection\loader\configurator\service('cache.app'))
+
             ->set(ConfParameterController::class, ConfParameterController::class)
             ->public()
         ;
@@ -56,10 +64,10 @@ class ConfParameterBundle extends AbstractBundle
     }
 
 
-     public function getPath(): string
+    public function getPath(): string
     {
         if (!isset($this->path)) {
-            $this->path =dirname( __FILE__);
+            $this->path = dirname(__FILE__);
         }
 
         return $this->path;
