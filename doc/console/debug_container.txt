@@ -50,7 +50,12 @@ Symfony Container Services
   Doctrine\ORM\EntityManagerInterface                                                       alias for "doctrine.orm.default_entity_manager"                                             
   Doctrine\ORM\EntityManagerInterface $defaultEntityManager                                 alias for "doctrine.orm.default_entity_manager"                                             
   Doctrine\Persistence\ManagerRegistry                                                      alias for "doctrine"                                                                        
+  EtatGeneve\ConfParameterBundle\Controller\ConfParameterController                         EtatGeneve\ConfParameterBundle\Controller\ConfParameterController                           
   EtatGeneve\ConfParameterBundle\Service\ConfParameterManager                               EtatGeneve\ConfParameterBundle\Service\ConfParameterManager                                 
+  HWI\Bundle\OAuthBundle\Controller\Connect\ConnectController                               HWI\Bundle\OAuthBundle\Controller\Connect\ConnectController                                 
+  HWI\Bundle\OAuthBundle\Controller\Connect\RegisterController                              HWI\Bundle\OAuthBundle\Controller\Connect\RegisterController                                
+  HWI\Bundle\OAuthBundle\Controller\LoginController                                         HWI\Bundle\OAuthBundle\Controller\LoginController                                           
+  HWI\Bundle\OAuthBundle\Controller\RedirectToServiceController                             HWI\Bundle\OAuthBundle\Controller\RedirectToServiceController                               
   Nbgrp\OneloginSamlBundle\Controller\AssertionConsumerService                              Nbgrp\OneloginSamlBundle\Controller\AssertionConsumerService                                
   Nbgrp\OneloginSamlBundle\Controller\Login                                                 Nbgrp\OneloginSamlBundle\Controller\Login                                                   
   Nbgrp\OneloginSamlBundle\Controller\Logout                                                Nbgrp\OneloginSamlBundle\Controller\Logout                                                  
@@ -86,6 +91,7 @@ Symfony Container Services
   Psr\Log\LoggerInterface $deprecationLogger                                                alias for "monolog.logger.deprecation"                                                      
   Psr\Log\LoggerInterface $doctrineLogger                                                   alias for "monolog.logger.doctrine"                                                         
   Psr\Log\LoggerInterface $eventLogger                                                      alias for "monolog.logger.event"                                                            
+  Psr\Log\LoggerInterface $httpClientLogger                                                 alias for "monolog.logger.http_client"                                                      
   Psr\Log\LoggerInterface $mailerLogger                                                     alias for "monolog.logger.mailer"                                                           
   Psr\Log\LoggerInterface $phpLogger                                                        alias for "monolog.logger.php"                                                              
   Psr\Log\LoggerInterface $profilerLogger                                                   alias for "monolog.logger.profiler"                                                         
@@ -171,6 +177,7 @@ Symfony Container Services
   Symfony\Contracts\Cache\NamespacedPoolInterface                                           alias for "cache.app"                                                                       
   Symfony\Contracts\Cache\TagAwareCacheInterface                                            alias for "cache.app.taggable"                                                              
   Symfony\Contracts\EventDispatcher\EventDispatcherInterface                                alias for "debug.event_dispatcher"                                                          
+  Symfony\Contracts\HttpClient\HttpClientInterface                                          alias for ".debug.http_client"                                                              
   Symfony\Contracts\Translation\LocaleAwareInterface                                        alias for "translation.locale_switcher"                                                     
   Symfony\Contracts\Translation\TranslatorInterface                                         alias for "translator.data_collector"                                                       
   Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface                     alias for "webpack_encore.entrypoint_lookup_collection"                                     
@@ -318,6 +325,7 @@ Symfony Container Services
   data_collector.exception                                                                  Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector                           
   data_collector.form                                                                       Symfony\Component\Form\Extension\DataCollector\FormDataCollector                            
   data_collector.form.extractor                                                             Symfony\Component\Form\Extension\DataCollector\FormDataExtractor                            
+  data_collector.http_client                                                                Symfony\Component\HttpClient\DataCollector\HttpClientDataCollector                          
   data_collector.logger                                                                     Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector                              
   data_collector.memory                                                                     Symfony\Component\HttpKernel\DataCollector\MemoryDataCollector                              
   data_collector.request                                                                    Symfony\Component\HttpKernel\DataCollector\RequestDataCollector                             
@@ -502,7 +510,33 @@ Symfony Container Services
   fragment.uri_generator                                                                    Symfony\Component\HttpKernel\Fragment\FragmentUriGenerator                                  
   http_cache                                                                                Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache                                          
   http_cache.store                                                                          Symfony\Component\HttpKernel\HttpCache\Store                                                
+  http_client                                                                               alias for ".debug.http_client"                                                              
+  http_client.abstract_retry_strategy                                                       Symfony\Component\HttpClient\Retry\GenericRetryStrategy                                     
+  http_client.messenger.ping_webhook_handler                                                Symfony\Component\HttpClient\Messenger\PingWebhookMessageHandler                            
+  http_client.transport                                                                     Symfony\Contracts\HttpClient\HttpClientInterface                                            
+  http_client.uri_template                                                                  Symfony\Component\HttpClient\UriTemplateHttpClient                                          
+  http_client.uri_template.inner                                                            Symfony\Contracts\HttpClient\HttpClientInterface                                            
+  http_client.uri_template_expander.guzzle                                                  Closure                                                                                     
+  http_client.uri_template_expander.rize                                                    Closure                                                                                     
   http_kernel                                                                               Symfony\Component\HttpKernel\HttpKernel                                                     
+  hwi_oauth.abstract_resource_ownermap                                                      HWI\Bundle\OAuthBundle\Security\Http\ResourceOwnerMap                                       
+  hwi_oauth.authentication.entry_point.oauth                                                HWI\Bundle\OAuthBundle\Security\Http\EntryPoint\OAuthEntryPoint                             
+  hwi_oauth.authentication.failure_handler                                                  HWI\Bundle\OAuthBundle\Security\Http\Authentication\AuthenticationFailureHandler            
+  hwi_oauth.authentication.listener.oauth                                                   HWI\Bundle\OAuthBundle\Security\Http\Firewall\OAuthListener                                 
+  hwi_oauth.authentication.provider.oauth                                                   HWI\Bundle\OAuthBundle\Security\Core\Authentication\Provider\OAuthProvider                  
+  hwi_oauth.context_listener.abstract_token_refresher                                       HWI\Bundle\OAuthBundle\Security\Http\Firewall\AbstractRefreshAccessTokenListener            
+  hwi_oauth.http_client                                                                     alias for ".debug.hwi_oauth.http_client"                                                    
+  hwi_oauth.resource_owner.facebook                                                         HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\FacebookResourceOwner                            
+  hwi_oauth.resource_ownermap_locator                                                       HWI\Bundle\OAuthBundle\Security\Http\ResourceOwnerMapLocator                                
+  hwi_oauth.resource_owners.locator                                                         alias for ".service_locator.7RRTrQH"                                                        
+  hwi_oauth.security.oauth_utils                                                            HWI\Bundle\OAuthBundle\Security\OAuthUtils                                                  
+  hwi_oauth.storage.session                                                                 HWI\Bundle\OAuthBundle\OAuth\RequestDataStorage\SessionStorage                              
+  hwi_oauth.twig.extension.oauth                                                            HWI\Bundle\OAuthBundle\Twig\Extension\OAuthExtension                                        
+  hwi_oauth.twig.extension.oauth.runtime                                                    HWI\Bundle\OAuthBundle\Twig\Extension\OAuthRuntime                                          
+  hwi_oauth.user.provider                                                                   HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider                                 
+  hwi_oauth.user.provider.entity                                                            HWI\Bundle\OAuthBundle\Security\Core\User\EntityUserProvider                                
+  hwi_oauth.user_checker                                                                    alias for "security.user_checker"                                                           
+  hwi_oauth.util.domain_whitelist                                                           HWI\Bundle\OAuthBundle\Util\DomainWhitelist                                                 
   identity_translator                                                                       Symfony\Component\Translation\IdentityTranslator                                            
   kernel                                                                                    App\Kernel                                                                                  
   locale_aware_listener                                                                     Symfony\Component\HttpKernel\EventListener\LocaleAwareListener                              
@@ -628,6 +662,7 @@ Symfony Container Services
   monolog.logger.deprecation                                                                Monolog\Logger                                                                              
   monolog.logger.doctrine                                                                   Monolog\Logger                                                                              
   monolog.logger.event                                                                      Monolog\Logger                                                                              
+  monolog.logger.http_client                                                                Monolog\Logger                                                                              
   monolog.logger.mailer                                                                     Monolog\Logger                                                                              
   monolog.logger.php                                                                        Monolog\Logger                                                                              
   monolog.logger.profiler                                                                   Monolog\Logger                                                                              

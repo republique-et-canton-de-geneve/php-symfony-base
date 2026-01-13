@@ -37,7 +37,7 @@ class ConfParameterBundle extends AbstractBundle
             ->arg('$EntityClassName', $config['entity_class'])
             ->arg('$managerRegistry', \symfony\component\dependencyinjection\loader\configurator\service('doctrine'))
             ->arg('$cache', \symfony\component\dependencyinjection\loader\configurator\service('cache.app'))
-            ->set(ConfParameterController::class)
+            ->set(ConfParameterController::class, ConfParameterController::class)
             ->public()
         ;
     }
@@ -56,12 +56,12 @@ class ConfParameterBundle extends AbstractBundle
     }
 
 
-    //  public function getPath(): string
-    // {
-    //     if (!isset($this->path)) {
-    //         $this->path =dirname( __FILE__);
-    //     }
+     public function getPath(): string
+    {
+        if (!isset($this->path)) {
+            $this->path =dirname( __FILE__);
+        }
 
-    //     return $this->path;
-    // }
+        return $this->path;
+    }
 }

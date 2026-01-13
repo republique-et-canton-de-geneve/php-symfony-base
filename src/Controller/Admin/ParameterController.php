@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-#[Route('/admin/parameter')]
+#[Route('/admin/parameter1')]
 class ParameterController extends BaseAdminController
 {
     /**
