@@ -7,6 +7,7 @@ use App\Parameter as ParameterClass;
 use App\Security\Action;
 use Doctrine\ORM\EntityManagerInterface;
 use EtatGeneve\ConfParameterBundle\Entity\ConfParameterEntity;
+use EtatGeneve\ConfParameterBundle\Service\ConfParameterManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -68,19 +69,18 @@ class ConfParameterController extends AbstractController
         return $builder->getForm();
     }
 
-    public function index(ParameterClass $parameterClass): Response
+    public function index(ConfParameterManager $confParameterManager): Response
     {
         // Refuse l'accès si l'utilisateur n'a pas le droit de lire les paramètres
         $this->denyAccessUnlessGranted(Action::ADMIN_PARAMETER);
-        $defaultValues = $parameterClass->getDefaultValues();
-        $currentValues = $parameterClass->getCurrentValues();
+        $confParameters = $confParameterManager->getConfParameters();
 
         return $this->render('admin/parameter/index.html.twig', [
             'parameters' => $parameterClass,
             'defaultValues' => $defaultValues,
             'currentValues' => $currentValues,
             'annotations' => $parameterClass->getAnnotations(),
-            'modif' => $this->isGranted(Action::ADMIN_PARAMETER_WRITE),
+            'canChange' => $this->isGranted(Action::ADMIN_PARAMETER_WRITE),
         ]);
     }
 

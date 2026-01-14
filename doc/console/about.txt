@@ -3,8 +3,8 @@
  -------------------- ------------------------------------------- 
   Version              7.3.9                                      
   Long-Term Support    No                                         
-  End of maintenance   01/2026 (in +18 days)                      
-  End of life          01/2026 (in +18 days)                      
+  End of maintenance   01/2026 (in +17 days)                      
+  End of life          01/2026 (in +17 days)                      
  -------------------- ------------------------------------------- 
   Kernel                                                          
  -------------------- ------------------------------------------- 
@@ -12,16 +12,16 @@
   Environment          dev                                        
   Debug                true                                       
   Charset              UTF-8                                      
-  Cache directory      ./var/cache/dev (3.0 MiB)                  
-  Build directory      ./var/cache/dev (3.0 MiB)                  
-  Log directory        ./var/log (4 KiB)                          
+  Cache directory      ./var/cache/dev (2.9 MiB)                  
+  Build directory      ./var/cache/dev (2.9 MiB)                  
+  Log directory        ./var/log (7 KiB)                          
  -------------------- ------------------------------------------- 
   PHP                                                             
  -------------------- ------------------------------------------- 
   Version              8.4.16                                     
   Architecture         64 bits                                    
   Intl locale          en_US_POSIX                                
-  Timezone             Europe/Zurich (2026-01-13T17:45:24+01:00)  
+  Timezone             Europe/Zurich (2026-01-14T17:26:03+01:00)  
   OPcache              Enabled                                    
   APCu                 Not installed                              
   Xdebug               Enabled (coverage,develop,debug)           

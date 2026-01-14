@@ -127,7 +127,12 @@ class ConfParameterManager
             $name = $property->getName();
             $value = $property->getValue($this->alterConfParameter);
             $defValue = $property->getValue($this->defaultConfParameter);
-            $confParameters[$name] = ['name' => $name, 'value' => $value, 'default' => $defValue];
+            $confParameters[$name] = [
+                'name' => $name,
+                'value' => $value,
+                'default' => $defValue,
+                'altering' => ($value !== $defValue)
+            ];
         }
         return $confParameters;
     }

@@ -6,8 +6,6 @@ Autowirable Types
  
  App\Kernel - alias:kernel
  
- Doctrine\Common\Persistence\ManagerRegistry - alias:doctrine
- 
  A database abstraction-level connection that implements features like transaction isolation levels, configuration, emulated transaction nesting, lazy connecting and more.
  Doctrine\DBAL\Connection - alias:doctrine.dbal.default_connection
  Doctrine\DBAL\Connection $defaultConnection - target:default.connection - alias:doctrine.dbal.default_connection
@@ -41,7 +39,6 @@ Autowirable Types
  Psr\Log\LoggerInterface $deprecationLogger - target:deprecation.logger - alias:monolog.logger.deprecation
  Psr\Log\LoggerInterface $doctrineLogger - target:doctrine.logger - alias:monolog.logger.doctrine
  Psr\Log\LoggerInterface $eventLogger - target:event.logger - alias:monolog.logger.event
- Psr\Log\LoggerInterface $httpClientLogger - target:http_client.logger - alias:monolog.logger.http_client
  Psr\Log\LoggerInterface $mailerLogger - target:mailer.logger - alias:monolog.logger.mailer
  Psr\Log\LoggerInterface $phpLogger - target:php.logger - alias:monolog.logger.php
  Psr\Log\LoggerInterface $profilerLogger - target:profiler.logger - alias:monolog.logger.profiler
@@ -265,9 +262,6 @@ Autowirable Types
  Allows providing hooks on domain-specific lifecycles by dispatching events.
  Symfony\Contracts\EventDispatcher\EventDispatcherInterface - alias:event_dispatcher
  
- Provides flexible methods for requesting HTTP resources synchronously or asynchronously.
- Symfony\Contracts\HttpClient\HttpClientInterface - alias:http_client
- 
  Symfony\Contracts\Translation\LocaleAwareInterface - alias:translation.locale_switcher
  
  Symfony\Contracts\Translation\TranslatorInterface - alias:translator.data_collector
@@ -279,5 +273,5 @@ Autowirable Types
  Stores the Twig configuration and renders templates.
  Twig\Environment - alias:twig
 
- 69 more concrete services would be displayed when adding the "--all" option.
+ 65 more concrete services would be displayed when adding the "--all" option.
 

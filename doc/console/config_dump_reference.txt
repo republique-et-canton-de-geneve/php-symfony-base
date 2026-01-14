@@ -10,7 +10,6 @@ Available registered bundles with their extension alias if available
   DoctrineBundle             doctrine             
   DoctrineMigrationsBundle   doctrine_migrations  
   FrameworkBundle            framework            
-  HWIOAuthBundle             hwi_oauth            
   MakerBundle                maker                
   MonologBundle              monolog              
   NbgrpOneloginSamlBundle    nbgrp_onelogin_saml  
