@@ -1,0 +1,41 @@
+{% trans_default_domain 'ConfParameterBundle' %}
+
+  <h1>{{ t('Paramètres de l'application') }}</h1>
+
+  <table class="table table-hover" aria-describedby="liste des paramètres">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th></th>
+      <th scope="col">Value</th>
+      <th scope="col">{{ modif ? 'Actions' : '' }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for key, value in defaultValues %}
+      <tr>
+        <td>{{ key }}
+          {% if annotations[key].description|length %}<br><span
+              class="fw-lighter fst-italic">{{ annotations[key].description }}</span>
+          {% endif %}
+        </td>
+        <td>
+          {% if key in currentValues|keys %}
+            <i class="bi bi-pencil-square" title="La valeur du paramètre est modifiée"></i>
+          {% endif %}
+
+        </td>
+        <td>
+          {{ parameters.(key)|u.truncate(80, '...') }}
+        </td>
+        <td>
+          {% if modif and not annotations[key].readOnly %}
+            <a class="btn btn-primary btn-sm"
+               id="edit_{{ key }}" href="{{ path('admin_parameter_edit', {name: key}) }}">Edit</a>
+          {% endif %}
+
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>

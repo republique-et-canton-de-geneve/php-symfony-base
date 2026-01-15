@@ -1,4 +1,4 @@
 conf_parameter:
     resource: "@ConfParameterBundle/Resources/config/routing/routes.php"
-    prefix:   /admin/parameter
+    prefix:   /admin/conf_parameter
 

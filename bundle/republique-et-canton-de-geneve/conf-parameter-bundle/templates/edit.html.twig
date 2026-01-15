@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}Edition du paramètre{% endblock %}
+{% block body_id %}page-admin-parameter-edit{% endblock %}
+{% block main %}
+  <h1>Edition du paramètre</h1>
+  <br>
+  {{ form_start(form) }}
+  <div class=" d-flex justify-content-end">
+    <button type="submit" value="update" name="action" class="btn btn-success btn-sm">Enregistrer</button>&nbsp;
+    {% if currentValueState %}
+      <button type="submit" value="delete" name="action"
+              class="btn btn-primary btn-sm">
+        Revenir à la valeur par défaut
+      </button>&nbsp;
+    {% endif %}
+    <a class="btn btn-secondary btn-sm" href="{{ path('admin_parameter') }}">Annuler</a>
+  </div>
+  <div class="col12 mb-3">
+    <h3>{{ name }}</h3>
+  </div>
+  <div class="row bg-light">
+    {% if annotation.description|length %}
+      <div class="col12">
+        Description : {{ annotation.description }}
+      </div>
+    {% endif %}
+    {% if annotation.valeur|length %}
+      <div class="col12">
+        Type de valeur : {{ annotation.valeur }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="row">
+    <div class="form-control">
+      <label for="{{ form.value.vars.id }}" class="form-label fw-bold">Valeur du paramètre :</label>
+      <ul>
+        {% for error in errors %}
+          <li>{{ error.getMessage() }}</li>
+        {% endfor %}
+      </ul>
+      {{ form_errors(form.value) }}
+      {{ form_widget(form.value) }}
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <label for="{{ form.defaultValue.vars.id }}" class="form-label">Valeur par défaut : </label>
+    <div class="col-sm-8">
+      {{ form_widget(form.defaultValue) }}
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+  {{ form_end(form) }}
+{% endblock %}

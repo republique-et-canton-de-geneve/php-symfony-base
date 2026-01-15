@@ -2,12 +2,14 @@
 
 namespace App;
 
+use EtatGeneve\ConfParameterBundle\ConfParameter;
+
 /**
  * The parameters are of type string, because they will be stored in the DB
  * as PHP is an untyped language this is not a problem :-)
  * for boolean, use '0' or '1' rather than 'true' or 'false'.
  */
-class Parameter extends BaseParameter
+class Parameter2 extends ConfParameter
 {
     #[Param(description: 'Met le site d\'édition des avis en mode maintenance', type: Param::RADIO)]
     public string $modeMaintenance = '0';
