@@ -67,7 +67,7 @@ class ConfParameterBundle extends AbstractBundle
     public function getPath(): string
     {
         if (!isset($this->path)) {
-            $this->path = dirname(__FILE__);
+            $this->path = dirname(__DIR__);
         }
 
         return $this->path;

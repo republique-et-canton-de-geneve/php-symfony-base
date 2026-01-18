@@ -1,7 +1,7 @@
  -------------------------- ---------- -------- ------ ----------------------------------- 
   Name                       Method     Scheme   Host   Path                               
  -------------------------- ---------- -------- ------ ----------------------------------- 
-  conf_parameter_index       GET        ANY      ANY    /admin/parameter/                  
+  conf_parameter_index       GET        ANY      ANY    /admin/conf_parameter/             
   _preview_error             ANY        ANY      ANY    /_error/{code}.{_format}           
   _wdt_stylesheet            ANY        ANY      ANY    /_wdt/styles                       
   _wdt                       ANY        ANY      ANY    /_wdt/{token}                      
@@ -21,8 +21,8 @@
   admin_log                  GET        ANY      ANY    /admin/log/{filename}              
   applicationInfo            ANY        ANY      ANY    /admin/applicationInfo             
   admin_mail_test            ANY        ANY      ANY    /admin/mailtest                    
-  admin_parameter            GET        ANY      ANY    /admin/parameter1                  
-  admin_parameter_edit       GET|POST   ANY      ANY    /admin/parameter1/{name}/edit      
+  admin_parameter            GET        ANY      ANY    /admin/parameter                   
+  admin_parameter_edit       GET|POST   ANY      ANY    /admin/parameter/{name}/edit       
   homepage                   ANY        ANY      ANY    /                                  
   info                       ANY        ANY      ANY    /info                              
   todo                       ANY        ANY      ANY    /todo                              

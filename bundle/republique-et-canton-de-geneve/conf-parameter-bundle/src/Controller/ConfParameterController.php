@@ -79,7 +79,7 @@ class ConfParameterController extends AbstractController
         $this->denyAccessUnlessGranted(Action::ADMIN_PARAMETER);
         $confParameters = $confParameterManager->getConfParameters();
 
-        return $this->render('admin/parameter/index.html.twig', [
+        return $this->render('@ConfParameter/index.html.twig', [
             'confParameters' => $confParameters,
             'canChange' => $this->isGranted(Action::ADMIN_PARAMETER_WRITE.'x'),
         ]);

@@ -55,8 +55,6 @@ Available commands:
   doctrine:cache:clear-result                Clear all result cache of the various cache drivers
   doctrine:database:create                   Creates the configured database
   doctrine:database:drop                     Drops the configured database
-  doctrine:debug:entity-listeners            Lists entity listeners for a given entity
-  doctrine:debug:event-manager               Lists event listeners for an entity manager
   doctrine:mapping:describe                  Display information about mapped objects
   doctrine:mapping:info                      Show basic information about all mapped entities
   doctrine:migrations:current                Outputs the current version
@@ -73,6 +71,7 @@ Available commands:
   doctrine:migrations:up-to-date             Tells you if your schema is up-to-date.
   doctrine:migrations:version                Manually add and delete migration versions from the version table.
   doctrine:query:dql                         Executes arbitrary DQL directly from the command line
+  doctrine:query:sql                         Executes arbitrary SQL directly from the command line.
   doctrine:schema:create                     Processes the schema and either create it directly on EntityManager Storage Connection or generate the SQL output
   doctrine:schema:drop                       Drop the complete database schema of EntityManager Storage Connection or generate the corresponding SQL output
   doctrine:schema:update                     Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata

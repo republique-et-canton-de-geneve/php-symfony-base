@@ -102,6 +102,7 @@ Filters
  * default(default = "")
  * doctrine_format_sql(highlight)
  * doctrine_prettify_sql
+ * doctrine_pretty_query(highlightOnly = false)
  * doctrine_replace_query_parameters(parameters)
  * e(strategy = "html", charset = null, autoescape = false)
  * escape(strategy = "html", charset = null, autoescape = false)
