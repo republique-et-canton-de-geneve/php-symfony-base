@@ -17,4 +17,5 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     EtatGeneve\ResponseHeadersBundle\ResponseHeadersBundle::class => ['all' => true],
     EtatGeneve\ConfParameterBundle\ConfParameterBundle::class => ['all' => true],
+    Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
 ];

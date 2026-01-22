@@ -12,6 +12,7 @@
         "doctrine/doctrine-bundle": "^3.2.2",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.6.1",
+        "jbtronics/settings-bundle": "^3.1",
         "nbgrp/onelogin-saml-bundle": "^2.1",
         "republique-et-canton-de-geneve/response-headers-bundle": "^1.0.4",
         "symfony/apache-pack": "^1.0.1",
