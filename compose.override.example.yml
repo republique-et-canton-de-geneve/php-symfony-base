@@ -5,4 +5,12 @@ services:
       http_proxy: http://host.docker.internal:3128
       https_proxy: http://host.docker.internal:3128
       no_proxy: 127.0.0.0/8,postgres,mariadb,mysql,mailhog,saml2
-      
+  saml2:
+    restart: no
+  adminer:
+    restart: no
+  postgres:
+    restart: no
+  mailhog:
+    restart: no
+
