@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 mkdir -p doc
-php bin/console config:dump-reference > ../doc/dump-reference.txt
-php bin/console > ../doc/console.txt
-php bin/console debug:router >  ../doc/router.txt
-php bin/console debug:container >  ../doc/container.txt
-php bin/console debug:event-dispatcher  >  ../doc/event-dispatcher.txt
-php bin/console config:dump-reference doctrine  > ../doc/dump-reference-doctrine.txt
-php bin/console config:dump-reference twig > ../doc/dump-reference-twig.txt
-php bin/console config:dump-reference framework >  ../doc/dump-reference-framework.txt
-php bin/console config:dump-reference security >  ../doc/dump-reference-security.txt
-php bin/console config:dump-reference monolog >  ../doc/dump-reference-monolog.txt
-php bin/console config:dump-reference hslavich_onelogin_saml >  ../doc/dump-reference-hslavich_onelogin_samlcd.txt
+php bin/console config:dump-reference > doc/dump-reference.txt
+php bin/console > doc/console.txt
+php bin/console debug:router >  doc/router.txt
+php bin/console debug:container >  doc/container.txt
+php bin/console debug:event-dispatcher  >  doc/event-dispatcher.txt
+php bin/console config:dump-reference doctrine  > doc/dump-reference-doctrine.txt
+php bin/console config:dump-reference twig > doc/dump-reference-twig.txt
+php bin/console config:dump-reference framework >  doc/dump-reference-framework.txt
+php bin/console config:dump-reference security >  doc/dump-reference-security.txt
+php bin/console config:dump-reference monolog >  doc/dump-reference-monolog.txt
+php bin/console config:dump-reference hslavich_onelogin_saml >  doc/dump-reference-hslavich_onelogin_samlcd.txt
