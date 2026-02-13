@@ -1,0 +1,177 @@
+# Default configuration for extension with alias: "monolog"
+monolog:
+    use_microseconds:     true
+    channels:             []
+    handlers:
+
+        # Examples:
+        # syslog:              { type: stream, path: /var/log/symfony.log, level: ERROR, bubble: 'false', formatter: my_formatter }
+        # main:                { type: fingers_crossed, action_level: WARNING, buffer_size: 30, handler: custom }
+        # custom:              { type: service, id: my_handler }
+
+        # Prototype
+        name:
+            type:                 ~ # Required
+            id:                   ~
+            enabled:              true
+            priority:             0
+            level:                DEBUG
+            bubble:               true
+            interactive_only:     false
+            app_name:             null
+            fill_extra_context:   false
+            include_stacktraces:  false
+            process_psr_3_messages:
+                enabled:              null
+                date_format:          ~
+                remove_used_context_fields: ~
+            path:                 '%kernel.logs_dir%/%kernel.environment%.log'
+            file_permission:      null
+            use_locking:          false
+            filename_format:      '{filename}-{date}'
+            date_format:          Y-m-d
+            ident:                false
+            logopts:              1
+            facility:             user
+            max_files:            0
+            action_level:         WARNING
+            activation_strategy:  null
+            stop_buffering:       true
+            passthru_level:       null
+            excluded_404s:        []
+
+            # Only for "fingers_crossed" handler type
+            excluded_http_codes:
+
+                # Examples:
+                # - 403
+                # - 404
+                # - { 400: [^/foo, ^/bar] }
+
+                # Prototype
+                -
+                    code:                 ~
+                    urls:                 []
+            accepted_levels:      []
+            min_level:            DEBUG
+            max_level:            EMERGENCY
+            buffer_size:          0
+            flush_on_overflow:    false
+            handler:              ~
+            url:                  ~
+            exchange:             ~
+            exchange_name:        log
+            room:                 ~
+            message_format:       text
+            api_version:          null
+            channel:              null
+            bot_name:             Monolog
+            use_attachment:       true
+            use_short_attachment: false
+            include_extra:        false
+            icon_emoji:           null
+            webhook_url:          ~
+            exclude_fields:       []
+            team:                 ~
+            notify:               false
+            nickname:             Monolog
+            token:                ~
+            region:               ~
+            source:               ~
+            use_ssl:              true
+            user:                 ~
+            title:                null
+            host:                 null
+            port:                 514
+            config:               []
+            members:              []
+            connection_string:    ~
+            timeout:              ~
+            time:                 60
+            deduplication_level:  400
+            store:                null
+            connection_timeout:   ~
+            persistent:           ~
+            dsn:                  ~
+            hub_id:               null
+            client_id:            null
+            auto_log_stacks:      false
+            release:              null
+            environment:          null
+            message_type:         0
+            parse_mode:           null
+            disable_webpage_preview: null
+            disable_notification: null
+            split_long_messages:  false
+            delay_between_messages: false
+            topic:                null
+            factor:               1
+            tags:                 []
+            console_formater_options: ~ # Deprecated (Since symfony/monolog-bundle 3.7: "monolog.handlers.name.console_formater_options" is deprecated, use "monolog.handlers.name.console_formatter_options" instead.)
+            console_formatter_options: []
+            formatter:            ~
+            nested:               false
+            publisher:
+                id:                   ~
+                hostname:             ~
+                port:                 12201
+                chunk_size:           1420
+                encoder:              ~ # One of "json"; "compressed_json"
+            mongo:
+                id:                   ~
+                host:                 ~
+                port:                 27017
+                user:                 ~
+                pass:                 ~
+                database:             monolog
+                collection:           logs
+            mongodb:
+
+                # ID of a MongoDB\Client service
+                id:                   ~ # Example: doctrine_mongodb.odm.logs_connection
+                uri:                  ~
+                username:             ~
+                password:             ~
+                database:             monolog
+                collection:           logs
+            elasticsearch:
+                id:                   ~
+                hosts:                []
+                host:                 ~
+                port:                 9200
+                transport:            Http
+                user:                 null
+                password:             null
+            index:                monolog
+            document_type:        logs
+            ignore_error:         false
+            redis:
+                id:                   ~
+                host:                 ~
+                password:             null
+                port:                 6379
+                database:             0
+                key_name:             monolog_redis
+            predis:
+                id:                   ~
+                host:                 ~
+            from_email:           ~
+            to_email:             []
+            subject:              ~
+            content_type:         null
+            headers:              []
+            mailer:               null
+            email_prototype:
+                id:                   ~ # Required
+                method:               null
+            lazy:                 true
+            verbosity_levels:
+                VERBOSITY_QUIET:      ERROR
+                VERBOSITY_NORMAL:     WARNING
+                VERBOSITY_VERBOSE:    NOTICE
+                VERBOSITY_VERY_VERBOSE: INFO
+                VERBOSITY_DEBUG:      DEBUG
+            channels:
+                type:                 ~
+                elements:             []
+

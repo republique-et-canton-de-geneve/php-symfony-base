@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+composer update  --optimize-autoloader
+yarn install --force

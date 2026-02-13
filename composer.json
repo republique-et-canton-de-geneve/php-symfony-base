@@ -21,6 +21,7 @@
         "symfony/flex": "^2",
         "symfony/form": "7.3.*",
         "symfony/framework-bundle": "7.3.*",
+        "symfony/http-client": "7.3.*",
         "symfony/intl": "7.3.*",
         "symfony/mailer": "7.3.*",
         "symfony/monolog-bundle": "^3.10",
@@ -51,6 +52,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "EtatGeneve\\DataContentBundle\\": "bundle/republique-et-canton-de-geneve/data-content-bundle/src",
             "App\\Tests\\": "tests/"
         }
     },

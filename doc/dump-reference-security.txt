@@ -1,0 +1,433 @@
+# Default configuration for extension with alias: "security" (see https://symfony.com/doc/7.3/reference/configuration/security.html)
+security:
+    access_denied_url:    null # Example: /foo/error403
+    session_fixation_strategy: migrate # One of "none"; "migrate"; "invalidate"
+    hide_user_not_found:  ~ # Deprecated (Since symfony/security-bundle 7.3: The "hide_user_not_found" option is deprecated and will be removed in 8.0. Use the "expose_security_errors" option instead.)
+    expose_security_errors: !php/enum Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::None # One of Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::None; Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::AccountStatus; Symfony\Component\Security\Http\Authentication\ExposeSecurityLevel::All
+    erase_credentials:    true
+    access_decision_manager:
+        strategy:             ~ # One of "affirmative"; "consensus"; "unanimous"; "priority"
+        service:              ~
+        strategy_service:     ~
+        allow_if_all_abstain: false
+        allow_if_equal_granted_denied: true
+    password_hashers:
+
+        # Examples:
+        # App\Entity\User1:    auto
+        # App\Entity\User2:    { algorithm: auto, time_cost: 8, cost: 13 }
+
+        # Prototype
+        class:
+            algorithm:            ~
+            migrate_from:         []
+
+            # Name of hashing algorithm for PBKDF2 (i.e. sha256, sha512, etc..) See hash_algos() for a list of supported algorithms.
+            hash_algorithm:       sha512
+            key_length:           40
+            ignore_case:          false
+            encode_as_base64:     true
+            iterations:           5000
+            cost:                 null
+            memory_cost:          null
+            time_cost:            null
+            id:                   ~
+    providers:
+
+        # Examples:
+        # my_memory_provider:  { memory: { users: { foo: { password: foo, roles: ROLE_USER }, bar: { password: bar, roles: '[ROLE_USER, ROLE_ADMIN]' } } } }
+        # my_entity_provider:  { entity: { class: 'SecurityBundle:User', property: username } }
+
+        # Prototype
+        name:
+            id:                   ~
+            chain:
+                providers:            []
+            entity:
+
+                # The full entity class name of your user class.
+                class:                ~ # Required
+                property:             null
+                manager_name:         null
+            memory:
+                users:
+
+                    # Prototype
+                    identifier:
+                        password:             null
+                        roles:                []
+            ldap:
+                service:              ldap # Required
+                base_dn:              ~ # Required
+                search_dn:            null
+                search_password:      null
+                extra_fields:         []
+                default_roles:        []
+                role_fetcher:         null
+                uid_key:              sAMAccountName
+                filter:               '({uid_key}={user_identifier})'
+                password_attribute:   null
+            saml:
+                user_class:           ~ # Required
+                default_roles:
+
+                    # Default:
+                    - ROLE_USER
+    firewalls:            # Required
+
+        # Prototype
+        name:
+            pattern:              ~
+            host:                 ~
+            methods:              []
+            security:             true
+
+            # The UserChecker to use when authenticating users in this firewall.
+            user_checker:         security.user_checker
+            request_matcher:      ~
+            access_denied_url:    ~
+            access_denied_handler: ~
+
+            # An enabled authenticator name or a service id that implements "Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface".
+            entry_point:          ~
+            provider:             ~
+            stateless:            false
+            lazy:                 false
+            context:              ~
+            logout:
+                enable_csrf:          null
+                csrf_token_id:        logout
+                csrf_parameter:       _csrf_token
+                csrf_token_manager:   ~
+                path:                 /logout
+                target:               /
+                invalidate_session:   true
+                clear_site_data:      []
+                delete_cookies:
+
+                    # Prototype
+                    name:
+                        path:                 null
+                        domain:               null
+                        secure:               false
+                        samesite:             null
+                        partitioned:          false
+            switch_user:
+                provider:             ~
+                parameter:            _switch_user
+                role:                 ROLE_ALLOWED_TO_SWITCH
+                target_route:         null
+
+            # A list of badges that must be present on the authenticated passport.
+            required_badges:      []
+
+            # An array of service ids for all of your "authenticators".
+            custom_authenticators: []
+            login_throttling:
+
+                # A service id implementing "Symfony\Component\HttpFoundation\RateLimiter\RequestRateLimiterInterface".
+                limiter:              ~
+                max_attempts:         5
+                interval:             '1 minute'
+
+                # The service ID of the lock factory used by the login rate limiter (or null to disable locking).
+                lock_factory:         null
+            x509:
+                provider:             ~
+                user:                 SSL_CLIENT_S_DN_Email
+                credentials:          SSL_CLIENT_S_DN
+                user_identifier:      emailAddress
+            remote_user:
+                provider:             ~
+                user:                 REMOTE_USER
+            saml:
+                provider:             ~
+                remember_me:          true
+                success_handler:      Nbgrp\OneloginSamlBundle\Security\Http\Authentication\SamlAuthenticationSuccessHandler
+                failure_handler:      ~
+                check_path:           /login_check
+                use_forward:          false
+                login_path:           /login
+                identifier_attribute: null
+                use_attribute_friendly_name: false
+                user_factory:         null
+                token_factory:        null
+                persist_user:         false
+                always_use_default_target_path: false
+                default_target_path:  /
+                target_path_parameter: _target_path
+                use_referer:          false
+                failure_path:         null
+                failure_forward:      false
+                failure_path_parameter: _failure_path
+            login_link:
+
+                # Route that will validate the login link - e.g. "app_login_link_verify".
+                check_route:          ~ # Required
+
+                # If true, only HTTP POST requests to "check_route" will be handled by the authenticator.
+                check_post_only:      false
+
+                # An array of properties on your User that are used to sign the link. If any of these change, all existing links will become invalid.
+                signature_properties: [] # Required
+
+                    # Examples:
+                    # - email
+                    # - password
+
+                # The lifetime of the login link in seconds.
+                lifetime:             600
+
+                # Max number of times a login link can be used - null means unlimited within lifetime.
+                max_uses:             null
+
+                # Cache service id used to expired links of max_uses is set.
+                used_link_cache:      ~
+
+                # A service id that implements Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface.
+                success_handler:      ~
+
+                # A service id that implements Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface.
+                failure_handler:      ~
+
+                # The user provider to load users from.
+                provider:             ~
+                secret:               '%kernel.secret%'
+                always_use_default_target_path: false
+                default_target_path:  /
+                login_path:           /login
+                target_path_parameter: _target_path
+                use_referer:          false
+                failure_path:         null
+                failure_forward:      false
+                failure_path_parameter: _failure_path
+            form_login:
+                provider:             ~
+                remember_me:          true
+                success_handler:      ~
+                failure_handler:      ~
+                check_path:           /login_check
+                use_forward:          false
+                login_path:           /login
+                username_parameter:   _username
+                password_parameter:   _password
+                csrf_parameter:       _csrf_token
+                csrf_token_id:        authenticate
+                enable_csrf:          false
+                post_only:            true
+                form_only:            false
+                always_use_default_target_path: false
+                default_target_path:  /
+                target_path_parameter: _target_path
+                use_referer:          false
+                failure_path:         null
+                failure_forward:      false
+                failure_path_parameter: _failure_path
+            form_login_ldap:
+                provider:             ~
+                remember_me:          true
+                success_handler:      ~
+                failure_handler:      ~
+                check_path:           /login_check
+                use_forward:          false
+                login_path:           /login
+                username_parameter:   _username
+                password_parameter:   _password
+                csrf_parameter:       _csrf_token
+                csrf_token_id:        authenticate
+                enable_csrf:          false
+                post_only:            true
+                form_only:            false
+                always_use_default_target_path: false
+                default_target_path:  /
+                target_path_parameter: _target_path
+                use_referer:          false
+                failure_path:         null
+                failure_forward:      false
+                failure_path_parameter: _failure_path
+                service:              ldap
+                dn_string:            '{user_identifier}'
+                query_string:         ~
+                search_dn:            ''
+                search_password:      ''
+            json_login:
+                provider:             ~
+                remember_me:          true
+                success_handler:      ~
+                failure_handler:      ~
+                check_path:           /login_check
+                use_forward:          false
+                login_path:           /login
+                username_path:        username
+                password_path:        password
+            json_login_ldap:
+                provider:             ~
+                remember_me:          true
+                success_handler:      ~
+                failure_handler:      ~
+                check_path:           /login_check
+                use_forward:          false
+                login_path:           /login
+                username_path:        username
+                password_path:        password
+                service:              ldap
+                dn_string:            '{user_identifier}'
+                query_string:         ~
+                search_dn:            ''
+                search_password:      ''
+            access_token:
+                provider:             ~
+                remember_me:          true
+                success_handler:      ~
+                failure_handler:      ~
+                realm:                null
+                token_extractors:
+
+                    # Default:
+                    - security.access_token_extractor.header
+                token_handler:        # Required
+
+                    # Example:
+                    # id:                  App\Security\CustomTokenHandler
+                    id:                   ~
+                    oidc_user_info:
+
+                        # Base URI of the userinfo endpoint on the OIDC server, or the OIDC server URI to use the discovery (require "discovery" to be configured).
+                        base_uri:             ~ # Required
+
+                        # Enable the OIDC discovery.
+                        discovery:
+                            cache:
+
+                                # Cache service id to use to cache the OIDC discovery configuration.
+                                id:                   ~ # Required
+
+                        # Claim which contains the user identifier (e.g. sub, email, etc.).
+                        claim:                sub
+
+                        # HttpClient service id to use to call the OIDC server.
+                        client:               ~
+                    oidc:
+
+                        # Enable the OIDC discovery.
+                        discovery:
+
+                            # Base URI of the OIDC server.
+                            base_uri:             ~ # Required
+                            cache:
+
+                                # Cache service id to use to cache the OIDC discovery configuration.
+                                id:                   ~ # Required
+
+                        # Claim which contains the user identifier (e.g.: sub, email..).
+                        claim:                sub
+
+                        # Audience set in the token, for validation purpose.
+                        audience:             ~ # Required
+
+                        # Issuers allowed to generate the token, for validation purpose.
+                        issuers:              [] # Required
+
+                        # Algorithm used to sign the token.
+                        algorithm:            [] # Deprecated (Since symfony/security-bundle 7.1: The "algorithm" option is deprecated and will be removed in 8.0. Use the "algorithms" option instead.)
+
+                        # Algorithms used to sign the token.
+                        algorithms:           [] # Required
+
+                        # JSON-encoded JWK used to sign the token (must contain a "kty" key).
+                        key:                  ~ # Deprecated (Since symfony/security-bundle 7.1: The "key" option is deprecated and will be removed in 8.0. Use the "keyset" option instead.)
+
+                        # JSON-encoded JWKSet used to sign the token (must contain a list of valid public keys).
+                        keyset:               ~
+                        encryption:
+                            enabled:              false
+
+                            # When enabled, the token shall be encrypted.
+                            enforce:              false
+
+                            # Algorithms used to decrypt the token.
+                            algorithms:           [] # Required
+
+                            # JSON-encoded JWKSet used to decrypt the token (must contain a list of valid private keys).
+                            keyset:               ~ # Required
+                    cas:
+
+                        # CAS server validation URL
+                        validation_url:       ~ # Required
+
+                        # CAS prefix
+                        prefix:               cas
+
+                        # HTTP Client service
+                        http_client:          null
+                    oauth2:               ~
+            http_basic:
+                provider:             ~
+                realm:                'Secured Area'
+            http_basic_ldap:
+                provider:             ~
+                realm:                'Secured Area'
+                service:              ldap
+                dn_string:            '{user_identifier}'
+                query_string:         ~
+                search_dn:            ''
+                search_password:      ''
+            remember_me:
+                secret:               '%kernel.secret%'
+                service:              ~
+                user_providers:       []
+                catch_exceptions:     true
+
+                # An array of properties on your User that are used to sign the remember-me cookie. If any of these change, all existing cookies will become invalid.
+                signature_properties:
+
+                    # Default:
+                    - password
+
+                    # Examples:
+                    # - email
+                    # - password
+                token_provider:
+
+                    # The service ID of a custom rememberme token provider.
+                    service:              ~
+                    doctrine:
+                        enabled:              false
+                        connection:           null
+
+                # The service ID of a custom rememberme token verifier.
+                token_verifier:       ~
+                name:                 REMEMBERME
+                lifetime:             31536000
+                path:                 /
+                domain:               null
+                secure:               false # One of true; false; "auto"
+                httponly:             true
+                samesite:             null # One of null; "lax"; "strict"; "none"
+                always_remember_me:   false
+                remember_me_parameter: _remember_me
+    access_control:
+
+        # Prototype
+        -
+            request_matcher:      null
+            requires_channel:     null
+
+            # Use the urldecoded format.
+            path:                 null # Example: '^/path to resource/'
+            host:                 null
+            port:                 null
+            ips:                  []
+            attributes:
+
+                # Prototype
+                key:                  ~
+            route:                null
+            methods:              []
+            allow_if:             null
+            roles:                []
+    role_hierarchy:
+
+        # Prototype
+        id:                   []
+

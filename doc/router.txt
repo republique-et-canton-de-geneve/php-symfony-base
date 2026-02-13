@@ -1,0 +1,20 @@
+ ---------------------- ---------- -------- ------ ------------------------------ 
+  Name                   Method     Scheme   Host   Path                          
+ ---------------------- ---------- -------- ------ ------------------------------ 
+  admin_page             ANY        ANY      ANY    /admin                        
+  admin_log              GET        ANY      ANY    /admin/log/{filename}         
+  applicationInfo        ANY        ANY      ANY    /admin/applicationInfo        
+  admin_mail_test        ANY        ANY      ANY    /admin/mailtest               
+  admin_parameter        GET        ANY      ANY    /admin/parameter              
+  admin_parameter_edit   GET|POST   ANY      ANY    /admin/parameter/{name}/edit  
+  homepage               ANY        ANY      ANY    /                             
+  info                   ANY        ANY      ANY    /info                         
+  todo                   ANY        ANY      ANY    /todo                         
+  editor                 ANY        ANY      ANY    /editor                       
+  500                    ANY        ANY      ANY    /500                          
+  saml_metadata          ANY        ANY      ANY    /saml/metadata                
+  saml_acs               POST       ANY      ANY    /saml/acs                     
+  saml_login             ANY        ANY      ANY    /saml/login                   
+  saml_logout            ANY        ANY      ANY    /saml/logout                  
+ ---------------------- ---------- -------- ------ ------------------------------ 
+

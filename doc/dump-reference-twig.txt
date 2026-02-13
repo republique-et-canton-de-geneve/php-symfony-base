@@ -1,0 +1,58 @@
+# Default configuration for extension with alias: "twig" (see https://symfony.com/doc/7.3/reference/configuration/twig.html)
+twig:
+    form_themes:
+
+        # Default:
+        - form_div_layout.html.twig
+
+        # Example:
+        # - '@My/form.html.twig'
+    globals:
+
+        # Examples:
+        # foo:                 '@bar'
+        # pi:                  3.14
+
+        # Prototype
+        key:
+            id:                   ~
+            type:                 ~
+            value:                ~
+    autoescape_service:   null
+    autoescape_service_method: null
+    base_template_class:  ~ # Deprecated (Since symfony/twig-bundle 7.1: The child node "base_template_class" at path "twig" is deprecated.), Example: Twig\Template
+    cache:                true
+    charset:              '%kernel.charset%'
+    debug:                '%kernel.debug%'
+    strict_variables:     '%kernel.debug%'
+    auto_reload:          ~
+    optimizations:        ~
+
+    # The default path used to load templates.
+    default_path:         '%kernel.project_dir%/templates'
+
+    # Pattern of file name used for cache warmer and linter.
+    file_name_pattern:    [] # Example: '*.twig'
+    paths:
+
+        # Prototype
+        paths:                ~
+
+    # The default format options used by the date filter.
+    date:
+        format:               'F j, Y H:i'
+        interval_format:      '%d days'
+
+        # The timezone used when formatting dates, when set to null, the timezone returned by date_default_timezone_get() is used.
+        timezone:             null
+
+    # The default format options for the number_format filter.
+    number_format:
+        decimals:             0
+        decimal_point:        .
+        thousands_separator:  ','
+    mailer:
+
+        # A service implementing the "Symfony\Component\Mime\HtmlToTextConverter\HtmlToTextConverterInterface".
+        html_to_text_converter: null
+

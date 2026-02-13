@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+vendor/bin/php-cs-fixer check
+vendor/bin/phpstan analyse
+vendor/bin/rector process src --dry-run
