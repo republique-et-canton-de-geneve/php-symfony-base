@@ -1,8 +1,5 @@
 <?php
-
-namespace App\Service\Datacontent;
-
-
+namespace EtatGeneve\DataContentBundle\Service;
 use App\Parameter;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
@@ -10,7 +7,6 @@ use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Part\DataPart;
 use Symfony\Component\Mime\Part\Multipart\FormDataPart;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
@@ -21,171 +17,53 @@ use Psr\Cache\InvalidArgumentException;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Throwable;
 use Exception;
+use App\Security\User;
+use EtatGeneve\DataContentBundle\DataContentBundle;
+use EtatGeneve\DataContentBundle\Service\TokenAuthenticator;
+use Symfony\Bundle\SecurityBundle\Security;
+
+/**
+ * @phpstan-import-type TokenAuthenticatorConfig from DataContentBundle
+ */
+
+
+
+
 class Datacontent
 {
 
-    public const GINA_TOKEN_KEY_CACHE = 'ged_data_content_token';
 
-    /**
-     * @var HttpClientInterface
-     */
-    protected $httpClient;
-
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
-
-    /**
-     * @var string|null
-     */
-    protected $symfonyUsername;
-    /**
-     * @var FilesystemAdapter
-     */
-    protected $cache;
-
-    /**
-     * @var bool
-     */
-    protected $checkSSL = true;
-
-    /**
-     * Application ID
-     * @var string
-     */
-    protected $applicationId;
-
-    /**
-     * Gina user name
-     * @var string
-     */
-    protected $username;
-
-    /**
-     * Gina password
-     * @var string
-     */
-    protected $password;
-
-    /**
-     * Gina SSO login url
-     * @var string
-     */
-    protected $ginaUrlSso;
-
-    /**
-     * Service client password
-     * @var
-     */
-    protected $clientSecret;
-
-
-    /**
-     * Service Client Id
-     * @var string
-     */
-    protected $clientId;
-
-    /**
-     * GED rest Url
-     * @var string
-     */
-    protected $restUrl;
-
-
-    /**
-     * Base Id
-     * @var string
-     */
-    protected $baseId;
-
-    /**
-     * @var Parameter
-     */
-    protected $parameter;
-
-    /**
-     * Ged constructor.
-     * @param HttpClientInterface $httpClient
-     * @param Security $security
-     * @param LoggerInterface $faoLogger
-     * @param Parameter $parameter
-     * @param array $settings
-     */
+    protected string $baseId;
+/**
+ * Undocumented function
+ *
+ * @param HttpClientInterface $httpClient
+ * @param LoggerInterface $logger
+ * @param Security $security
+ * @param TokenAuthenticator $tokenAuthenticator
+ * @param TokenAuthenticatorConfig $config
+ */
     public function __construct(
-        HttpClientInterface $httpClient,
-        Security $security,
-        LoggerInterface $faoLogger,
-        Parameter $parameter,
-        $settings
+        private HttpClientInterface $httpClient,
+        private LoggerInterface $logger,
+        private Security $security,
+        private TokenAuthenticator $tokenAuthenticator,
+        private array $config
     ) {
-        $this->httpClient = $httpClient;
-        $this->logger = $faoLogger;
-        $this->parameter = $parameter;
-        $user = $security->getUser();
-        if ($user) {
-            $this->symfonyUsername = $user->getUserIdentifier();
-        }
-        foreach ($settings as $key => $value) {
-            $this->{$key} = $value;
-        }
-        $this->cache = new FilesystemAdapter();
+        $this->baseId = $this->config["baseId"];
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function clearCache()
+
+    protected function getUserIdentifier(): ?string
     {
-        $this->logger->debug('GED: clear gina token cache');
-        $this->cache->delete(self::GINA_TOKEN_KEY_CACHE);
+        $user = $this->security->getUser();
+        if ($user instanceof User) {
+            return $user->getUserIdentifier();
+        }
+
+        return null;
     }
 
-    /**
-     * Return a gina sso token, use symfony system cache
-     *
-     * @return string
-     * @throws InvalidArgumentException
-     */
-    protected function getGinaToken()
-    {
-        return $this->cache->get(
-            self::GINA_TOKEN_KEY_CACHE,
-            function (ItemInterface $item) {
-                try {
-                    $this->logger->debug('GED: get gina token');
-                    $parameters = [
-                        'verify_host' => $this->checkSSL,
-                        'verify_peer' => $this->checkSSL,
-                        'headers' => ['X-Application-ID' => $this->applicationId],
-                        'body' =>
-                            [
-                                'client_id' => $this->clientId,
-                                'client_secret' => $this->clientSecret,
-                                'grant_type'=>'password',
-                                'username' => $this->username,
-                                'password' => $this->password,
-                                'audience' => 'GED.DFCE',
-                                'timeout' => (int)$this->parameter->timeGinaTokenDataContent,
-                                'max_duration' => (int)$this->parameter->timeGinaTokenDataContent,
-                            ],
-                    ];
-                    $response = $this->httpClient->request('POST', $this->ginaUrlSso, $parameters);
-                    $data = json_decode($response->getContent());
-                    if (isset($data->id_token) && isset($data->expires_in)) {
-                        $item->expiresAfter($data->expires_in - 10);
-
-                        return $data->id_token;
-                    }
-                } catch (Throwable $e) {
-                }
-                $this->clearCache();
-                throw new Exception('GED Invalid SSO response');
-            },
-            0.1
-        );
-    }
 
     /**
      * @param string $type // 'GET', 'PUT', 'DELETE', ....
@@ -198,27 +76,36 @@ class Datacontent
      */
     public function command($type, $command, $body = null, $headers = [], $addtionalTimeout = 0)
     {
-        $this->logger->debug('GED REST : '.$type.' '.$command);
-        $url = $this->restUrl.$command;
-        $headers['X-Application-ID'] = $this->applicationId;
+        $this->logger->debug(
+            'Datacontent : execute command ',
+            [
+                'type' => $type,
+            'command' => $command,
+            'body' => $body,
+            'headers' => $headers,
+            'addtionalTimeout' => $addtionalTimeout
+            ]);
+        $url = $this->config['restUrl'].$command;
+        $headers['X-Application-ID'] = $this->config['applicationId'];
         $headers['X-Tenant-ID'] = 'admin';
-        if ($this->symfonyUsername) {
-            $headers['connectedAs'] = $this->symfonyUsername;
+        $username = $this->getUserIdentifier();
+        if ($username) {
+            $headers['connectedAs'] = $username;
         }
 
         $options = [
             'headers' => $headers,
-            'verify_host' => $this->checkSSL,
-            'verify_peer' => $this->checkSSL,
-            'auth_bearer' => $this->getGinaToken(),
+            'verify_host' => $this->config['checkSSL'],
+            'verify_peer' => $this->config['checkSSL'],
+            'auth_bearer' => $this->tokenAuthenticator->getToken(),
             'body' => $body,
-            'timeout' => (int)$this->parameter->timeDataContent + $addtionalTimeout,
-            'max_duration' => (int)$this->parameter->timeDataContent + $addtionalTimeout,
+            'timeout' => $this->config['timeout'] + $addtionalTimeout,
+            'max_duration' => $this->config['timeout'] + $addtionalTimeout,
         ];
         $response = $this->httpClient->request($type, $url, $options);
         $status = $response->getStatusCode();
         if (400 <= $status) {
-            $this->clearCache();
+            $this->tokenAuthenticator->clearCache();
         }
 
         return $response;
@@ -246,9 +133,9 @@ class Datacontent
         $content = $response->getContent(false);
         $data = json_decode($content);
         if (400 <= $status) {
-            $error = 'GED error : not a json response';
+            $error = 'Datacontent :  Error, the response id not a json';
             if ('application/json' == $headers['content-type'][0] && isset($data->exceptionCode)) {
-                $error = 'GED error for command '.$command.' : '.$data->exceptionCode.' '.$data->exceptionMessage ?? '';
+                $error = 'Datacontent : Error for command '.$command.' : '.$data->exceptionCode.' '.$data->exceptionMessage ?? '';
             }
             throw new Exception($error);
         }
@@ -268,7 +155,7 @@ class Datacontent
      */
     public function getBases()
     {
-        $this->logger->debug('GED method getBases : ');
+        $this->logger->debug('Datacontent : get bases ');
 
         return $this->commandJsonRsp('GET', '/bases');
     }
@@ -302,7 +189,7 @@ class Datacontent
      */
     public function getBase()
     {
-        $this->logger->debug('GED method getBase : '.$this->baseId);
+        $this->logger->debug('Datacontent : get base ');
 
         return $this->commandJsonRsp('GET', '/bases/'.$this->baseId);
     }
@@ -322,7 +209,10 @@ class Datacontent
      */
     public function searchByQuery($query, $options = [], $addtionalTimeout = 0)
     {
-        $this->logger->debug('GED method searchByQuery : '.$query, [$options]);
+        $this->logger->debug(
+            'Datacontent : search by query' ,
+            ['query'=>$query, 'options'=>$options,'addtionalTimeout'=>$addtionalTimeout]
+            );
         $parameters = [
             '@class' => 'net.docubase.toolkit.model.search.SortedSearchQuery',
             'query' => $query,
@@ -361,7 +251,7 @@ class Datacontent
      */
     public function searchByUuid($uuid)
     {
-        $this->logger->debug('GED method searchByUuid : '.$uuid);
+        $this->logger->debug('Datacontent : search by uuid',['uuid'=>$uuid]);
         if (null === $this->baseId) {
             return $this->commandJsonRsp('GET', '/search/'.$uuid);
         } else {
@@ -383,7 +273,10 @@ class Datacontent
      */
     public function getDocument($uuid, $httpResponse = true, $raw = false)
     {
-        $this->logger->debug('GED method getDocument : '.$uuid, ['raw' => $raw, 'httpResponse' => $httpResponse]);
+        $this->logger->debug(
+            'Datacontent : get document',
+            ['uuid'=>$uuid, 'httpResponse'=>$httpResponse, 'raw'=>$raw]
+            );
         $document = $this->command('GET', '/store/'.($raw ? 'raw/' : '').$uuid);
         if ($httpResponse) {
             $info = $this->searchByUuid($uuid);
@@ -413,7 +306,7 @@ class Datacontent
      */
     public function deleteDocument($uuid)
     {
-        $this->logger->debug('GED method deleteDocument : '.$uuid);
+        $this->logger->debug('Datacontent :  delete document', ['uuid'=>$uuid]  );
 
         return $this->commandJsonRsp('DELETE', '/store/'.$uuid);
     }
@@ -434,7 +327,10 @@ class Datacontent
 
     public function storeDocument($filePath, $title = null, $criterions = [], $options = [])
     {
-        $this->logger->debug('GED method storeDocument : '.$filePath.' '.$title, [$criterions, $options]);
+        $this->logger->debug(
+            'Datacontent :  storeDocument  ',
+            ['filePath'=>$filePath, 'title'=>$title, 'criterions'=>$criterions, 'options'=>$options]
+            );
         $path_parts = pathinfo($filePath);
         if (null === $title) {
             $title = $path_parts['basename'];

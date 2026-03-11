@@ -17,5 +17,4 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     EtatGeneve\ResponseHeadersBundle\ResponseHeadersBundle::class => ['all' => true],
     EtatGeneve\DataContentBundle\DataContentBundle::class => ['all' => true],
-
 ];

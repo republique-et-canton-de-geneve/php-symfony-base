@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-dom": "*",
         "ext-iconv": "*",
@@ -47,12 +47,12 @@
     },
     "autoload": {
         "psr-4": {
+            "EtatGeneve\\DataContentBundle\\": "bundle/republique-et-canton-de-geneve/data-content-bundle/src",
             "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EtatGeneve\\DataContentBundle\\": "bundle/republique-et-canton-de-geneve/data-content-bundle/src",
             "App\\Tests\\": "tests/"
         }
     },
