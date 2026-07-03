@@ -1,18 +1,19 @@
+---
 data_content:
   checkSSL: false
         # Name of application
-  applicationId: '%env(GED_APPLICATION_ID)%'
-        # Username of gina technical account for get a token
+  applicationId: 9949-fao-frontal
+        # Username account for get a token
   username: '%env(GED_USERNAME)%'
-        # Password of gina technical account for get a token
-  password: '%env(GED_PASSWORD)%'
-        # URL for get a token from GINA
+        # Password  for get a token
+  password: '%env(GED_PASSWORD)%    '
+        # URL for get a token
   tokenAuthSsoUrl: '%env(GED_GINA_URL_SSO)%'
         # Timeout for token in seconds
-  tokenTimeout: '%env(GED_TOKEN_TIMEOUT)%'
-        # Timeout for datacontent in seconds
-  timeout: '%env(GED_TIMEOUT)%'
-        # URL for GED REST request
+  tokenTimeout: 15
+        # Timeout for DataContent in seconds
+  timeout: 20
+        # Ged client secret
   clientSecret: '%env(GED_CLIENT_SECRET)%'
         # GED client Id
   clientId: '%env(GED_CLIENT_ID)%'
@@ -21,4 +22,7 @@ data_content:
         # Base ID
   baseId: '%env(GED_BASE_ID)%'
         # Audience for token request
-  audience: '%env(GED_AUDIENCE)%'
+  audience: GED.DFCE
+        # service for token authentication
+#  tokenAuthenticatorClass: ~
+...

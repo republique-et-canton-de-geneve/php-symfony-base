@@ -6,8 +6,8 @@ use App\ExceptionApplication;
 use App\Parameter;
 use App\Security\Action;
 use App\Security\Role;
-use EtatGeneve\DataContentBundle\Service\Datacontent;
-use EtatGeneve\DataContentBundle\Service\TokenAuthenticator;
+use DateTime;
+use EtatGeneve\DataContentBundle\Service\DataContent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -70,16 +70,14 @@ class DefaultController extends BaseFrontController
     }
 
     #[Route('/test', name: 'test')]
-    public function test(Datacontent $datacontent): Response
+    public function test(DataContent $datacontent): Response
     {
-
-
         $user = $datacontent->commandJsonRsp('GET', '/accessControl/getConnectedUser');
 
         $base = $datacontent->getBase();
 
-        $dateTo = new \DateTime('1 day');
-        $dateFrom = new \DateTime('-4 month');
+        $dateTo = new DateTime('1 day');
+        $dateFrom = new DateTime('-4 month');
 
         $searchResult = $datacontent->searchByQuery(
             'RM_DATE_REFERENCE_CYCLE_VIE:[' . $dateFrom->format('Ymd') . ' TO ' .
@@ -94,8 +92,7 @@ class DefaultController extends BaseFrontController
         );
         $uuid = $searchResult->indexables[0]->uuid;
 
-
-        $doc= $datacontent->getDocument($uuid);
+        $doc = $datacontent->getDocument($uuid);
 
         dd($user, $base, $searchResult);
 

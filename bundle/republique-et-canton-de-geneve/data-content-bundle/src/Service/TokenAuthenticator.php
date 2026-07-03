@@ -2,7 +2,6 @@
 
 namespace EtatGeneve\DataContentBundle\Service;
 
-use EtatGeneve\DataContentBundle\DataContentBundle;
 use EtatGeneve\DataContentBundle\DataContentException;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\Cache\CacheInterface;
@@ -10,25 +9,40 @@ use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
 
+use function intval;
+use function is_numeric;
+use function is_object;
+use function is_string;
+
 /**
- * @phpstan-import-type TokenAuthenticatorConfig from DataContentBundle
+ * @phpstan-import-type DataContentConfig from DataContent
  */
-class TokenAuthenticator
+class TokenAuthenticator implements InterfaceTokenAuthenticator
 {
     public const DATA_CONTENT_TOKEN_CACHE_KEY = 'data_content_token_cache_key';
 
+    private HttpClientInterface $httpClient;
+    private LoggerInterface $logger;
+    private CacheInterface $cache;
+    /** @var DataContentConfig */
+    private array $config;
+
     /**
-     * @param TokenAuthenticatorConfig $config
+     * @param DataContentConfig $config
      */
     public function __construct(
-        private HttpClientInterface $httpClient,
-        private LoggerInterface $logger,
-        private CacheInterface $cache,
-        private array $config,
+        HttpClientInterface $httpClient,
+        LoggerInterface $logger,
+        CacheInterface $cache,
+        array $config,
     ) {
+        $this->httpClient = $httpClient;
+        $this->logger = $logger;
+        $this->cache = $cache;
+        $this->config = $config;
     }
 
-    public function clearCache(): void
+    public function reset(): void
     {
         $this->logger->debug('DatatContent : Clear cache token');
         $this->cache->delete(self::DATA_CONTENT_TOKEN_CACHE_KEY);
@@ -39,7 +53,7 @@ class TokenAuthenticator
      */
     public function getToken(): string
     {
-        return $this->cache->get(
+        $token = $this->cache->get(
             self::DATA_CONTENT_TOKEN_CACHE_KEY,
             function (ItemInterface $item) {
                 try {
@@ -49,30 +63,33 @@ class TokenAuthenticator
                         'verify_peer' => $this->config['checkSSL'],
                         'headers' => ['X-Application-ID' => $this->config['applicationId']],
                         'body' => [
-                            'client_id' => $this->config['clientId'],
-                            'client_secret' => $this->config['clientSecret'],
+                            'client_id' => $this->config['clientId'] ?? '',
+                            'client_secret' => $this->config['clientSecret'] ?? '',
                             'grant_type' => 'password',
-                            'username' => $this->config['username'],
-                            'password' => $this->config['password'],
-                            'audience' => $this->config['audience'],
-                            'timeout' => $this->config['tokenTimeout'],
-                            'max_duration' => $this->config['tokenTimeout'],
+                            'username' => $this->config['username'] ?? '',
+                            'password' => $this->config['password'] ?? '',
+                            'audience' => $this->config['audience'] ?? '',
+                            'timeout' => $this->config['tokenTimeout'] ?? 15,
+                            'max_duration' => $this->config['tokenTimeout'] ?? 15,
                         ],
                     ];
 
-                    $response = $this->httpClient->request('POST', $this->config['tokenAuthSsoUrl'], $parameters);
+                    $response = $this->httpClient->request('POST', $this->config['tokenAuthSsoUrl'] ?? '', $parameters);
                     $data = json_decode($response->getContent());
-                    if (isset($data->id_token) && isset($data->expires_in)) {
-                        $item->expiresAfter($data->expires_in - 10);
+                    if (is_object($data) && ($data->id_token ?? false)
+                    && isset($data->expires_in) && is_numeric($data->expires_in)) {
+                        $item->expiresAfter(intval($data->expires_in) - 10);
 
                         return $data->id_token;
                     }
                 } catch (Throwable $e) {
                 }
-                $this->clearCache();
+                $this->reset();
                 throw new DataContentException('DatatContent : Invalid SSO token response');
             },
             0.1
         );
+
+        return is_string($token) ? $token : '';
     }
 }
