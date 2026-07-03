@@ -103,6 +103,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "republique-et-canton-de-geneve/php-symfony-data-content-bundle": {
+        "version": "2.0.1"
+    },
     "republique-et-canton-de-geneve/response-headers-bundle": {
         "version": "1.0"
     },

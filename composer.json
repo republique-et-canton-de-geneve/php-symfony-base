@@ -13,25 +13,26 @@
         "doctrine/doctrine-migrations-bundle": "*",
         "doctrine/orm": "^3.2",
         "nbgrp/onelogin-saml-bundle": "^2.0",
+        "republique-et-canton-de-geneve/php-symfony-data-content-bundle": "^2.0",
         "republique-et-canton-de-geneve/response-headers-bundle": "^1.0",
         "symfony/apache-pack": "^1.0",
-        "symfony/console": "7.3.*",
-        "symfony/dotenv": "7.3.*",
+        "symfony/console": "7.4.*",
+        "symfony/dotenv": "7.4.*",
         "symfony/expression-language": "7.3.*",
         "symfony/flex": "^2",
-        "symfony/form": "7.3.*",
-        "symfony/framework-bundle": "7.3.*",
-        "symfony/http-client": "7.3.*",
-        "symfony/intl": "7.3.*",
-        "symfony/mailer": "7.3.*",
+        "symfony/form": "7.4.*",
+        "symfony/framework-bundle": "7.4.*",
+        "symfony/http-client": "7.4.*",
+        "symfony/intl": "7.4.*",
+        "symfony/mailer": "7.4.*",
         "symfony/monolog-bundle": "^3.10",
-        "symfony/runtime": "7.3.*",
-        "symfony/security-bundle": "7.3.*",
-        "symfony/translation": "7.3.*",
-        "symfony/uid": "7.3.*",
-        "symfony/validator": "7.3.*",
+        "symfony/runtime": "7.4.*",
+        "symfony/security-bundle": "7.4.*",
+        "symfony/translation": "7.4.*",
+        "symfony/uid": "7.4.*",
+        "symfony/validator": "7.4.*",
         "symfony/webpack-encore-bundle": "^2.1",
-        "symfony/yaml": "7.3.*",
+        "symfony/yaml": "7.4.*",
         "twig/extra-bundle": "^3.12",
         "twig/intl-extra": "^3.12",
         "twig/string-extra": "^3.12"
@@ -47,7 +48,6 @@
     },
     "autoload": {
         "psr-4": {
-            "EtatGeneve\\DataContentBundle\\": "bundle/republique-et-canton-de-geneve/data-content-bundle/src",
             "App\\": "src/"
         }
     },
@@ -85,7 +85,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.3.*"
+            "require": "7.4.*"
         },
         "phpstan": {
             "includes": [
@@ -110,13 +110,13 @@
         "rdx/behat-variables": "^1.2",
         "rector/rector": "^2.0.11",
         "squizlabs/php_codesniffer": "^3.7",
-        "symfony/browser-kit": "7.3.*",
-        "symfony/css-selector": "7.3.*",
-        "symfony/debug-bundle": "7.3.*",
+        "symfony/browser-kit": "7.4.*",
+        "symfony/css-selector": "7.4.*",
+        "symfony/debug-bundle": "7.4.*",
         "symfony/maker-bundle": "^1.62",
-        "symfony/phpunit-bridge": "^7.3",
-        "symfony/stopwatch": "7.3.*",
-        "symfony/web-profiler-bundle": "7.3.*",
+        "symfony/phpunit-bridge": "^7.4",
+        "symfony/stopwatch": "7.4.*",
+        "symfony/web-profiler-bundle": "7.4.*",
         "vincentlanglet/twig-cs-fixer": "^3.9"
     }
 }
